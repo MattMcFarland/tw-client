@@ -38,5 +38,12 @@
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.4.0"
+  },
+  "dependencies": {
+    "alt": "^0.17.6",
+    "jquery": "^2.1.4",
+    "moment": "^2.10.6",
+    "react-dom": "^0.14.0",
+    "superagent": "^1.4.0"
   }
 }

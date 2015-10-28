@@ -11,18 +11,18 @@ const
     watch = require('./tasks/watch');
 
 gulp.task('bundle-prod', ['lint'], () => {
-    bundlemin('src/components/index', 'index', 'dist', true);
-    bundlemin('src/components/requestform', 'requestform', 'dist', true);
-    bundlemin('src/components/requestview', 'requestview', 'dist', true);
+    bundlemin('src/index', 'index', 'dist', true);
+    bundlemin('src/requestform', 'requestform', 'dist', true);
+    bundlemin('src/requestview', 'requestview', 'dist', true);
 });
 
 gulp.task('bundle-dev', () => {
-    bundle('src/components/index', 'index', 'dist', true);
-    bundle('src/components/requestform', 'requestform', 'dist', true);
-    bundle('src/components/requestview', 'requestview', 'dist', true);
+    bundle('src/index', 'index', 'dist', true);
+    bundle('src/requestform', 'requestform', 'dist', true);
+    bundle('src/requestview', 'requestview', 'dist', true);
 });
 
 gulp.task('lint', () => lint('src/**/*.js'));
-gulp.task('watch-index', () => watch('src/components/index', 'index', 'dist'));
-gulp.task('watch-requestview', () => watch('src/components/requestview', 'requestview', 'dist'));
-gulp.task('watch-requestform', () => watch('src/components/requestform', 'requestform', 'dist'));
+gulp.task('watch-index', () => watch('src/index', 'index', 'dist'));
+gulp.task('watch-requestview', () => watch('src/requestview', 'requestview', 'dist'));
+gulp.task('watch-requestform', () => watch('src/requestform', 'requestform', 'dist'));

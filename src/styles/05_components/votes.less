@@ -1,0 +1,68 @@
+.vote {
+  .btn.btn-link {
+
+    color: #B3B3B3;
+    transition: 0.2s ease;
+
+    &.active {
+
+      color: #337AB7;
+
+
+    }
+  }
+}
+
+/* Tutorial Request and Solution Vote cells */
+.tutorial-request, .tutorial-solution {
+  .panel-body {
+    .votecell {
+      border-right: thin solid #eaeaea;
+      text-align:center;
+      vertical-align: top;
+      .btn.btn-link {
+        font-size:24px;
+      }
+      .vote-count {
+        line-height: 28px;
+        font-size: 28px;
+        color: #B3B3B3;
+        font-weight: bold;
+        margin-left: 2px;
+        padding-bottom: 4px;
+      }
+    }
+  }
+}
+
+
+/* Comment votes */
+
+
+.comments-body {
+  .comment-actions {
+    height: 1.667em;
+    .votecell {
+      padding: 0;
+      margin: 0;
+      .btn.btn-link {
+        font-size:12px;
+        color: #B3B3B3;
+      }
+      .vote-count {
+        font-size: 13px;
+      }
+      .vote {
+        margin-top:3px;
+        button, div {
+          float: left;
+          display: inline;
+          padding: 0;
+          margin: 0;
+          color: #B3B3B3;
+        }
+      }
+    }
+  }
+}
+

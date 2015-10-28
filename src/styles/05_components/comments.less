@@ -1,0 +1,101 @@
+
+
+.comment-zone {
+
+  font-size: 12px;
+
+  p, form {
+    margin: 0;
+    padding :0;
+  }
+  .actions .btn.btn-link {
+    margin-right:0.4em;
+    padding: 0;
+    line-height: 13px;
+    color: #8A8A8A;
+  }
+  .comments-body {
+    width: 100%;
+    color: #757575;
+  }
+  .comment-meta {
+    .comment-user {
+      background-color: #D2F0FF;
+      color: #4257A2;;
+      padding: 1px 4px;
+      &:hover {
+        color: #000;
+      }
+    }
+    .comment-date {
+      color: #909090;
+      font-style: italic;
+    }
+  }
+  .comment-edit {
+    .comment-user {
+      background-color: #FBFFDA;
+      color: #4E5222;
+      padding: 1px 4px;
+      &:hover {
+        color: #000;
+      }
+    }
+    .comment-date {
+      color: #903443;
+      font-style: italic;
+    }
+  }
+  .edit-tag {
+    vertical-align: top;
+    font-size:10px;
+    line-height: 13px;
+    color: red;
+  }
+  .editbtn {
+    display: inline;
+    border: 0;
+    font-size: 12px;
+    background: transparent;
+  }
+  .editcell {
+    display: inline;
+    padding: 0;
+    float: left;
+  }
+  .comment {
+    height: 1.667em;
+    line-height: 1.667em;
+    padding: 1em 0;
+    border-top: thin solid #eaeaea;
+    box-shadow: 0 0 3px #8A8A8A;
+    border-bottom: thin solid white;
+    transition:0.4s ease;
+    .comment-actions {
+       width: 80px;
+      .actions {
+        height: 1.667em;
+        line-height: 1.667em;
+        opacity: 0.5;
+        transition: 0.2s ease;
+        overflow:hidden;
+        white-space: nowrap;
+        text-overflow:clip;
+      }
+    }
+    &:hover {
+      background: white;
+      .comment-actions {
+        .actions {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+}
+.comment-copy {
+  p,h1,h2,h3,h4,h5,div,blockquote,section {
+    display: inline;
+  }
+}

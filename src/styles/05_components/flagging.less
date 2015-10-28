@@ -1,0 +1,89 @@
+.flagcell >.flagbtn {
+  background: transparent;
+  border: none;
+  line-height: inherit;
+  color: #bbb;
+  &:hover {
+    color: red;
+  }
+  .close {
+    float: right;
+    font-weight: 300;
+    line-height: 1;
+    color: inherit;
+    text-shadow: 0 1px 0 #ffffff;
+    opacity: 1;
+    margin-left: 0.66em;
+    font-size: inherit;
+  }
+}
+
+/* Comment flagging */
+
+.comment-actions {
+
+  .flagcell {
+
+    > .flagbtn, .close {
+      color: inherit;
+
+      font-size:12px ;
+    }
+  }
+}
+
+/* Tutorial Request Flagging */
+.panel-heading h3 {
+  display: inline;
+
+  .flagcell {
+    float: right;
+    color:#999;
+    > .flagbtn, .close {
+      line-height:14px;
+      font-size: 14px;
+      opacity: 1;
+
+    }
+    .close {
+      color: white;
+      margin-left: 0.5em;
+      font-weight: 200;
+    }
+
+  }
+
+}
+
+.flag-options {
+  position: absolute;
+  transform:translate3d(2em,-40%,0);
+  background:white;
+  top: auto;
+  left: auto;
+
+  h3 {
+    display: block;
+  }
+
+  ul, li {
+    list-style-type: none;
+  }
+  li {
+    margin: auto -14px;
+  }
+  button {
+    position: relative;
+    display: block;
+    min-width: 150px;
+    text-align: left;
+    background: white;
+    border: 0;
+    &:hover {
+      background:#0040D0;
+      color:white;
+    }
+  }
+
+}
+
