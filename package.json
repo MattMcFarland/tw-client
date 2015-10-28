@@ -1,0 +1,42 @@
+{
+  "name": "@mattmcfarland/tw-client",
+  "main": "",
+  "version": "0.0.0",
+  "description": "",
+  "browser": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./express/bin/www"
+  },
+  "files": [
+    "dist/*"
+  ],
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "stage": 0
+        }
+      ],
+      "lessify"
+    ]
+  },
+  "author": "mmcfarland",
+  "license": "MIT",
+  "devDependencies": {
+    "babelify": "^6.4.0",
+    "browserify": "^11.2.0",
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^1.0.0",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^1.4.2",
+    "gulp-util": "^3.0.7",
+    "lessify": "^1.0.1",
+    "lodash": "^3.10.1",
+    "react": "^0.14.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.4.0"
+  }
+}
