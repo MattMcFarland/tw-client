@@ -4,6 +4,8 @@ import ajax from 'superagent';
 class IndexActions {
   constructor() {
     this.generateActions(
+      'initialFetchSuccess',
+      'initialFetchFail',
       'fetchLatestSuccess',
       'fetchLatestFail',
       'fetchMostWantedSuccess',
@@ -13,12 +15,12 @@ class IndexActions {
       'filterBy'
     );
   }
-  fetchLatest () {
+  initialFetch () {
     ajax.get('/api/tutorial-requests').end((err, res) => {
       if (err) {
-        this.actions.fetchLatestFail(err);
+        this.actions.initialFetchFail(err);
       } else {
-        this.actions.fetchLatestSuccess(res.body);
+        this.actions.initialFetchSuccess(res.body);
       }
     })
   }

@@ -1,0 +1,52 @@
+@tr-list-score-width: 50px;
+.tr-list {
+  h4 {
+    margin: 0;
+  }
+  .tr-col {
+    min-height:60px;
+    vertical-align: top;
+    display: inline-block;
+    &.badge.score {
+      padding: 0;
+      margin: 0 @grid-gutter-width;
+      border-radius: 4px;
+      line-height: 60px;
+      min-width: 50px;
+      font-size: 26px;
+      text-shadow: 1px 1px 1px #525252;
+      background: #bad1dd;
+      &.up {
+        background: #3db472;
+      }
+      &.down {
+        background: #ca230e;
+      }
+    }
+    &.well {
+      width: calc(~"100% - "((@grid-gutter-width*2) + (@tr-list-score-width+@grid-gutter-width)));
+      padding: 8px;
+    }
+  }
+}
+
+.tut-tabs {
+  margin-bottom: 1em;
+  > .nav.nav-tabs > li {
+    > button {
+      line-height: 40px;
+      padding: 0 10px;
+    }
+    &.active > button {
+      background:#999;
+      color:white;
+      text-shadow: 1px 1px 1px #525252;
+    }
+    &:first-child > button {
+      border-top-left-radius: 11px;
+    }
+    &:last-child > button {
+      border-top-right-radius: 11px;
+    }
+  }
+}
