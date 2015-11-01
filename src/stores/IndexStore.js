@@ -5,43 +5,33 @@ class IndexStore {
   constructor() {
     this.bindActions(IndexActions);
     this.reqList = [];
+    this.page = 1;
     this.isLoading = true;
     this.activeTab = localStorage.activeTab || "latest";
   }
 
-
-
-  onFilterBy (filterType) {
-    localStorage.activeTab = filterType;
-    this.activeTab = filterType;
-  }
-
-  onInitialFetch () {
-    this.isLoading = true;
-  }
-  onInitialFetchSuccess (data) {
+  onFetchSuccess (data) {
+    this.activeTab = localStorage.activeTab
     this.isLoading = false;
+    this.lastPage = (data.length < 10);
     this.reqList = data;
   }
 
-  onInitialFetchFail (err) {
+  onNextPageSuccess (data) {
+    this.lastPage = (data.length < 10);
+    this.page ++;
+    this.isLoading = false;
+    this.reqList = [].concat(this.reqList, data);
+  }
+
+
+  onFetchFail (err) {
     this.isLoading = false;
     this.errorMessage = err;
   }
 
-  onInitialFetchMostWantedSuccess (data) {
-    this.reqList = data;
-  }
-
-  onInitialFetchMostWantedFail (err) {
-    this.errorMessage = err;
-  }
-
-  onInitialFetchBestTutsSuccess (data) {
-    this.reqList = data;
-  }
-
-  onInitialFetchBestTutsFail (err) {
+  onNextPageFail (err) {
+    this.isLoading = false;
     this.errorMessage = err;
   }
 
