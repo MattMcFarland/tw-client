@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Comment from './Comment';
+import FlagMenu from './FlagMenu';
 import moment from 'moment';
 /**
  * BasePost for Tutorial Request and Tutorial Solution
@@ -17,12 +18,16 @@ export default class BasePost extends Component {
       // Flagging
       onFlagSave: React.PropTypes.func,
       // Tagging
+
+
       onTagEditSave: React.PropTypes.func,
       // Content Edit/Save
       onEditContentSave: React.PropTypes.func,
       // Content Edit view state handlers turn editContent off/on
       onEnableEditContent: React.PropTypes.func,
       onDisableEditContent: React.PropTypes.func,
+
+
       onEnableEditLinkMeta: React.PropTypes.func,
       onDisableEditLinkMeta: React.PropTypes.func,
       // Adding Comments
@@ -36,8 +41,10 @@ export default class BasePost extends Component {
         // Comment Flagging
         onFlagSave: React.PropTypes.func,
         // Comment Edit
+        onEnableEdit: React.PropTypes.func,
         onEditChange: React.PropTypes.func,
-        onEditSave: React.PropTypes.func
+        onEditSave: React.PropTypes.func,
+        onDelete: React.PropTypes.func
       })
     }),
     volatile: React.PropTypes.shape({
@@ -49,7 +56,7 @@ export default class BasePost extends Component {
       userCanEdit: React.PropTypes.bool,
       userCanDelete: React.PropTypes.bool,
       userCanSeeDeleted: React.PropTypes.bool,
-      isAddingComment: React.PropTypes.bool
+      isAddingComment: React.PropTypes.bool,
     }),
     data: React.PropTypes.shape({
       type: React.PropTypes.string,
@@ -83,7 +90,12 @@ export default class BasePost extends Component {
   renderHeading = () => {
     return (
       <header className="panel-heading">
-        <h3>{this.props.data.title}</h3>
+        <h3>{this.props.data.title}
+          <FlagMenu
+            onFlagSave={this.props.handlers.onFlagSave}
+            contextId = {this.props.data.id}
+            userFlags = {this.props.data.userFlags}/>
+        </h3>
       </header>
     );
   }
@@ -199,7 +211,9 @@ export default class BasePost extends Component {
   renderCommentList = () => {
     return this.props.data.comments.map((li) => {
       return (
+
         <li key={li.id}>
+
           <Comment
             {...li}
             handlers={this.props.handlers.comments}

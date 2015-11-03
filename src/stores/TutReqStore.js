@@ -19,7 +19,9 @@ class TutReqStore {
   }
 
   onInitSuccess (data) {
+    this.userFlags = data.userFlags;
     this.setState(data);
+    console.debug('Store Initialized:', data);
     this.setState({ready: true});
   }
 
@@ -96,6 +98,51 @@ class TutReqStore {
     console.error('comment fail');
   }
 
+  onToggleCommentEdit(id) {
+    var index = _.findIndex(this.comments, {id});
+    this.comments[index].isEditingComment = !this.comments[index].isEditingComment;
+    this.setState({comments: this.comments});
+  }
+
+  onCommentSavePending({id}) {
+    var index = _.findIndex(this.comments, {id});
+    this.comments[index].isEditingComment = false;
+    this.comments[index].editLocked = true;
+    this.setState({comments: this.comments});
+  }
+
+  onCommentSaveSuccess({id, data}) {
+    var index = _.findIndex(this.comments, {id});
+    this.comments[index] = data;
+    this.comments[index].editLocked = false;
+    this.setState({comments: this.comments});
+  }
+
+  onCommentSaveFail({id, data}) {
+    var index = _.findIndex(this.comments, {id});
+    this.comments[index].editLocked = false;
+    this.setState({comments: this.comments});
+  }
+
+  onDeleteSuccess({id, type, data}) {
+    var index;
+    if (type === "TutorialRequest") {
+      this.setState({data});
+    }
+
+    if (type === "Comment") {
+      index = _.findIndex(this.comments, {id});
+      this.comments[index] = data;
+      this.setState({comments: this.comments});
+    }
+
+    if (type === "TutorialSolution") {
+      index = _.findIndex(this.solutions, {id});
+      this.solutions[index] = data;
+      this.setState({solutions: this.solutions});
+    }
+
+  }
 }
 
 

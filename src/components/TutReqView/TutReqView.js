@@ -45,19 +45,46 @@ export default class TutReqView extends React.Component {
       var value = inputElem.value;
       TutReqActions.addComment({id, type, value});
     },
-
+    onFlagSave: (e) => {
+      TutReqActions.toggleFlag({
+        type: 'TutorialRequest',
+        id: e.currentTarget.dataset.id,
+        flagType: e.currentTarget.dataset.key
+      })
+    },
     comments: {
       onVoteUp: (e) => {
         TutReqActions.voteComment(e.currentTarget.dataset.id);
       },
       onFlagSave: (e) => {
-        //TutReqActions.vote(this.state.id, "down");
+        TutReqActions.toggleFlag({
+          type: 'Comment',
+          id: e.currentTarget.dataset.id,
+          flagType: e.currentTarget.dataset.key
+        })
       },
+      onEnableEdit: (e) => {
+        TutReqActions.toggleEdit({
+          type: 'Comment',
+          id: e.currentTarget.dataset.id
+        })
+      },
+
       onEditChange: (e) => {
         //TutReqActions.vote(this.state.id, "down");
       },
+
       onEditSave: (e) => {
-        //TutReqActions.vote(this.state.id, "down");
+        e.preventDefault();
+        var id = e.currentTarget.dataset.id;
+        var inputElem = document.getElementById(e.currentTarget.dataset.id + '-edit-input');
+        var message = inputElem.value;
+        TutReqActions.saveComment({id, message});
+      },
+
+      onDelete: (e) => {
+        var id = e.currentTarget.dataset.id;
+        TutReqActions.deleteItem({type: 'Comment', id});
       }
     }
   }

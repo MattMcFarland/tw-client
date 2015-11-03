@@ -2,6 +2,15 @@ import alt from '../alt';
 import ajax from 'superagent';
 
 
+function getPathPrefixByType(type) {
+  return (type === "TutorialRequest") ?
+    "/api/tutorial-requests/" :
+    (type === "Comment") ?
+      "/api/comments/" :
+      "/api/tutorial-solutions/";
+}
+
+
 class TutReqActions {
   constructor() {
     this.generateActions(
@@ -15,13 +24,25 @@ class TutReqActions {
       'showCommentForm',
       'commentSubmitFail',
       'commentSubmitSuccess',
-      'commentSubmitPending'
+      'commentSubmitPending',
+      'toggleCommentEdit',
+      'commentSavePending',
+      'commentSaveSuccess',
+      'commentSaveFail',
+      'deleteSuccess',
+      'deleteFail'
     );
   }
 
   init () {
     var json = JSON.parse(document.getElementById('json').innerText);
     this.actions.initSuccess(json);
+  }
+
+  toggleEdit ({type, id}) {
+    if (type === "Comment") {
+      this.actions.toggleCommentEdit(id);
+    }
   }
 
   vote (id, direction) {
@@ -58,8 +79,27 @@ class TutReqActions {
     this.actions.voteCommentPending({commentId});
   }
 
+  toggleFlag({type, id, flagType}) {
+    var pathPrefix = getPathPrefixByType(type);
+
+    const done = ((err, res) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log('flag success');
+      }
+    });
+
+
+    ajax.put(pathPrefix + id + '/flag')
+      .send({flagType})
+      .end(done)
+
+  }
+
+  // TODO: Add Validation to comment form.
   addComment ({id, type, value}) {
-    var pathPrefix = (type === "TutorialRequest") ? "/api/tutorial-requests/" : "/api/tutorial-solutions/";
+    var pathPrefix = getPathPrefixByType(type);
 
     const done = ((err, res) => {
       if (err) {
@@ -74,6 +114,40 @@ class TutReqActions {
       .end(done)
 
     this.actions.commentSubmitPending({id, type});
+  }
+
+  saveComment ({id, message}) {
+    console.debug('save comment', id, 'with message', message);
+    const done = ((err, res) => {
+      if (err) {
+        this.actions.commentSaveFail({id, data: err});
+      } else {
+        this.actions.commentSaveSuccess({id, data: res.body});
+      }
+    });
+
+    ajax.put('/api/comments/' + id)
+      .send({message})
+      .end(done)
+
+    this.actions.commentSavePending({id});
+
+  }
+
+  deleteItem ({id, type}) {
+    var pathPrefix = getPathPrefixByType(type);
+
+    const done = ((err, res) => {
+      if (err) {
+        this.actions.deleteFail({id, type, data: err});
+      } else {
+        this.actions.deleteSuccess({id, type, data: res.body});
+      }
+    });
+
+    ajax.del(pathPrefix + id)
+      .end(done)
+
   }
 }
 
