@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Request List Prototype</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet/less" type="text/css" href="../src/styles/main.less" />
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
+</head>
+<body>
+
+
+<header>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.container-fluid -->
+    </nav>
+</header>
+
+<main class="container-fluid">
+    <form>
+
+        <!--  request title  -->
+        <div class="form-group">
+            <label>Your Request in one sentence</label>
+            <input type="text" class="form-control">
+        </div>
+        <!--  request content -->
+        <div class="form-group">
+            <label>Your request details</label>
+            <textarea cols="5" class="form-control"></textarea>
+        </div>
+        <!--  request tags -->
+        <div class="form-group">
+            <label>Tags: separated by comma</label>
+            <input type="text" class="form-control">
+        </div>
+
+        <input type="submit" value="Submit" class="btn btn-default">
+
+    </form>
+</main>
+
+
+
+</body>
+</html>
