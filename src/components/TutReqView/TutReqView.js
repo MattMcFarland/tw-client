@@ -30,20 +30,28 @@ export default class TutReqView extends React.Component {
 
   handlers = {
     onVoteUp: () => {
-      TutReqActions.vote(this.state.id, "up");
+      TutReqActions.vote({
+        direction: "up",
+        id: this.state.id,
+        type: this.state.type
+      });
     },
     onVoteDown: () => {
-      TutReqActions.vote(this.state.id, "down");
+      TutReqActions.vote({
+        direction: "down",
+        id: this.state.id,
+        type: this.state.type
+      });
     },
     onCommentRevealForm: () => {
-      TutReqActions.showCommentForm();
+      TutReqActions.showCommentForm({id: this.state.id});
     },
     onCommentSubmit: (e) => {
       e.preventDefault();
       var {id, type} = e.currentTarget.dataset;
       var inputElem = document.getElementById(e.currentTarget.dataset.id + '-input');
-      var value = inputElem.value;
-      TutReqActions.addComment({id, type, value});
+      var message = inputElem.value;
+      TutReqActions.addComment({id, type, message});
     },
     onFlagSave: (e) => {
       TutReqActions.toggleFlag({
@@ -52,9 +60,39 @@ export default class TutReqView extends React.Component {
         flagType: e.currentTarget.dataset.key
       })
     },
+    onEnableEditContent: () => {
+      TutReqActions.toggleItemEdit({
+        type: 'TutorialRequest',
+        id: this.state.id
+      })
+    },
+    onEditContentSave: (e) => {
+      e.preventDefault();
+      var inputElem = document.getElementById(this.state.id + '-edit-content');
+      var content = inputElem.value;
+
+      TutReqActions.updateItem({
+        type: 'TutorialRequest',
+        id: this.state.id,
+        fields: { content },
+        items: ['content', 'editorUrl', 'editorName', 'updated_at', 'created_at']
+      })
+    },
+    onDelete: (e) => {
+      var id = e.currentTarget.dataset.id;
+      TutReqActions.deleteItem({
+        id,
+        type: "TutorialRequest"
+      });
+    },
     comments: {
       onVoteUp: (e) => {
-        TutReqActions.voteComment(e.currentTarget.dataset.id);
+        TutReqActions.vote({
+          type: "Comment",
+          collection: "comments",
+          direction: "up",
+          id: e.currentTarget.dataset.id
+        });
       },
       onFlagSave: (e) => {
         TutReqActions.toggleFlag({
@@ -64,8 +102,9 @@ export default class TutReqView extends React.Component {
         })
       },
       onEnableEdit: (e) => {
-        TutReqActions.toggleEdit({
+        TutReqActions.toggleItemEdit({
           type: 'Comment',
+          collection: 'comments',
           id: e.currentTarget.dataset.id
         })
       },
@@ -79,12 +118,21 @@ export default class TutReqView extends React.Component {
         var id = e.currentTarget.dataset.id;
         var inputElem = document.getElementById(e.currentTarget.dataset.id + '-edit-input');
         var message = inputElem.value;
-        TutReqActions.saveComment({id, message});
+        TutReqActions.updateItem({
+          id,
+          collection: "comments",
+          type: "Comment",
+          fields: {message}
+        });
       },
 
       onDelete: (e) => {
         var id = e.currentTarget.dataset.id;
-        TutReqActions.deleteItem({type: 'Comment', id});
+        TutReqActions.deleteItem({
+          id,
+          collection: "comments",
+          type: "Comment",
+        });
       }
     }
   }

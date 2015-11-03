@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Comment from './Comment';
 import FlagMenu from './FlagMenu';
 import moment from 'moment';
+import { MarkedArea } from './FormFields';
 /**
  * BasePost for Tutorial Request and Tutorial Solution
  */
@@ -26,7 +27,7 @@ export default class BasePost extends Component {
       // Content Edit view state handlers turn editContent off/on
       onEnableEditContent: React.PropTypes.func,
       onDisableEditContent: React.PropTypes.func,
-
+      onDelete: React.PropTypes.func,
 
       onEnableEditLinkMeta: React.PropTypes.func,
       onDisableEditLinkMeta: React.PropTypes.func,
@@ -91,21 +92,24 @@ export default class BasePost extends Component {
     return (
       <header className="panel-heading">
         <h3>{this.props.data.title}
-          <FlagMenu
-            onFlagSave={this.props.handlers.onFlagSave}
-            contextId = {this.props.data.id}
-            userFlags = {this.props.data.userFlags}/>
+          {!this.props.data.isOwner ?
+            <FlagMenu
+              onFlagSave={this.props.handlers.onFlagSave}
+              contextId = {this.props.data.id}
+              userFlags = {this.props.data.userFlags}/>
+              : '' }
         </h3>
       </header>
     );
   }
+
   renderVoteCell = () => {
     return (
       <div className="col-xs-2 votecell">
         <menu className="vote-block-slab">
           <button
             onClick={this.props.handlers.onVoteUp}
-            disabled={this.props.data.lockVote}
+            disabled={this.props.data.volatile.lockVote}
             className="btn btn-link"
           >
             <span
@@ -117,7 +121,7 @@ export default class BasePost extends Component {
           <p className="score">{this.props.data.score}</p>
           <button
             onClick={this.props.handlers.onVoteDown}
-            disabled={this.props.data.lockVote}
+            disabled={this.props.data.volatile.lockVote}
             className="btn btn-link">
             <span
               className={this.props.data.userVote === -1 ?
@@ -183,9 +187,48 @@ export default class BasePost extends Component {
     return (
       <div className="col-xs-10 content-cell">
         <div className="content-body">
-        <p>{this.props.data.content}</p>
+          {this.props.data.userPrivs.userCanEdit && !this.props.data.volatile.isEditing && !this.props.data.volatile.editLocked && !this.props.data.removed ?
+            <button data-id={this.props.data.id} onClick={this.props.handlers.onEnableEditContent} className="btn btn-link pull-right" type="button">
+              <span className="glyphicon glyphicon-pencil"/>
+            </button> :
+            ''
+          }
+
+          {this.props.data.userPrivs.userCanDelete && !this.props.data.volatile.isEditing && !this.props.data.volatile.editLocked && !this.props.data.removed ?
+            <button data-id={this.props.data.id} onClick={this.props.handlers.onDelete} className="btn btn-link pull-right" type="button">
+              <span className="glyphicon glyphicon-trash"/>
+            </button> :
+            ''
+          }
+
+          {this.props.data.userPrivs.userCanDelete && !this.props.data.volatile.isEditing && !this.props.data.volatile.editLocked && this.props.data.removed ?
+            <button data-id={this.props.data.id} onClick={this.props.handlers.onDelete} className="btn btn-link pull-right" type="button">
+              Undo Delete
+            </button> :
+            ''
+          }
+          <p>{this.props.data.content}</p>
         {this.renderContentMeta()}
         </div>
+      </div>
+    );
+  }
+  renderEditContentCell = () => {
+    return (
+      <div className="col-xs-10 content-cell">
+        <form onSubmit = {this.props.handlers.onEditContentSave}>
+        <MarkedArea
+          label="You are editing this post"
+          defaultValue={this.props.data.content}
+          ref="content"
+          id={this.props.data.id + '-edit-content'}
+          />
+        <button type="submit" className="btn btn-block btn-info">Save</button>
+        <button type="button"
+                data-id={this.props.data.id}
+                onClick={this.props.handlers.onEnableEditContent}
+                className="btn btn-block btn-default">Cancel</button>
+        </form>
       </div>
     );
   }
@@ -193,8 +236,8 @@ export default class BasePost extends Component {
     return (
       <section className="panel-body">
         <div className="row">
-        {this.renderVoteCell()}
-        {this.renderContentCell()}
+          {this.renderVoteCell()}
+          {this.props.data.volatile.isEditing ? this.renderEditContentCell() : this.renderContentCell()}
         </div>
       </section>
     );
@@ -280,13 +323,20 @@ export default class BasePost extends Component {
       inputElem.focus();
     }
   }
+  faded = () => {
+    return {
+      opacity: '0.5'
+    }
+  }
   render () {
     return (
-      <section className="container-fluid">
+      <section
+        style={this.props.data.volatile.editLocked ? this.faded() : {}}
+        className={this.props.data.removed ? "deleted container-fluid" : "container-fluid"}>
         <div className="panel tutorial-request post">
           {this.renderHeading()}
           {this.renderBody()}
-          {this.renderFooter()}
+          {this.props.data.removed ? '' : this.renderFooter()}
         </div>
       </section>
     );

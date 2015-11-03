@@ -15,20 +15,23 @@ class TutReqActions {
   constructor() {
     this.generateActions(
       'initSuccess',
-      'voteFail',
-      'voteSuccess',
+
       'votePending',
-      'voteCommentFail',
-      'voteCommentSuccess',
-      'voteCommentPending',
+      'voteSuccess',
+      'voteFail',
+
       'showCommentForm',
+
       'commentSubmitFail',
       'commentSubmitSuccess',
       'commentSubmitPending',
-      'toggleCommentEdit',
-      'commentSavePending',
-      'commentSaveSuccess',
-      'commentSaveFail',
+
+      'toggleItemEdit',
+
+      'updateItemPending',
+      'updateItemSuccess',
+      'updateItemFail',
+
       'deleteSuccess',
       'deleteFail'
     );
@@ -39,44 +42,34 @@ class TutReqActions {
     this.actions.initSuccess(json);
   }
 
-  toggleEdit ({type, id}) {
-    if (type === "Comment") {
-      this.actions.toggleCommentEdit(id);
-    }
-  }
 
-  vote (id, direction) {
+  /**
+   * Vote Action
+   * @param type        {string} "Comment", "TutorialRequest", or "TutorialSolution" - Available from model itself
+   * @param collection  {string} "comments" or "solutions" - as colletions of root tutorialrequest object.
+   * @param id          {string} The Comment/TutorialRequest/TutorialSolution ID
+   * @param direction   {string} Vote direction, "up", or "down"
+   */
+  vote ({type, collection, id, direction}) {
+    // pathPrefix generates the correct API path to apply a vote.
+    var pathPrefix = getPathPrefixByType(type);
 
+    // result handler function (done) will execute the appropriate action in the store.
     const done = ((err, res) => {
       if (err) {
-        this.actions.voteFail(err);
+        this.actions.voteFail({id, collection, data: err});
       } else {
-        this.actions.voteSuccess(res.body);
+        this.actions.voteSuccess({id, collection, data: res.body});
       }
     });
 
-
-    ajax.put('/api/tutorial-requests/' + id + '/vote')
+    // hit API with PUT request.
+    ajax.put(pathPrefix + id +  '/vote')
       .send({direction})
       .end(done)
 
-    this.actions.votePending();
-  }
-
-  voteComment (commentId) {
-    const done = ((err, res) => {
-      if (err) {
-        this.actions.voteCommentFail({commentId, data:err});
-      } else {
-        this.actions.voteCommentSuccess({commentId, data:res.body});
-      }
-    });
-
-    ajax.put('/api/comments/' + commentId + '/vote')
-      .send({direction: "up"})
-      .end(done)
-
-    this.actions.voteCommentPending({commentId});
+    // Inform store that vote is pending
+    this.actions.votePending({id, collection});
   }
 
   toggleFlag({type, id, flagType}) {
@@ -98,41 +91,56 @@ class TutReqActions {
   }
 
   // TODO: Add Validation to comment form.
-  addComment ({id, type, value}) {
+  /**
+   * Comment Action
+   * @param type        {string} "TutorialRequest", or "TutorialSolution" - Available from model itself
+   * @param collection  {string} "solutions" or undefined.
+   * @param id          {string} The TutorialRequest/TutorialSolution ID
+   * @param message     {string} Comment Message
+   */
+  addComment ({type, collection, id, message}) {
     var pathPrefix = getPathPrefixByType(type);
 
     const done = ((err, res) => {
       if (err) {
-        this.actions.commentSubmitFail({id, type, data: err});
+        this.actions.commentSubmitFail({id, collection, data: err});
       } else {
-        this.actions.commentSubmitSuccess({id, type, data: res.body});
+        this.actions.commentSubmitSuccess({id, collection, data: res.body});
       }
     });
 
     ajax.put(pathPrefix + id + '/comment')
-      .send({message: value})
-      .end(done)
-
-    this.actions.commentSubmitPending({id, type});
-  }
-
-  saveComment ({id, message}) {
-    console.debug('save comment', id, 'with message', message);
-    const done = ((err, res) => {
-      if (err) {
-        this.actions.commentSaveFail({id, data: err});
-      } else {
-        this.actions.commentSaveSuccess({id, data: res.body});
-      }
-    });
-
-    ajax.put('/api/comments/' + id)
       .send({message})
       .end(done)
 
-    this.actions.commentSavePending({id});
-
+    this.actions.commentSubmitPending({id, collection});
   }
+
+  /**
+   * Update Item
+   * @param type        {string} "Comment", "TutorialRequest", or "TutorialSolution" - Available from model itself
+   * @param collection  {string} "solutions" or "comments".
+   * @param id          {string} The TutorialRequest/TutorialSolution/Comment ID
+   * @param fields      {string} JSON key/value pairs to update db.
+   */
+  updateItem ({items, item, type, collection, id, fields}) {
+    var pathPrefix = getPathPrefixByType(type);
+
+    const done = ((err, res) => {
+      if (err) {
+        this.actions.updateItemFail({items, id, collection, data: err});
+      } else {
+        this.actions.updateItemSuccess({items, id, collection, data: res.body});
+      }
+    });
+
+    ajax.put(pathPrefix + id)
+      .send(fields)
+      .end(done)
+
+    this.actions.updateItemPending({type, collection, id, fields});
+  }
+
 
   deleteItem ({id, type}) {
     var pathPrefix = getPathPrefixByType(type);

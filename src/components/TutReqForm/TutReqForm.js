@@ -55,7 +55,6 @@ export default class TutReqForm extends React.Component {
               label="Please explain, (the more detail, the better!)"
               id="content"
               tip="You can use Github flavored markdown to dress up your request."
-
               />
             <label className="text-input">
               <span className="form-label">Tags:</span>

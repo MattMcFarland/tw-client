@@ -8,7 +8,7 @@ export default class Navbar extends Component {
       <nav className="navbar navbar-inverse">
         <div className="container-fluid">
           <div className="navbar-header">
-            <button className="navbar-brand">Tuts-Wanted</button>
+            <a href="/" className="navbar-brand">Tuts-Wanted</a>
           </div>
             <ul className="nav navbar-nav navbar-right">
               <li className="dropdown">

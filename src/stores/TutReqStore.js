@@ -25,120 +25,164 @@ class TutReqStore {
     this.setState({ready: true});
   }
 
-  onVotePending () {
-    this.setState({lockVote: true});
+  onVotePending ({collection, id}) {
+    var
+      index = collection ? _.findIndex(this[collection], {id}) : false,
+      updateObj = collection ? this[collection][index] : this;
+
+    updateObj.volatile || (updateObj.volatile = {});
+    updateObj.volatile.lockVote = true;
+    this.setState(this);
+  }
+  onVoteSuccess ({collection, id, data}) {
+    var
+      index = collection ? _.findIndex(this[collection], {id}) : false,
+      updateObj = collection ? this[collection][index] : this;
+
+    updateObj.volatile || (updateObj.volatile = {});
+    updateObj.volatile.lockVote = false;
+    updateObj.score = data.score;
+    updateObj.userVote = data.userVote;
+    this.setState(this);
+  }
+  onVoteFail ({collection, id}) {
+    var
+      index = collection ? _.findIndex(this[collection], {id}) : false,
+      updateObj = collection ? this[collection][index] : this;
+
+    updateObj.volatile || (updateObj.volatile = {});
+    updateObj.volatile.lockVote = false;
+    this.setState(this);
   }
 
-  onVoteSuccess (data) {
-    this.setState({
-      lockVote: false,
-      score: data.score,
-      userVote: data.userVote
-    });
+  onShowCommentForm ({collection, id}) {
+    var
+      index = collection ? _.findIndex(this[collection], {id}) : false,
+      updateObj = collection ? this[collection][index] : this;
+
+    updateObj.volatile || (updateObj.volatile = {});
+    updateObj.volatile.isAddCommentFormExpanded = true;
+    this.setState(this);
+  }
+  onCommentSubmitPending ({collection, id}) {
+    var
+      index = collection ? _.findIndex(this[collection], {id}) : false,
+      updateObj = collection ? this[collection][index] : this;
+
+    updateObj.volatile || (updateObj.volatile = {});
+    updateObj.volatile.isAddingComment = true;
+    updateObj.volatile.isAddCommentFormExpanded = false;
+    this.setState(this);
+  }
+  onCommentSubmitSuccess ({collection, id, data}) {
+    var
+      index = collection ? _.findIndex(this[collection], {id}) : false,
+      updateObj = collection ? this[collection][index] : this;
+
+    updateObj.volatile || (updateObj.volatile = {});
+    updateObj.volatile.isAddingComment = false;
+    updateObj.comments.push(data);
+    this.setState(this);
+  }
+  onCommentSubmitFail ({collection, id, data}) {
+    var
+      index = collection ? _.findIndex(this[collection], {id}) : false,
+      target = collection ? this[collection][index] : this,
+      update = {
+        volatile: {
+          isAddingComment: false,
+        }
+      }
+    Object.assign(target, update);
   }
 
-  onVoteFail (data) {
-    this.setState({lockVote: false});
-  }
+  onToggleItemEdit ({collection, id}) {
 
-  onVoteCommentSuccess ({commentId, data}) {
-    var index = _.findIndex(this.comments, {'id': commentId});
-    this.comments[index].userVote = data.userVote;
-    this.comments[index].score = data.score;
-    this.comments[index].lockVote = false;
-    this.setState({comments: this.comments});
-  }
-
-  onVoteCommentPending ({commentId}) {
-    var index = _.findIndex(this.comments, {'id': commentId});
-    this.comments[index].lockVote = true;
-    this.setState({comments: this.comments});
-  }
-
-  onVoteCommentFail ({commentId, data}) {
-  }
-
-  onShowCommentForm () {
-    this.volatile.isAddCommentFormExpanded = true;
-    this.setState({volatile: this.volatile});
-  }
-
-  onCommentSubmitPending({id, type}) {
-    if (type === "TutorialRequest") {
-      this.volatile.isAddingComment = true;
-      this.volatile.isAddCommentFormExpanded = false;
-      this.setState({volatile: this.volatile});
+    var index = collection ? _.findIndex(this[collection], {id}) : false;
+    if (collection) {
+      this[collection][index].volatile || (this[collection][index].volatile = {});
+      this[collection][index].volatile.isEditing = !this[collection][index].volatile.isEditing;
     } else {
-      let index = _.findIndex(this.solutions, {id});
-      this.solutions[index].volatile.isAddCommentFormExpanded = true;
-      this.solutions[index].volatile.isAddingComment = true;
-      this.setState({solutions: this.solutions});
+      this.volatile.isEditing = !this.volatile.isEditing
     }
+    this.setState(this);
   }
 
-  onCommentSubmitSuccess({id, type, data}) {
-    if (type === "TutorialRequest") {
-      this.comments.push(data)
-      this.volatile.isAddingComment = false;
-      this.setState({
-        volatile: this.volatile,
-        comments: this.comments
-      });
+  onUpdateItemPending ({collection, id}) {
+    var
+      index = collection ? _.findIndex(this[collection], {id}) : false,
+      target = collection ? this[collection][index] : this,
+      update = {
+        volatile: {
+          isEditing: false,
+          editLocked: true
+        }
+      }
+    Object.assign(target, update);
+  }
+
+  onUpdateItemSuccess ({items, item, collection, id, data}) {
+
+    var index = collection ? _.findIndex(this[collection], {id}) : false,
+      target = collection ? this[collection][index] : this,
+      update = {
+        volatile: {
+          isEditing: false,
+          editLocked: false
+        }
+      }
+    Object.assign(target, update);
+    if (collection) {
+      if (item) {
+        this[collection][index][item] = data[item];
+      } else if (items) {
+        items.forEach((updateItem) => {
+          this[collection][index][updateItem] = data[updateItem];
+        })
+      } else {
+        this[collection][index] = data;
+      }
     } else {
-      let index = _.findIndex(this.solutions, {id});
-      this.solutions[index].volatile.isAddingComment = false;
-      this.solutions[index].comments.push(data);
-      this.setState({
-        solutions: this.solutions
-      });
+      if (item) {
+        this[item] = data[item]
+      } else if (items) {
+        items.forEach((updateItem) => {
+          this[updateItem] = data[updateItem];
+        })
+      } else {
+        this.setState(data);
+      }
     }
+    this.setState(this);
+  }
+  onUpdateItemFail ({collection, id, data}) {
+    var
+      index = collection ? _.findIndex(this[collection], {id}) : false,
+      target = collection ? this[collection][index] : this,
+      update = {
+        volatile: {
+          isEditing: false,
+          editLocked: false
+        }
+      }
+    Object.assign(target, update);
   }
 
-  onCommentSubmitFail({id, type, value}) {
-    console.error('comment fail');
-  }
-
-  onToggleCommentEdit(id) {
-    var index = _.findIndex(this.comments, {id});
-    this.comments[index].isEditingComment = !this.comments[index].isEditingComment;
-    this.setState({comments: this.comments});
-  }
-
-  onCommentSavePending({id}) {
-    var index = _.findIndex(this.comments, {id});
-    this.comments[index].isEditingComment = false;
-    this.comments[index].editLocked = true;
-    this.setState({comments: this.comments});
-  }
-
-  onCommentSaveSuccess({id, data}) {
-    var index = _.findIndex(this.comments, {id});
-    this.comments[index] = data;
-    this.comments[index].editLocked = false;
-    this.setState({comments: this.comments});
-  }
-
-  onCommentSaveFail({id, data}) {
-    var index = _.findIndex(this.comments, {id});
-    this.comments[index].editLocked = false;
-    this.setState({comments: this.comments});
-  }
-
-  onDeleteSuccess({id, type, data}) {
+  onDeleteSuccess ({collection, id, type, data}) {
     var index;
     if (type === "TutorialRequest") {
-      this.setState({data});
+      this.setState({removed: data.removed});
     }
 
     if (type === "Comment") {
       index = _.findIndex(this.comments, {id});
-      this.comments[index] = data;
+      this.comments[index].removed = data.removed;
       this.setState({comments: this.comments});
     }
 
     if (type === "TutorialSolution") {
       index = _.findIndex(this.solutions, {id});
-      this.solutions[index] = data;
+      this.solutions[index].removed = data.removed;
       this.setState({solutions: this.solutions});
     }
 
