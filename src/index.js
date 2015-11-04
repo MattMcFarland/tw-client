@@ -13,8 +13,8 @@ ReactDOM.render(
         <a href="/tutorial-request" className="btn btn-success btn-lg">Request Tutorial</a>
       </div>
     </header>
-    <main>
+    <div className="container-fluid">
       <TutReqList/>
-    </main>
+    </div>
   </div>
   , document.getElementById('index'));

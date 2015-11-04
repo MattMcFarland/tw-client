@@ -3,6 +3,7 @@ import Comment from './Comment';
 import FlagMenu from './FlagMenu';
 import moment from 'moment';
 import { MarkedArea } from './FormFields';
+import marked from 'marked'
 /**
  * BasePost for Tutorial Request and Tutorial Solution
  */
@@ -207,8 +208,8 @@ export default class BasePost extends Component {
             </button> :
             ''
           }
-          <p>{this.props.data.content}</p>
-        {this.renderContentMeta()}
+          <p dangerouslySetInnerHTML={{__html: marked(this.props.data.content.toString(), {sanitize: true}) }}/>
+          {this.renderContentMeta()}
         </div>
       </div>
     );

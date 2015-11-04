@@ -9,8 +9,8 @@ ReactDOM.render(
     <header>
       <Common.Navbar/>
     </header>
-    <main className="container">
+    <div className="container-fluid">
       <TutReqView/>
-    </main>
+    </div>
   </div>
   , document.getElementById('requestview'));

@@ -34,6 +34,7 @@ class IndexActions {
     switch (filterBy) {
       case "latest":
         ajax.get('/api/tutorial-requests')
+          .query({sortBy: "latest"})
           .end(done)
         break;
 
@@ -41,6 +42,7 @@ class IndexActions {
         ajax.get('/api/tutorial-requests')
           .query({$where: "this.solutions.length > 0"})
           .query({showpositive: true})
+          .query({sortBy: "score"})
           .end(done)
         break;
 
@@ -48,6 +50,7 @@ class IndexActions {
         ajax.get('/api/tutorial-requests')
           .query({$where: "this.solutions.length === 0"})
           .query({showpositive: true})
+          .query({sortBy: "score"})
           .end(done)
         break;
 

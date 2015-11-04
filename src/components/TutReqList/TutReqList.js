@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import IndexActions from '../../actions/IndexActions.js'
 import IndexStore from '../../stores/IndexStore.js'
+import classNames from 'classnames'
 
 export default class TutReqList extends React.Component {
 
@@ -28,18 +29,24 @@ export default class TutReqList extends React.Component {
   }
   render () {
     var {isLoading, reqList, activeTab, lastPage} = this.state;
-    var listItems = !isLoading && reqList && reqList.length ? reqList.map((li) => {
+    var listItems = reqList.map((li) => {
+
+      // add class called fufilled if there are solutions.length
+      // add class up or down if score is +1 or -1 over zero.
+      var liClassName = classNames('tr-col', 'badge', 'score', {
+          'up': (li.score > 0),
+          'down': (li.score < 0),
+          'fufilled': (li.solutions.length)
+        });
+
       return (
         <li key={li.id} className="row">
-            <div className={li.score < 0 ?
-                "tr-col badge score down" :
-                li.score > 0 ?
-                "tr-col badge score up" :
-                'tr-col badge score'}>
-              {li.score}
+            <div className={liClassName}>
+              <span className="score-label">score:</span>
+              <div className="score-num">{li.score}</div>
             </div>
             <div className="tr-col well">
-              <h4>{li.title}</h4>
+              <h4><a href={"/tutorial-request/" + li.permalink}>{li.title}</a></h4>
               <em>
                 <span>Submitted by</span>
                 &nbsp;
@@ -50,7 +57,7 @@ export default class TutReqList extends React.Component {
             </div>
         </li>
       );
-    }) : '';
+    });
     return (
       <section>
         <section className="tut-tabs">
