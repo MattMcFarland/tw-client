@@ -26,3 +26,5 @@ gulp.task('lint', () => lint('src/**/*.js'));
 gulp.task('watch-index', () => watch('src/index', 'index', 'dist'));
 gulp.task('watch-requestview', () => watch('src/requestview', 'requestview', 'dist'));
 gulp.task('watch-requestform', () => watch('src/requestform', 'requestform', 'dist'));
+
+gulp.task('foo', () => console.log('bar'));

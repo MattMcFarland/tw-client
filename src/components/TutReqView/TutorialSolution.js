@@ -164,7 +164,6 @@ export default class TutorialSolution extends BasePost {
       }
     }
   }
-
   renderEmbeddedVideo = () => {
     return (
       <div className="embed-responsive embed-responsive-16by9">
@@ -195,7 +194,6 @@ export default class TutorialSolution extends BasePost {
       </div>
     )
   }
-
   renderBody = () => {
     return (
       <section className="panel-body">
@@ -210,7 +208,6 @@ export default class TutorialSolution extends BasePost {
       </section>
     );
   }
-
   renderFooter = () => {
     return (
       <footer className="panel-footer">
@@ -234,10 +231,9 @@ export default class TutorialSolution extends BasePost {
       </footer>
     );
   }
-
   render () {
     return (
-      <section className="container-fluid">
+      <section className={this.props.data.removed ? "deleted container-fluid" : "container-fluid"}>
         <div className="panel tutorial-request post">
           {this.renderHeading()}
           {this.renderBody()}
@@ -247,6 +243,5 @@ export default class TutorialSolution extends BasePost {
 
     );
   }
-
 
 }

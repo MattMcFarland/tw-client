@@ -19,14 +19,16 @@ export default class LinkPreview extends Component {
     if (embedUrl) {
       actionBlock = (
         <div className="embed-responsive embed-responsive-16by9">
-          <iframe className="embed-responsive-item" src={embedUrl}/>
+          <iframe className="embed-responsive-item" src={embedUrl} />
         </div>
       );
     } else {
       actionBlock = (
-        <a href={url}>
-          <img src={thumbnailUrl}/>
-        </a>
+        <div className="embed-responsive embed-responsive-16by9">
+          <a href={url}>
+            <img className="embed-responsive-item" src={thumbnailUrl} />
+          </a>
+        </div>
       );
     }
 
@@ -36,10 +38,10 @@ export default class LinkPreview extends Component {
           <h3>{title}</h3>
         </header>
         <div className="panel-body row">
-          <div className="col-sm-4">
+          <div className="col-xs-6">
             {actionBlock}
           </div>
-          <div className="col-sm-8">
+          <div className="col-xs-6">
             <p>{description}</p>
           </div>
         </div>
