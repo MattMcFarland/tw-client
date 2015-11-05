@@ -30,19 +30,36 @@ export default class TutReqList extends React.Component {
   render () {
     var {isLoading, reqList, activeTab, lastPage} = this.state;
     var listItems = reqList.map((li) => {
-
       // add class called fufilled if there are solutions.length
       // add class up or down if score is +1 or -1 over zero.
-      var liClassName = classNames('tr-col', 'badge', 'score', {
+      var
+        info,
+        s = li.solutions.length,
+        ss = li.solutions.length > 1,
+        liClassName = classNames('tr-col', 'badge', 'score', {
           'up': (li.score > 0),
           'down': (li.score < 0),
           'fufilled': (li.solutions.length)
-        });
-      var tags = li.tags.map((tag, index) => {
+        }),
+        tags = li.tags.map((tag, index) => {
         return (
-          <li key={index}>{tag.name}</li>
+          <li key={index}
+              className={tag.is_pending ? "pending" : "approved"}
+              title={tag.is_pending ? "This tag is pending approval by moderators and may be removed" : "Tutorial request tagged with" + tag.name}
+            >{tag.name}</li>
         );
       })
+
+      if (li.solutions.length) {
+        info = (<p>
+          There <a href={"/tutorial-request/" + li.permalink}>{ss ? 'are' : 'is'} {s} {ss ? 'Tutorials' : 'Tutorial'}</a> issued for this request.
+        </p>);
+      } else {
+        info = (<p>
+          There is not a tutorial issued for this request yet.&nbsp;
+          <a href={"/tutorial-request/" + li.permalink}>Click here to share yours.</a>
+        </p>);
+      }
       return (
         <li key={li.id} className="row">
             <div className={liClassName}>
@@ -61,10 +78,7 @@ export default class TutReqList extends React.Component {
                 </em>
               </p>
               <div>
-                There are currently X Tutorials issued for this request.
-                There is currently 1 tutorial issued for this request by XYZ, click here for details.
-                There is not a tutorial issued for this request yet.  Click here to share yours.
-                This post here has X responses and Y comments.
+                {info}
                 <ul className="taglist">
                   {tags}
                 </ul>

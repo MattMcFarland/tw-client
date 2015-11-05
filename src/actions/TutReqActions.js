@@ -83,7 +83,7 @@ class TutReqActions {
       if (err) {
         console.error(err);
       } else {
-        console.log('flag success');
+        //console.log('flag success');
       }
     });
 
@@ -157,7 +157,7 @@ class TutReqActions {
 
   deleteItem ({id, collection, type, parent}) {
     var pathPrefix = getPathPrefixByType(type);
-    console.log('delete type', type)
+    //console.log('delete type', type)
     const done = ((err, res) => {
       if (err) {
         this.actions.deleteFail({id, type, collection, parent, data: err});

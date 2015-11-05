@@ -4,6 +4,13 @@ import FlagMenu from './FlagMenu';
 import moment from 'moment';
 import { MarkedArea } from './FormFields';
 import marked from 'marked'
+
+marked.setOptions({
+  highlight: function (code) {
+    return require('highlight.js').highlightAuto(code).value;
+  }
+});
+
 /**
  * BasePost for Tutorial Request and Tutorial Solution
  */
@@ -246,11 +253,12 @@ export default class BasePost extends Component {
     );
   }
   renderTagList = () => {
-    return this.props.data.tags.map((li) => {
+    return this.props.data.tags.map((tag, index) => {
       return (
-        <li key={li.id}>
-          {li.name}
-        </li>
+      <li key={tag.id + '-' + index}
+          className={tag.is_pending ? "pending" : "approved"}
+          title={tag.is_pending ? "This tag is pending approval by moderators and may be removed" : "Tutorial request tagged with" + tag.name}
+        >{tag.name}</li>
       );
     });
   }

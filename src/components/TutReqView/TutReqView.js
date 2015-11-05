@@ -17,7 +17,7 @@ export default class TutReqView extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.handlers);
+    //console.log(this.handlers);
     TutReqStore.listen(this.onChange);
     TutReqActions.init();
   }

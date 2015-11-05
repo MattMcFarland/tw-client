@@ -1,5 +1,10 @@
 import React from 'react';
 import marked from 'marked';
+marked.setOptions({
+  highlight: function (code) {
+    return require('highlight.js').highlightAuto(code).value;
+  }
+});
 export default class MarkedArea extends React.Component {
   constructor(props) {
     super(props);

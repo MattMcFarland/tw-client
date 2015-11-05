@@ -57,7 +57,7 @@ class TutReqStore {
   onInitSuccess (data) {
     this.userFlags = data.userFlags;
     this.setState(data);
-    console.debug('Store Initialized:', data);
+    //console.debug('Store Initialized:', data);
     this.setState({ready: true});
   }
 
@@ -113,7 +113,7 @@ class TutReqStore {
 
   onToggleItemEdit ({collection, parent, id}) {
     var target = getTarget({collection, parent, id}, this);
-    console.log('target.volatile', target.volatile);
+    //console.log('target.volatile', target.volatile);
     target.volatile.isEditing = !target.volatile.isEditing
     this.setState(this);
   }
@@ -147,7 +147,7 @@ class TutReqStore {
       })
     }
     if (parent && parent.collection === "solutions") {
-      console.debug('solutions update ?', this.solutions);
+      //console.debug('solutions update ?', this.solutions);
       this.setState({solutions: this.solutions})
     } else {
       this.setState(this);

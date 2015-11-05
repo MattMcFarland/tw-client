@@ -68,7 +68,7 @@ export default class TutorialSolution extends BasePost {
         e.preventDefault();
         var inputElem = document.getElementById(props.data.id + '-edit-content');
         var content = inputElem.value;
-        console.debug('update item from', inputElem,'with',content);
+        //console.debug('update item from', inputElem,'with',content);
         TutReqActions.updateItem({
           type: props.data.type,
           collection: "solutions",

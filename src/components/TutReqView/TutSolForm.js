@@ -9,7 +9,7 @@ export default class TutSolForm extends Component {
     super(props);
     this.state = TutorialRequestStore.state;
     this._onChange = () => {
-      console.log(this.state.data.id);
+      //console.log(this.state.data.id);
       this.setState(TutorialRequestStore.state);
     };
   }
