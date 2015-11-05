@@ -6,7 +6,7 @@ import TutReqStore from '../../stores/TutReqStore.js';
 import TutReqActions from '../../actions/TutReqActions.js';
 import TutorialRequest from './TutorialRequest';
 import TutorialSolution from './TutorialSolution';
-//import TutSolForm from './TutSolForm';
+import TutSolForm from './TutSolForm';
 
 export default class TutReqView extends React.Component {
 
@@ -54,6 +54,9 @@ export default class TutReqView extends React.Component {
       var inputElem = document.getElementById(e.currentTarget.dataset.id + '-input');
       var message = inputElem.value;
       TutReqActions.addComment({id, type, message});
+    },
+    onSolutionSubmit: (id, formData) => {
+      TutReqActions.addSolution({id, formData});
     },
     onFlagSave: (e) => {
       TutReqActions.toggleFlag({
@@ -192,7 +195,8 @@ export default class TutReqView extends React.Component {
             volatile={this.state.volatile}
             />
           {TutSolList}
-
+          {this.state.lockSolution ? <div><img src="/img/loading.gif"/></div> :
+            <TutSolForm id={this.state.id} onSolutionSubmit={this.handlers.onSolutionSubmit}/>}
         </div>
       );
     } else {

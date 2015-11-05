@@ -1,17 +1,10 @@
 import React, {Component} from 'react';
-import TutorialRequestActionCreators from '../../actions/TutorialRequestActionCreators';
-import TutorialRequestStore from '../../stores/TutorialRequestStore';
 import {TextInput, LinkInput, MarkedArea } from '../Common/FormFields';
 
 export default class TutSolForm extends Component {
 
   constructor(props) {
     super(props);
-    this.state = TutorialRequestStore.state;
-    this._onChange = () => {
-      //console.log(this.state.data.id);
-      this.setState(TutorialRequestStore.state);
-    };
   }
 
   static displayName='TutSolForm';
@@ -23,7 +16,7 @@ export default class TutSolForm extends Component {
       description: this.refs.description.state.value,
       linkMeta: this.refs.url.state.linkMeta
     };
-    this.props.onSolutionSubmit(this.state.data.id, formData)
+    this.props.onSolutionSubmit(this.props.id, formData)
 
   };
 
@@ -46,10 +39,7 @@ export default class TutSolForm extends Component {
             label="Provide a description of your tutorial"
             tip="You can use Github flavored markdown to dress up your request."
             />
-          {this.state.isPosting ?
-            <p>Submitting your request...</p> :
-            <input disabled={this.state.isDisabled} className="btn btn-primary" type="submit" value="Submit" onClick={this.onSubmit}/>
-          }
+            <input className="btn btn-primary" type="submit" value="Submit" onClick={this.onSubmit}/>
         </form>
       </div>
     );

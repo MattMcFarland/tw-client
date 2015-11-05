@@ -32,6 +32,10 @@ class TutReqActions {
       'commentSubmitSuccess',
       'commentSubmitPending',
 
+      'addSolutionPending',
+      'addSolutionSuccess',
+      'addSolutionFail',
+
       'toggleItemEdit',
       'toggleTagsEdit',
 
@@ -129,6 +133,23 @@ class TutReqActions {
       .end(done)
 
     this.actions.commentSubmitPending({id, parent, collection});
+  }
+
+  addSolution ({id, formData}) {
+    const done = ((err, res) => {
+      if (err) {
+        this.actions.addSolutionFail({id, data: err});
+      } else {
+        this.actions.addSolutionSuccess({id, data: res.body});
+      }
+    });
+
+    ajax.put('/api/tutorial-requests/' + id + '/solution')
+      .send(formData)
+      .end(done);
+
+    this.actions.addSolutionPending({id, formData});
+
   }
 
   /**

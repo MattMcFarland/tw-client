@@ -184,6 +184,20 @@ class TutReqStore {
 
   }
 
+  onAddSolutionPending () {
+    this.setState({lockSolution: true});
+  }
+
+  onAddSolutionFail ({id, data}) {
+    this.setState({lockSolution: false});
+  }
+
+  onAddSolutionSuccess ({id, data}) {
+    this.solutions.push(data);
+    this.setState({lockSolution: false});
+    this.setState(this);
+  }
+
   onDeleteSuccess ({collection, id, parent, type, data}) {
     var target = getTarget({collection, parent, id}, this);
     target.removed = data.removed;
