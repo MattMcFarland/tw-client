@@ -95,7 +95,7 @@ export default class BasePost extends Component {
         <h3>{this.props.data.title}
           {!this.props.data.isOwner ?
             <FlagMenu
-              onFlagSave={this.props.handlers.onFlagSave}
+              onFlagSave={this.handlers.onFlagSave}
               contextId = {this.props.data.id}
               userFlags = {this.props.data.userFlags}/>
               : '' }
@@ -109,8 +109,8 @@ export default class BasePost extends Component {
       <div className="col-xs-2 votecell">
         <menu className="vote-block-slab">
           <button
-            onClick={this.props.handlers.onVoteUp}
-            disabled={this.props.data.volatile.lockVote}
+            onClick={this.handlers.onVoteUp}
+            disabled={this.props.volatile.lockVote}
             className="btn btn-link"
           >
             <span
@@ -121,8 +121,8 @@ export default class BasePost extends Component {
           </button>
           <p className="score">{this.props.data.score}</p>
           <button
-            onClick={this.props.handlers.onVoteDown}
-            disabled={this.props.data.volatile.lockVote}
+            onClick={this.handlers.onVoteDown}
+            disabled={this.props.volatile.lockVote}
             className="btn btn-link">
             <span
               className={this.props.data.userVote === -1 ?
@@ -152,7 +152,7 @@ export default class BasePost extends Component {
         </section>
         <section className="content-meta panel panel-success col-sm-4 col-sm-offset-1">
           <h5 className="panel-heading">
-            Requested by:
+            Posted by:
           </h5>
           <div className="panel-body h-card">
             <img className="u-photo" src="http://lorempixel.com/32/32/people/" alt="" />
@@ -170,7 +170,7 @@ export default class BasePost extends Component {
         <div>
           <section className="content-meta panel panel-success col-sm-4 col-sm-offset-8">
             <h5 className="panel-heading">
-              Requested by:
+              Posted by:
             </h5>
             <div className="panel-body h-card">
               <img className="u-photo" src="http://lorempixel.com/32/32/people/" alt="" />
@@ -186,24 +186,24 @@ export default class BasePost extends Component {
   }
   renderContentCell = () => {
     return (
-      <div className="col-xs-10 content-cell">
+      <div className="content-cell">
         <div className="content-body">
-          {this.props.data.userPrivs.userCanEdit && !this.props.data.volatile.isEditing && !this.props.data.volatile.editLocked && !this.props.data.removed ?
-            <button data-id={this.props.data.id} onClick={this.props.handlers.onEnableEditContent} className="btn btn-link pull-right" type="button">
+          {this.props.data.userPrivs.userCanEdit && !this.props.volatile.isEditing && !this.props.volatile.editLocked && !this.props.data.removed ?
+            <button data-id={this.props.data.id} onClick={this.handlers.onEnableEditContent} className="btn btn-link pull-right" type="button">
               <span className="glyphicon glyphicon-pencil"/>
             </button> :
             ''
           }
 
-          {this.props.data.userPrivs.userCanDelete && !this.props.data.volatile.isEditing && !this.props.data.volatile.editLocked && !this.props.data.removed ?
-            <button data-id={this.props.data.id} onClick={this.props.handlers.onDelete} className="btn btn-link pull-right" type="button">
+          {this.props.data.userPrivs.userCanDelete && !this.props.volatile.isEditing && !this.props.volatile.editLocked && !this.props.data.removed ?
+            <button data-id={this.props.data.id} onClick={this.handlers.onDelete} className="btn btn-link pull-right" type="button">
               <span className="glyphicon glyphicon-trash"/>
             </button> :
             ''
           }
 
-          {this.props.data.userPrivs.userCanDelete && !this.props.data.volatile.isEditing && !this.props.data.volatile.editLocked && this.props.data.removed ?
-            <button data-id={this.props.data.id} onClick={this.props.handlers.onDelete} className="btn btn-link pull-right" type="button">
+          {this.props.data.userPrivs.userCanDelete && !this.props.volatile.isEditing && !this.props.volatile.editLocked && this.props.data.removed ?
+            <button data-id={this.props.data.id} onClick={this.handlers.onDelete} className="btn btn-link pull-right" type="button">
               Undo Delete
             </button> :
             ''
@@ -216,8 +216,8 @@ export default class BasePost extends Component {
   }
   renderEditContentCell = () => {
     return (
-      <div className="col-xs-10 content-cell">
-        <form onSubmit = {this.props.handlers.onEditContentSave}>
+      <div className="content-cell">
+        <form onSubmit = {this.handlers.onEditContentSave}>
         <MarkedArea
           label="You are editing this post"
           defaultValue={this.props.data.content}
@@ -227,7 +227,7 @@ export default class BasePost extends Component {
         <button type="submit" className="btn btn-block btn-info">Save</button>
         <button type="button"
                 data-id={this.props.data.id}
-                onClick={this.props.handlers.onEnableEditContent}
+                onClick={this.handlers.onEnableEditContent}
                 className="btn btn-block btn-default">Cancel</button>
         </form>
       </div>
@@ -238,7 +238,9 @@ export default class BasePost extends Component {
       <section className="panel-body">
         <div className="row">
           {this.renderVoteCell()}
-          {this.props.data.volatile.isEditing ? this.renderEditContentCell() : this.renderContentCell()}
+          <div className="col-xs-10">
+            {this.props.volatile.isEditing ? this.renderEditContentCell() : this.renderContentCell()}
+          </div>
         </div>
       </section>
     );
@@ -260,7 +262,7 @@ export default class BasePost extends Component {
 
           <Comment
             {...li}
-            handlers={this.props.handlers.comments}
+            handlers={this.handlers.comments}
             />
         </li>
       );
@@ -271,7 +273,7 @@ export default class BasePost extends Component {
       <form
 
             data-type={this.props.data.type}
-            onSubmit={this.props.handlers.onCommentSubmit}
+            onSubmit={this.handlers.onCommentSubmit}
             data-id={this.props.data.id}
             style={{margin:"0", padding:"0"}}>
         <label style={{width: "100%"}}>
@@ -306,11 +308,11 @@ export default class BasePost extends Component {
           :
           <h5>No Comments</h5>
         }
-      {this.props.data.volatile.isAddingComment ?
+      {this.props.volatile.isAddingComment ?
         <img src="/img/loading.gif"/> :
-          this.props.data.volatile.isAddCommentFormExpanded ?
+          this.props.volatile.isAddCommentFormExpanded ?
             this.commentForm() :
-              <button onClick={this.props.handlers.onCommentRevealForm} className="btn btn-link">Add Comment</button>
+              <button onClick={this.handlers.onCommentRevealForm} className="btn btn-link">Add Comment</button>
       }
 
 
@@ -319,7 +321,7 @@ export default class BasePost extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.data.volatile.isAddCommentFormExpanded) {
+    if (this.props.volatile.isAddCommentFormExpanded) {
       var inputElem = document.getElementById(this.props.data.id + '-input');
       inputElem.focus();
     }
@@ -332,7 +334,7 @@ export default class BasePost extends Component {
   render () {
     return (
       <section
-        style={this.props.data.volatile.editLocked ? this.faded() : {}}
+        style={this.props.volatile.editLocked ? this.faded() : {}}
         className={this.props.data.removed ? "deleted container-fluid" : "container-fluid"}>
         <div className="panel tutorial-request post">
           {this.renderHeading()}

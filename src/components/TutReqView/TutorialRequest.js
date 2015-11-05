@@ -9,6 +9,7 @@ export default class TutorialRequest extends BasePost {
 
   constructor(props) {
     super(props);
+    if (!this.handlers) this.handlers = props.handlers;
   }
 
 

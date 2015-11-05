@@ -5,6 +5,8 @@ import React from 'react';
 import TutReqStore from '../../stores/TutReqStore.js';
 import TutReqActions from '../../actions/TutReqActions.js';
 import TutorialRequest from './TutorialRequest';
+import TutorialSolution from './TutorialSolution';
+//import TutSolForm from './TutSolForm';
 
 export default class TutReqView extends React.Component {
 
@@ -122,6 +124,7 @@ export default class TutReqView extends React.Component {
           id,
           collection: "comments",
           type: "Comment",
+          items: ['message', 'updated_at', 'editorUrl', 'editorName'],
           fields: {message}
         });
       },
@@ -131,7 +134,7 @@ export default class TutReqView extends React.Component {
         TutReqActions.deleteItem({
           id,
           collection: "comments",
-          type: "Comment",
+          type: "Comment"
         });
       }
     }
@@ -139,13 +142,27 @@ export default class TutReqView extends React.Component {
 
 
   render() {
+    var TutSolList = this.state.solutions.map((sol) => {
+      return (
+        <div key={sol.id}>
+          <TutorialSolution
+            type={sol.type}
+            data={sol}
+            volatile={sol.volatile}
+            />
+        </div>
+      );
+    });
     if (this.state && this.state.ready) {
       return (
         <div>
           <TutorialRequest
             data={this.state}
             handlers={this.handlers}
+            volatile={this.state.volatile}
             />
+          {TutSolList}
+
         </div>
       );
     } else {

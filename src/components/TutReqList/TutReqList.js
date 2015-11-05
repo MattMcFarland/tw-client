@@ -38,7 +38,11 @@ export default class TutReqList extends React.Component {
           'down': (li.score < 0),
           'fufilled': (li.solutions.length)
         });
-
+      var tags = li.tags.map((tag, index) => {
+        return (
+          <li key={index}>{tag.name}</li>
+        );
+      })
       return (
         <li key={li.id} className="row">
             <div className={liClassName}>
@@ -47,13 +51,24 @@ export default class TutReqList extends React.Component {
             </div>
             <div className="tr-col well">
               <h4><a href={"/tutorial-request/" + li.permalink}>{li.title}</a></h4>
-              <em>
-                <span>Submitted by</span>
-                &nbsp;
-                <a href={li.authorUrl}>{li.authorName}</a>
-                &nbsp;
-                <a href={"/tutorial-request/" + li.permalink}>{moment(li.created_at).fromNow()}</a>
-              </em>
+              <p>
+                <em>
+                  <span>Submitted by</span>
+                  &nbsp;
+                  <a href={li.authorUrl}>{li.authorName}</a>
+                  &nbsp;
+                  <a href={"/tutorial-request/" + li.permalink}>{moment(li.created_at).fromNow()}</a>
+                </em>
+              </p>
+              <div>
+                There are currently X Tutorials issued for this request.
+                There is currently 1 tutorial issued for this request by XYZ, click here for details.
+                There is not a tutorial issued for this request yet.  Click here to share yours.
+                This post here has X responses and Y comments.
+                <ul className="taglist">
+                  {tags}
+                </ul>
+              </div>
             </div>
         </li>
       );

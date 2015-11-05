@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import TutorialRequestActionCreators from '../../actions/TutorialRequestActionCreators';
 import TutorialRequestStore from '../../stores/TutorialRequestStore';
-import {TextInput, LinkInput, MarkedArea } from '../Shared/FormFields';
+import {TextInput, LinkInput, MarkedArea } from '../Common/FormFields';
 
 export default class TutSolForm extends Component {
 

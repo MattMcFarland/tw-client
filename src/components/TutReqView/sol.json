@@ -1,0 +1,52 @@
+{
+  "type": "TutorialSolution",
+  "collection": "solutions",
+  "id": "5633f3f8920cec8eb5b95bd1",
+  "authorName": "Coldvulture Crusher",
+  "authorUrl": "users/be0f8e3be6fdfb42a2f3042526010527",
+  "editorName": "",
+  "editorUrl": "",
+  "flags": {
+    "spam": 0,
+    "offensive": 0,
+    "vague": 0,
+    "duplicate": 0
+  },
+  "score": 0,
+  "userVote": 0,
+  "userFlags": [
+    {
+      "key": "spam",
+      "value": false
+    },
+    {
+      "key": "offensive",
+      "value": false
+    },
+    {
+      "key": "duplicate",
+      "value": false
+    },
+    {
+      "key": "vague",
+      "value": false
+    }
+  ],
+  "comments": [
+    "5633f4c719dcf797b5c38e73"
+  ],
+  "userPrivs": {
+    "userCanEdit": true,
+    "userCanDelete": true,
+    "userCanSeeDeleted": true
+  },
+  "removed": false,
+  "isOwner": false,
+  "linkMeta": {
+    "description": "lorem ipsum description",
+    "embedUrl": "https://www.youtube.com/embed/f6NsZNp6Hhw",
+    "thumbnailUrl": "https://i.ytimg.com/vi/f6NsZNp6Hhw/maxresdefault.jpg",
+    "title": "6 Hours of Dark Electronic Music",
+    "url": "https://www.youtube.com/watch?v=f6NsZNp6Hhw"
+  }
+}

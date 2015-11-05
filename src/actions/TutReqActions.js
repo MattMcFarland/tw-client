@@ -48,18 +48,22 @@ class TutReqActions {
    * @param type        {string} "Comment", "TutorialRequest", or "TutorialSolution" - Available from model itself
    * @param collection  {string} "comments" or "solutions" - as colletions of root tutorialrequest object.
    * @param id          {string} The Comment/TutorialRequest/TutorialSolution ID
+   * @param parent      {object} parent object
+   *    @param parent.id         {string} parent id
+   *    @param parent.type       {string} parent tyoe
+   *    @param parent.collection {string} parent collection
    * @param direction   {string} Vote direction, "up", or "down"
    */
-  vote ({type, collection, id, direction}) {
+  vote ({type, collection, id, direction, parent}) {
     // pathPrefix generates the correct API path to apply a vote.
     var pathPrefix = getPathPrefixByType(type);
 
     // result handler function (done) will execute the appropriate action in the store.
     const done = ((err, res) => {
       if (err) {
-        this.actions.voteFail({id, collection, data: err});
+        this.actions.voteFail({id, collection, parent, data: err});
       } else {
-        this.actions.voteSuccess({id, collection, data: res.body});
+        this.actions.voteSuccess({id, collection, parent, data: res.body});
       }
     });
 
@@ -69,7 +73,7 @@ class TutReqActions {
       .end(done)
 
     // Inform store that vote is pending
-    this.actions.votePending({id, collection});
+    this.actions.votePending({id, parent, collection});
   }
 
   toggleFlag({type, id, flagType}) {
@@ -95,17 +99,21 @@ class TutReqActions {
    * Comment Action
    * @param type        {string} "TutorialRequest", or "TutorialSolution" - Available from model itself
    * @param collection  {string} "solutions" or undefined.
+   * @param parent      {object} parent object
+   *    @param parent.id         {string} parent id
+   *    @param parent.type       {string} parent tyoe
+   *    @param parent.collection {string} parent collection
    * @param id          {string} The TutorialRequest/TutorialSolution ID
    * @param message     {string} Comment Message
    */
-  addComment ({type, collection, id, message}) {
+  addComment ({type, collection, id, parent, message}) {
     var pathPrefix = getPathPrefixByType(type);
 
     const done = ((err, res) => {
       if (err) {
-        this.actions.commentSubmitFail({id, collection, data: err});
+        this.actions.commentSubmitFail({id, collection, parent, data: err});
       } else {
-        this.actions.commentSubmitSuccess({id, collection, data: res.body});
+        this.actions.commentSubmitSuccess({id, collection, parent, data: res.body});
       }
     });
 
@@ -113,24 +121,29 @@ class TutReqActions {
       .send({message})
       .end(done)
 
-    this.actions.commentSubmitPending({id, collection});
+    this.actions.commentSubmitPending({id, parent, collection});
   }
 
   /**
    * Update Item
    * @param type        {string} "Comment", "TutorialRequest", or "TutorialSolution" - Available from model itself
    * @param collection  {string} "solutions" or "comments".
+   * @param parent      {object} parent object
+   *    @param parent.id         {string} parent id
+   *    @param parent.type       {string} parent tyoe
+   *    @param parent.collection {string} parent collection
    * @param id          {string} The TutorialRequest/TutorialSolution/Comment ID
    * @param fields      {string} JSON key/value pairs to update db.
+   * @param items       {array} update items via map from fields
    */
-  updateItem ({items, item, type, collection, id, fields}) {
+  updateItem ({items, type, collection, id, fields, parent}) {
     var pathPrefix = getPathPrefixByType(type);
 
     const done = ((err, res) => {
       if (err) {
-        this.actions.updateItemFail({items, id, collection, data: err});
+        this.actions.updateItemFail({items, id, collection, parent, data: err});
       } else {
-        this.actions.updateItemSuccess({items, id, collection, data: res.body});
+        this.actions.updateItemSuccess({items, id, collection, parent, data: res.body});
       }
     });
 
@@ -138,18 +151,18 @@ class TutReqActions {
       .send(fields)
       .end(done)
 
-    this.actions.updateItemPending({type, collection, id, fields});
+    this.actions.updateItemPending({type, collection, id, parent, fields});
   }
 
 
-  deleteItem ({id, type}) {
+  deleteItem ({id, collection, type, parent}) {
     var pathPrefix = getPathPrefixByType(type);
-
+    console.log('delete type', type)
     const done = ((err, res) => {
       if (err) {
-        this.actions.deleteFail({id, type, data: err});
+        this.actions.deleteFail({id, type, collection, parent, data: err});
       } else {
-        this.actions.deleteSuccess({id, type, data: res.body});
+        this.actions.deleteSuccess({id, type, collection, parent, data: res.body});
       }
     });
 
