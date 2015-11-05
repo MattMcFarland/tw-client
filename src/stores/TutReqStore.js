@@ -118,6 +118,12 @@ class TutReqStore {
     this.setState(this);
   }
 
+  onToggleTagsEdit ({collection, parent, id}) {
+    var target = getTarget({collection, parent, id}, this);
+    //console.log('target.volatile', target.volatile);
+    target.volatile.isEditingTags = !target.volatile.isEditingTags
+    this.setState(this);
+  }
   onUpdateItemPending ({collection, parent, id}) {
     var target = getTarget({collection, parent, id}, this),
       update = {
@@ -163,6 +169,19 @@ class TutReqStore {
         }
       }
     Object.assign(target, update);
+  }
+
+  onJudgeTagPending ({id, decision}) {
+
+  }
+
+  onJudgeTagSuccess ({id, decision, data}) {
+    var target = getTarget({collection: 'tags', id}, this);
+    target.is_pending = false;
+    target.is_approved = data.is_approved;
+  }
+  onJudgeTagFail ({id, decision}) {
+
   }
 
   onDeleteSuccess ({collection, id, parent, type, data}) {

@@ -7,7 +7,9 @@ function getPathPrefixByType(type) {
     "/api/tutorial-requests/" :
     (type === "Comment") ?
       "/api/comments/" :
-      "/api/tutorial-solutions/";
+      (type === "Tag") ?
+        "/api/tags/" :
+          "/api/tutorial-solutions/";
 }
 
 
@@ -20,6 +22,10 @@ class TutReqActions {
       'voteSuccess',
       'voteFail',
 
+      'judgeTagPending',
+      'judgeTagSuccess',
+      'judgeTagFail',
+
       'showCommentForm',
 
       'commentSubmitFail',
@@ -27,6 +33,7 @@ class TutReqActions {
       'commentSubmitPending',
 
       'toggleItemEdit',
+      'toggleTagsEdit',
 
       'updateItemPending',
       'updateItemSuccess',
@@ -152,6 +159,21 @@ class TutReqActions {
       .end(done)
 
     this.actions.updateItemPending({type, collection, id, parent, fields});
+  }
+
+  judgeTag ({id, decision}) {
+    const done = ((err, res) => {
+      if (err) {
+        this.actions.judgeTagFail({id, decision, data: err});
+      } else {
+        this.actions.judgeTagSuccess({id, decision, data: res.body});
+      }
+    });
+    ajax.put('/api/tags/' + id +'/judge')
+      .send({decision})
+      .end(done)
+
+    this.actions.judgeTagPending({id, decision});
   }
 
 

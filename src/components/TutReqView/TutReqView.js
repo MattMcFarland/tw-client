@@ -68,6 +68,36 @@ export default class TutReqView extends React.Component {
         id: this.state.id
       })
     },
+    onEnableEditTags: () => {
+      TutReqActions.toggleTagsEdit({
+        type: 'TutorialRequest',
+        id: this.state.id
+      })
+    },
+    onEditTagsSave: (e) => {
+      e.preventDefault();
+      var inputElem = document.querySelector('input[type="hidden"]');
+      var tags = inputElem.value;
+
+      TutReqActions.updateItem({
+        type: 'TutorialRequest',
+        id: this.state.id,
+        fields: { tags },
+        items: ['tags', 'editorUrl', 'editorName', 'updated_at', 'created_at']
+      })
+    },
+    onApproveTag: (e) => {
+      TutReqActions.judgeTag({
+        id: e.currentTarget.dataset.id,
+        decision: 'approve'
+      })
+    },
+    onDenyTag: (e) => {
+      TutReqActions.judgeTag({
+        id: e.currentTarget.dataset.id,
+        decision: 'deny'
+      })
+    },
     onEditContentSave: (e) => {
       e.preventDefault();
       var inputElem = document.getElementById(this.state.id + '-edit-content');

@@ -3,7 +3,8 @@ import Comment from './Comment';
 import FlagMenu from './FlagMenu';
 import moment from 'moment';
 import { MarkedArea } from './FormFields';
-import marked from 'marked'
+import marked from 'marked';
+import Select from 'react-select';
 
 marked.setOptions({
   highlight: function (code) {
@@ -252,14 +253,55 @@ export default class BasePost extends Component {
       </section>
     );
   }
+  editTagList = () => {
+    return (
+      <form onSubmit={this.handlers.onEditTagsSave}>
+        <label>
+          <span className="form-label">Tags:</span>
+          <em className="form-field-tip">Select between one and four tags.</em>
+          <br/>
+          <Select
+            ref="tags"
+            id={this.props.data.id + '-edit-tags'}
+            allowCreate={true}
+            multi={true}
+            required="true"
+            tagset={this.props.data.tags}
+            value={this.props.data.tags.map((t)=>t.name)}
+            />
+        </label>
+        <button type="submit" className="btn btn-block btn-info">Save</button>
+        <button type="button"
+                data-id={this.props.data.id}
+                onClick={this.handlers.onEnableEditTags}
+                className="btn btn-block btn-default">Cancel</button>
+      </form>
+    );
+  }
   renderTagList = () => {
     return this.props.data.tags.map((tag, index) => {
-      return (
-      <li key={tag.id + '-' + index}
-          className={tag.is_pending ? "pending" : "approved"}
-          title={tag.is_pending ? "This tag is pending approval by moderators and may be removed" : "Tutorial request tagged with" + tag.name}
-        >{tag.name}</li>
-      );
+
+      if (tag.is_approved || tag.is_pending) {
+        return (
+          <li key={tag.id + '-' + index}
+              className={tag.is_pending ? "pending" : "approved"}
+              title={tag.is_pending ? "This tag is pending approval by moderators and may be removed" : "Tutorial request tagged with" + tag.name}
+            >{tag.name}
+            {tag.is_pending && this.props.data.userPrivs && this.props.data.userPrivs.isModerator ?
+              <span>
+          <button data-id={tag.id} onClick={this.handlers.onApproveTag}>
+            <span className="glyphicon glyphicon-thumbs-up"/>
+          </button>
+           <button data-id={tag.id} onClick={this.handlers.onDenyTag}>
+             <span className="glyphicon glyphicon-thumbs-down"/>
+           </button>
+        </span> : ''}
+          </li>
+        );
+      } else {
+        return (<div key={tag.id + '-' + index}/>);
+      }
+
     });
   }
   renderCommentList = () => {
@@ -303,10 +345,13 @@ export default class BasePost extends Component {
   renderFooter = () => {
     return (
     <footer className="panel-footer">
-
-      <ul className="taglist">
-        {this.renderTagList()}
-      </ul>
+      {this.props.data.userPrivs.userCanEdit && !this.props.volatile.isEditingTags && !this.props.volatile.editLocked && !this.props.data.removed ?
+        <button data-id={this.props.data.id} onClick={this.handlers.onEnableEditTags} className="btn btn-link pull-right" type="button">
+          <span className="glyphicon glyphicon-pencil">&nbsp;</span>Edit tags
+        </button> :
+        ''
+      }
+      {this.props.volatile.isEditingTags ? this.editTagList() : <ul className="taglist">{this.renderTagList()}</ul>}
 
         {this.props.data.comments.length ?
           <section className="comment-zone">
