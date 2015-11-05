@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 
+
+Object.create();
+
+
 export default class LinkPreview extends Component {
   constructor(props) {
     super(props);
