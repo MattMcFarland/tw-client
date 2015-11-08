@@ -84,7 +84,7 @@ class TutReqActions {
       .end(done)
 
     // Inform store that vote is pending
-    this.actions.votePending({id, parent, collection});
+    this.actions.votePending({id, direction, parent, collection});
   }
 
   toggleFlag({type, id, flagType}) {

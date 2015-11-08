@@ -63,9 +63,39 @@ class TutReqStore {
 
 
 
-  onVotePending ({collection, parent, id}) {
+  onVotePending ({collection, parent, id, direction}) {
     var target = getTarget({collection, parent, id}, this);
-    target.lockVote = true;
+    // if previous vote was up
+    if (target.userVote === 1) {
+      if (direction === "up") {
+        target.userVote = 0;
+        target.score -= 1;
+      }
+      if (direction === "down") {
+        target.userVote = -1;
+        target.score -= 2;
+      }
+      // if previous vot was down
+    } else if (target.userVote === -1) {
+      if (direction === "up") {
+        target.userVote = 1;
+        target.score += 2;
+      }
+      if (direction === "down") {
+        target.userVote = 0;
+        target.score += 1;
+      }
+    } else if (target.userVote === 0) {
+      if (direction === "up") {
+        target.userVote = 1;
+        target.score += 1;
+      }
+      if (direction === "down") {
+        target.userVote = -1;
+        target.score -= 1;
+      }
+    }
+    target.volatile.lockVote = true;
     this.setState(this);
   }
   onVoteSuccess ({collection, parent, id, data}) {

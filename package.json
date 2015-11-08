@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "alt": "^0.17.6",
+    "faker": "^3.0.1",
     "jquery": "^2.1.4",
     "moment": "^2.10.6",
     "react-dom": "^0.14.0",
