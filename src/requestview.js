@@ -7,7 +7,7 @@ require('./styles/main.less');
 ReactDOM.render(
   <div>
     <header>
-      <Common.Navbar/>
+      <Common.Navbar />
     </header>
     <div className="container-fluid">
       <TutReqView/>

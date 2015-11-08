@@ -1,6 +1,8 @@
 import alt from '../alt';
 import TutReqActions from '../actions/TutReqActions.js';
 import _ from 'lodash';
+import UserStore from './UserStore';
+import UserActions from '../actions/UserActions';
 
 /**
  * Determines correct target by collection or parent collection
@@ -54,14 +56,17 @@ class TutReqStore {
     this.solutions = [];
   }
 
+
   onInitSuccess (data) {
+    this.waitFor(UserStore);
+
+    this.user = UserStore.getState();
+
     this.userFlags = data.userFlags;
     this.setState(data);
     //console.debug('Store Initialized:', data);
     this.setState({ready: true});
   }
-
-
 
   onVotePending ({collection, parent, id, direction}) {
     var target = getTarget({collection, parent, id}, this);
@@ -110,27 +115,23 @@ class TutReqStore {
     target.volatile.lockVote = false;
     this.setState(this);
   }
-
   onShowCommentForm ({collection, parent, id}) {
     var target = getTarget({collection, parent, id}, this);
     target.volatile.isAddCommentFormExpanded = true;
     this.setState(this);
   }
-
   onCommentSubmitPending ({collection, parent, id}) {
     var target = getTarget({collection, parent, id}, this);
     target.volatile.isAddingComment = true;
     target.volatile.isAddCommentFormExpanded = false;
     this.setState(this);
   }
-
   onCommentSubmitSuccess ({collection, id, parent, data}) {
     var target = getTarget({collection, parent, id}, this);
     target.volatile.isAddingComment = false;
     target.comments.push(data);
     this.setState(this);
   }
-
   onCommentSubmitFail ({collection, id, parent, data}) {
     var target = getTarget({collection, parent, id}, this),
       update = {
@@ -140,14 +141,12 @@ class TutReqStore {
       }
     Object.assign(target, update);
   }
-
   onToggleItemEdit ({collection, parent, id}) {
     var target = getTarget({collection, parent, id}, this);
     //console.log('target.volatile', target.volatile);
     target.volatile.isEditing = !target.volatile.isEditing
     this.setState(this);
   }
-
   onToggleTagsEdit ({collection, parent, id}) {
     var target = getTarget({collection, parent, id}, this);
     //console.log('target.volatile', target.volatile);
@@ -164,7 +163,6 @@ class TutReqStore {
       }
     Object.assign(target, update);
   }
-
   onUpdateItemSuccess ({items, item, collection, parent, id, data}) {
     var target = getTarget({collection, parent, id}, this),
       update = {
@@ -189,7 +187,6 @@ class TutReqStore {
       this.setState(this);
     }
   }
-
   onUpdateItemFail ({collection, id, parent, data}) {
     var target = getTarget({collection, parent, id}, this),
       update = {
@@ -200,11 +197,9 @@ class TutReqStore {
       }
     Object.assign(target, update);
   }
-
   onJudgeTagPending ({id, decision}) {
 
   }
-
   onJudgeTagSuccess ({id, decision, data}) {
     var target = getTarget({collection: 'tags', id}, this);
     target.is_pending = false;
@@ -213,21 +208,17 @@ class TutReqStore {
   onJudgeTagFail ({id, decision}) {
 
   }
-
   onAddSolutionPending () {
     this.setState({lockSolution: true});
   }
-
   onAddSolutionFail ({id, data}) {
     this.setState({lockSolution: false});
   }
-
   onAddSolutionSuccess ({id, data}) {
     this.solutions.push(data);
     this.setState({lockSolution: false});
     this.setState(this);
   }
-
   onDeleteSuccess ({collection, id, parent, type, data}) {
     var target = getTarget({collection, parent, id}, this);
     target.removed = data.removed;

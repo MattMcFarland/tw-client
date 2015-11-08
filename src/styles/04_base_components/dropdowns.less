@@ -74,6 +74,7 @@
 }
 
 // Hover/Focus state
+.dropdown-menu > li > button,
 .dropdown-menu > li > a {
   &:hover,
   &:focus {
@@ -84,6 +85,7 @@
 }
 
 // Active state
+.dropdown-menu > .active > button,
 .dropdown-menu > .active > a {
   &,
   &:hover,
@@ -98,7 +100,7 @@
 // Disabled state
 //
 // Gray out text and ensure the hover/focus state remains gray
-
+.dropdown-menu > .disabled > button,
 .dropdown-menu > .disabled > a {
   &,
   &:hover,
@@ -125,6 +127,7 @@
   }
 
   // Remove the outline when :focus is triggered
+  > button,
   > a {
     outline: 0;
   }
@@ -213,4 +216,44 @@
       .dropdown-menu-left();
     }
   }
+}
+
+/* Hacky Overrides */
+/* TODO: Clean this up! */
+
+.dropdown-menu span.glyphicon {
+  display:inline-block;
+  border: thin solid #eaeaea;
+  line-height: 1.5;
+  margin-right: 0.5em;
+  padding: 0.1em;
+  color: #999;
+  background: #f6f6f6;
+  border-radius: 1px;
+}
+
+.dropdown-menu button:hover span.glyphicon,
+.dropdown-menu button:focus span.glyphicon,
+.dropdown-menu a:hover span.glyphicon,
+.dropdown-menu a:focus span.glyphicon {
+  border: thin solid #666;
+  color: inherit;
+  background: inherit;
+}
+
+
+.nav .open > button.nav.navbar-nav.btn-link.dropdown-toggle:active,
+.nav .open > button.nav.navbar-nav.btn-link.dropdown-toggle:hover,
+.nav .open > button.nav.navbar-nav.btn-link.dropdown-toggle:focus,
+.nav .open > button.nav.navbar-nav.btn-link.dropdown-toggle,
+.open > nav.navbar-nav.btn-link.dropdown-toggle,
+.nav.navbar-nav.btn-link.dropdown-toggle.open,
+.nav.navbar-nav.btn-link.dropdown-toggle,
+.nav .open > button, .nav .open > a, .nav .open > button:hover, .nav .open > a:hover, .nav .open > button:focus, .nav .open > a:focus {
+  background: inherit;
+}
+
+ul.dropdown-menu > li > button {
+  width: 100%;
+  text-align: left;
 }

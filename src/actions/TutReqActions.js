@@ -1,6 +1,6 @@
 import alt from '../alt';
 import ajax from 'superagent';
-
+import UserActions from './UserActions';
 
 function getPathPrefixByType(type) {
   return (type === "TutorialRequest") ?
