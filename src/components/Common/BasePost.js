@@ -192,6 +192,11 @@ export default class BasePost extends Component {
       );
     }
   }
+  innerContent = () => {
+    return <div>
+      <div dangerouslySetInnerHTML={{__html: marked(this.props.data.content.toString(), {sanitize: true}) }} />
+    </div>;
+  }
   renderContentCell = () => {
     return (
       <div className="content-cell">
@@ -216,7 +221,9 @@ export default class BasePost extends Component {
             </button> :
             ''
           }
-          <p dangerouslySetInnerHTML={{__html: marked(this.props.data.content.toString(), {sanitize: true}) }}/>
+          <div id={this.props.data.id + '-marked'} key={this.props.data.id + '-marked'} >
+            {this.innerContent()}
+          </div>
           {this.renderContentMeta()}
         </div>
       </div>
