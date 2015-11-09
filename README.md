@@ -5,5 +5,6 @@
 - [x] Create basic profile page on client
 - [x] Create Account Page
 - [x] Create Account Save Handler on server.
-- [ ] Create Account Save Handler on client.
+- [x] Create Account Save Handler on client.
+- [x] Add reset password link
 - [ ] Add "Recent Activity" to Basic User Profile Page

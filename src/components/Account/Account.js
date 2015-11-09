@@ -70,7 +70,13 @@ export default class Account extends React.Component {
 
           <input className="btn btn-info" type="submit" value="Save Changes"/>
         </form>
-      </div>
+
+        <hr/>
+        <h3>Password</h3>
+        <hr/><p>Click the "Reset Password" link below to be redirected to password reset page.</p>
+        <a href="/change" className="btn btn-danger">Reset Password</a>
+
+        </div>
     );
   }
 
