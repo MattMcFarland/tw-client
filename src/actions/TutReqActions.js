@@ -39,6 +39,8 @@ class TutReqActions {
       'toggleItemEdit',
       'toggleTagsEdit',
 
+      'toggleFlagPending',
+
       'updateItemPending',
       'updateItemSuccess',
       'updateItemFail',
@@ -72,7 +74,7 @@ class TutReqActions {
     // result handler function (done) will execute the appropriate action in the store.
     const done = ((err, res) => {
       if (err) {
-        this.actions.voteFail({id, collection, parent, data: err});
+        this.actions.voteFail({id, collection, parent, data: {error: res}});
       } else {
         this.actions.voteSuccess({id, collection, parent, data: res.body});
       }
@@ -82,6 +84,7 @@ class TutReqActions {
     ajax.put(pathPrefix + id +  '/vote')
       .send({direction})
       .end(done)
+
 
     // Inform store that vote is pending
     this.actions.votePending({id, direction, parent, collection});
@@ -103,6 +106,7 @@ class TutReqActions {
       .send({flagType})
       .end(done)
 
+    this.actions.toggleFlagPending();
   }
 
   // TODO: Add Validation to comment form.

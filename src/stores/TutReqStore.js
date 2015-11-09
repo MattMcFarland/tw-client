@@ -70,8 +70,11 @@ class TutReqStore {
 
   onVotePending ({collection, parent, id, direction}) {
     var target = getTarget({collection, parent, id}, this);
+    if (this.user.error) {
+      return;
+    }
     // if previous vote was up
-    if (target.userVote === 1) {
+    if (this.user && target.userVote === 1) {
       if (direction === "up") {
         target.userVote = 0;
         target.score -= 1;
@@ -81,7 +84,7 @@ class TutReqStore {
         target.score -= 2;
       }
       // if previous vot was down
-    } else if (target.userVote === -1) {
+    } else if (this.user && target.userVote === -1) {
       if (direction === "up") {
         target.userVote = 1;
         target.score += 2;
@@ -90,7 +93,7 @@ class TutReqStore {
         target.userVote = 0;
         target.score += 1;
       }
-    } else if (target.userVote === 0) {
+    } else if (this.user && target.userVote === 0) {
       if (direction === "up") {
         target.userVote = 1;
         target.score += 1;
@@ -110,8 +113,11 @@ class TutReqStore {
     target.userVote = data.userVote;
     this.setState(this);
   }
-  onVoteFail ({collection, parent, id}) {
-    var target = getTarget({collection, parent, id}, this);
+  onVoteFail ({collection, parent, id, data}) {
+    if (data.error && data.error.status === 403) {
+      window.location.href =  window.location = "/login?next=" + window.location.pathname;
+    }
+    let target = getTarget({collection, parent, id}, this);
     target.volatile.lockVote = false;
     this.setState(this);
   }
@@ -223,6 +229,11 @@ class TutReqStore {
     var target = getTarget({collection, parent, id}, this);
     target.removed = data.removed;
     this.setState(this);
+  }
+  onToggleFlagPending () {
+    if (this.user.error) {
+      window.location.href =  window.location = "/login?next=" + window.location.pathname;
+    }
   }
 }
 

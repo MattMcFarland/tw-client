@@ -16,6 +16,7 @@ class UserStore {
 
   // user is not logged in.
   onInitFail(er) {
+    this.setState({error: 'not logged in'});
     //console.debug('error ocurred', er);
     //this.setState();
   }
