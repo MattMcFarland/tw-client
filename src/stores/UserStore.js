@@ -14,9 +14,7 @@ class UserStore {
 
   onInitSuccess(user) {
     //console.debug('userstore init', user);
-    user.formFirstName = user.givenName;
-    user.formLastName = user.surname;
-    user.formEmail = user.email;
+
 
     if (user.customData && user.customData.history) {
       user.customData.history.sort((a, b) => {
@@ -34,14 +32,6 @@ class UserStore {
     this.setState({error: 'not logged in'});
     //console.debug('error ocurred', er);
     //this.setState();
-  }
-
-  onUpdateAccountInfoSuccess({data}) {
-    this.setState(data);
-  }
-
-  onUpdateAccountInfoFail({data}) {
-    this.setState(data);
   }
 
 

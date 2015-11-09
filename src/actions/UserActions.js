@@ -5,9 +5,7 @@ class UserActions {
   constructor() {
     this.generateActions(
       'initFail',
-      'initSuccess',
-      'updateAccountInfoFail',
-      'updateAccountInfoSuccess'
+      'initSuccess'
     );
 
   }
@@ -26,21 +24,7 @@ class UserActions {
     }
   }
 
-  updateAccountInfo({formFirstName, formLastName, formEmail}) {
-    // result handler function (done) will execute the appropriate action in the store.
-    const done = ((err, res) => {
-      if (err) {
-        this.actions.updateAccountInfoFail({formFirstName, formLastName, formEmail, data: {error: res}});
-      } else {
-        this.actions.updateAccountInfoSuccess({formFirstName, formLastName, formEmail, data: res.body});
-      }
-    });
 
-    ajax.post('/api/account')
-      .send({givenName: formFirstName, surname: formLastName, email: formEmail})
-      .end(done)
-
-  }
 
 }
 

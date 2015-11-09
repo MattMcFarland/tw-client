@@ -159,3 +159,20 @@ hr {
 [role="button"] {
   cursor: pointer;
 }
+
+
+.pagewrapper {
+  font-size: 14px;
+  padding: 2em;
+}
+
+ul.tabz {
+  border-bottom: thin solid #bababa;
+  > li {
+    margin-right:2em;
+    display: inline-block;
+    &.active {
+      border-bottom: thick solid @brand-info;
+    }
+  }
+}
