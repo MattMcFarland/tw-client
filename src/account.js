@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {Common} from './components';
 import {Account} from './components';
 require('./styles/main.less');
+require('./utils/polyfills');
 
 ReactDOM.render(
   <div>
