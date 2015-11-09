@@ -18,7 +18,7 @@ export default class LinkInput extends Component {
       }
     };
     this.scrapeUrl = (url) => {
-      ajax.post('/api/scrape/', {url}, (err, res) => {
+      ajax.post('/_api/scrape/', {url}, (err, res) => {
         if (err) {
           this.setState({status: {
             message: 'Invalid Url! Please start with http:// or https://',

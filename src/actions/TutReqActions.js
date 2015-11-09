@@ -82,7 +82,10 @@ class TutReqActions {
 
     // hit API with PUT request.
     ajax.put(pathPrefix + id +  '/vote')
-      .send({direction})
+      .send({
+        rootUrl: window.location.pathname,
+        direction
+      })
       .end(done)
 
 
@@ -103,7 +106,10 @@ class TutReqActions {
 
 
     ajax.put(pathPrefix + id + '/flag')
-      .send({flagType})
+      .send({
+        rootUrl: window.location.pathname,
+        flagType
+      })
       .end(done)
 
     this.actions.toggleFlagPending();
@@ -133,7 +139,10 @@ class TutReqActions {
     });
 
     ajax.put(pathPrefix + id + '/comment')
-      .send({message})
+      .send({
+        rootUrl: window.location.pathname,
+        message
+      })
       .end(done)
 
     this.actions.commentSubmitPending({id, parent, collection});
@@ -149,7 +158,10 @@ class TutReqActions {
     });
 
     ajax.put('/api/tutorial-requests/' + id + '/solution')
-      .send(formData)
+      .send({
+        formData,
+        rootUrl: window.location.pathname
+      })
       .end(done);
 
     this.actions.addSolutionPending({id, formData});
@@ -180,7 +192,10 @@ class TutReqActions {
     });
 
     ajax.put(pathPrefix + id)
-      .send(fields)
+      .send({
+        formData: fields,
+        rootUrl: window.location.pathname
+      })
       .end(done)
 
     this.actions.updateItemPending({type, collection, id, parent, fields});

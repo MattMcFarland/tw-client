@@ -110,7 +110,7 @@ export default class Comment extends React.Component {
 
   render () {
     return (
-      <section className={this.props.removed ? "deleted" : ""}>
+      <section id={"comment-" + this.props.id} className={this.props.removed ? "deleted" : ""}>
         {this.props.volatile.isEditing ? this.commentEditForm() : this.displayComment()}
       </section>
     )

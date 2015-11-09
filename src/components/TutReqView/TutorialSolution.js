@@ -233,7 +233,7 @@ export default class TutorialSolution extends BasePost {
   }
   render () {
     return (
-      <section className={this.props.data.removed ? "deleted container-fluid" : "container-fluid"}>
+      <section id={"tutorialsolution-" + this.props.data.id} className={this.props.data.removed ? "deleted container-fluid" : "container-fluid"}>
         <div className="panel tutorial-request post">
           {this.renderHeading()}
           {this.renderBody()}
