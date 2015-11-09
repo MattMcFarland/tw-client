@@ -3,5 +3,7 @@
 - [x] Update stormpath
 - [x] Setup basic profile page on server
 - [x] Create basic profile page on client
-- [ ] Create Account Page
+- [x] Create Account Page
+- [x] Create Account Save Handler on server.
+- [ ] Create Account Save Handler on client.
 - [ ] Add "Recent Activity" to Basic User Profile Page

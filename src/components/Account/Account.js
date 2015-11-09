@@ -26,8 +26,20 @@ export default class Account extends React.Component {
     this.setState(state);
   }
 
-  onSubmit(e) {
+  onSubmit = (e) => {
     e.preventDefault();
+    let {formFirstName, formLastName, formEmail} = this.state;
+    UserActions.updateAccountInfo({formFirstName, formLastName, formEmail});
+  }
+
+  onFirstNameChange = (e) => {
+    this.setState({formFirstName: e.currentTarget.value});
+  }
+  onLastNameChange = (e) => {
+    this.setState({formLastName: e.currentTarget.value});
+  }
+  onEmailChange = (e) => {
+    this.setState({formEmail: e.currentTarget.value});
   }
 
   render () {
@@ -40,19 +52,19 @@ export default class Account extends React.Component {
           <fieldset className="form-group">
 
               <label htmlFor="firstName" className="form-label">First Name</label>
-              <input id="firstName" type="text" className="form-control" name="firstName" value={this.state.givenName}/>
+              <input id="firstName" type="text" className="form-control" name="firstName" onChange={this.onFirstNameChange} value={this.state.formFirstName}/>
 
           </fieldset>
           <fieldset className="form-group">
 
               <label htmlFor="surname" className="form-label">Last Name</label>
-              <input id="surname" type="text" className="form-control" name="surname" value={this.state.surname}/>
+              <input id="surname" type="text" className="form-control" name="surname" onChange={this.onLastNameChange} value={this.state.formLastName}/>
 
           </fieldset>
           <fieldset className="form-group">
 
               <label htmlFor="email" className="form-label">Email Address</label>
-              <input id="email" type="email" className="form-control" name="email" value={this.state.email}/>
+              <input id="email" type="email" className="form-control" name="email" onChange={this.onEmailChange} value={this.state.formEmail}/>
 
           </fieldset>
 

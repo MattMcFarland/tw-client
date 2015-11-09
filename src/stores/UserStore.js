@@ -11,6 +11,9 @@ class UserStore {
 
   onInitSuccess(user) {
     //console.debug('userstore init', user);
+    user.formFirstName = user.givenName;
+    user.formLastName = user.surname;
+    user.formEmail = user.email;
     this.setState(user);
   }
 
@@ -20,6 +23,16 @@ class UserStore {
     //console.debug('error ocurred', er);
     //this.setState();
   }
+
+  onUpdateAccountInfoSuccess({data}) {
+    this.setState(data);
+  }
+
+  onUpdateAccountInfoFail({data}) {
+    this.setState(data);
+  }
+
+
 }
 
 
