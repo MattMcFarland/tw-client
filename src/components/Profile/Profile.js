@@ -26,31 +26,93 @@ export default class Profile extends React.Component {
     this.setState(state);
   }
 
-  render () {
+  renderOccupation = () => {
+    return (
+      <span>{this.state.customData.occupation}</span>
+    );
+  }
+
+  renderFrom = () => {
+    return (
+      <span>
+        <span>&nbsp;from&nbsp;</span>
+        <span>{this.state.customData.location}</span>
+      </span>
+    )
+  }
+
+  renderBio = () => {
+    return (
+      <section>
+        <h3>Bio</h3>
+        <p>{this.state.customData.bio}</p>
+        <hr/>
+      </section>
+    );
+  }
+
+  renderLinks = () => {
+    var linkList = this.state.customData.links.map((link, idx) => {
+      return (
+        <div key={idx}>
+          <dt>{link.name}</dt>
+          <dd><a href={link.url}>{link.url}</a></dd>
+        </div>
+      );
+    })
+    return (
+      <section>
+        <h3>Links</h3>
+        <dl>
+          {linkList}
+        </dl>
+        <hr/>
+      </section>
+    );
+  };
+  renderHistory = () => {
     var activities = this.state.customData.history.map((item, idx) => {
       return (<tr key={idx}>
         <td>{item.action}</td>
         <td><a href={item.url}>{moment(item.timestamp).fromNow()}</a></td>
       </tr>)
     });
+
     return (
-      <div>
-        <h2>{this.state.fullName}</h2>
-        <p>This is a basic user profile page...</p>
-        <hr/>
+      <section>
         <h3>Recent Activity</h3>
         <table className="table">
           <thead>
-            <tr>
-              <th>Activity</th>
-              <th>When</th>
-            </tr>
+          <tr>
+            <th>Activity</th>
+            <th>When</th>
+          </tr>
           </thead>
           <tbody>
-            {activities}
+          {activities}
           </tbody>
         </table>
-      </div>
+      </section>
+    );
+  }
+  render () {
+
+    return (
+      <section>
+        <header>
+          <h2>{this.state.fullName}</h2>
+          <em>
+            {this.state.customData.occupation ? this.renderOccupation() : ''}
+            {this.state.customData.location ? this.renderFrom() : ''}
+          </em>
+          <hr/>
+        </header>
+
+        {this.state.customData.bio ? this.renderBio() : ''}
+        {this.state.customData.links ? this.renderLinks() : ''}
+        {this.state.customData.history ? this.renderHistory() : ''}
+
+      </section>
     );
   }
 
