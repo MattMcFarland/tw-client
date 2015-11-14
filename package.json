@@ -5,8 +5,20 @@
   "description": "",
   "browser": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node ./express/bin/www"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "testFileExtensions": [
+      "es6",
+      "js"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "es6"
+    ]
   },
   "files": [
     "dist/*"
@@ -25,6 +37,17 @@
   "author": "mmcfarland",
   "license": "MIT",
   "devDependencies": {
+    "babel-jest": "^6.0.1",
+    "babel-plugin-syntax-jsx": "^6.1.18",
+    "babel-plugin-transform-es2015-arrow-functions": "^6.1.18",
+    "babel-plugin-transform-es2015-block-scoped-functions": "^6.1.18",
+    "babel-plugin-transform-es2015-block-scoping": "^6.1.18",
+    "babel-plugin-transform-es2015-destructuring": "^6.1.18",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.1.20",
+    "babel-plugin-transform-es2015-spread": "^6.1.18",
+    "babel-plugin-transform-es2015-template-literals": "^6.1.18",
+    "babel-preset-react": "^6.1.18",
+    "babel-preset-stage-0": "^6.1.18",
     "babelify": "^6.4.0",
     "browserify": "^11.2.0",
     "gulp": "^3.9.0",
@@ -32,6 +55,7 @@
     "gulp-sourcemaps": "^1.5.2",
     "gulp-uglify": "^1.4.2",
     "gulp-util": "^3.0.7",
+    "jest": "^0.1.40",
     "lessify": "^1.0.1",
     "lodash": "^3.10.1",
     "react": "^0.14.0",
@@ -40,7 +64,6 @@
     "watchify": "^3.4.0"
   },
   "dependencies": {
-    "alt": "^0.17.6",
     "faker": "^3.0.1",
     "jquery": "^2.1.4",
     "moment": "^2.10.6",

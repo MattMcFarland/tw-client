@@ -37,4 +37,5 @@ class IndexStore {
 
 }
 
+
 export default alt.createStore(IndexStore, 'IndexStore');
