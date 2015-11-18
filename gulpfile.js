@@ -8,7 +8,8 @@ const
   bundle = require('./tasks/bundle'),
   bundlemin = require("./tasks/bundlemin"),
   lint = require('./tasks/lint'),
-  watch = require('./tasks/watch');
+  watch = require('./tasks/watch'),
+  sass = require('./tasks/sass');
 
 gulp.task('bundle-prod', ['lint'], () => {
   bundlemin('src/index', 'index', 'dist', true);
@@ -33,4 +34,4 @@ gulp.task('watch-requestform', () => watch('src/requestform', 'requestform', 'di
 gulp.task('watch-profile', () => watch('src/profile', 'profile', 'dist'));
 gulp.task('watch-account', () => watch('src/account', 'account', 'dist'));
 
-gulp.task('foo', () => console.log('bar'));
+gulp.task('sass', () => sass('src/style/scss/main.scss', 'main', 'dist'));
