@@ -1,0 +1,25 @@
+@import 'vendor/bootstrap/bootstrap-reboot';
+@import 'vendor/bootstrap/bootstrap-grid';
+@import 'vendor/ionicons.min';
+@import 'vars';
+@import 'fonts';
+@import 'typo';
+@import 'components/components';
+
+body {
+  line-height: 23px;
+  font-size: 16px;
+  padding-top: 80px;
+  font-family:'Ubuntu', sans-serif;
+}
+
+.no-padding {
+  padding: 0;
+}
+.section-full--blue {
+  background: $blue;
+}
+
+menu {
+  margin:0;
+}
