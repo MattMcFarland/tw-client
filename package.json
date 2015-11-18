@@ -72,9 +72,7 @@
     "react": "^0.14.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.4.0"
-  },
-  "dependencies": {
+    "watchify": "^3.4.0",
     "faker": "^3.0.1",
     "jquery": "^2.1.4",
     "moment": "^2.10.6",
