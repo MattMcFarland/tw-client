@@ -1,15 +1,15 @@
 var
   gulp = require('gulp'),
   sass = require('gulp-sass'),
-  plumber = require('gulp-plumber');
+  gutil = require('gulp-util');
 
 module.exports = function(entry, name, dest) {
-  return gulp.src(paths)
-    .pipe(plumber({
-      errorHandler: notify.onError("Error: <%= error.message %>")
-    }))
-    .pipe(source(name + '.css'))
+  return gulp.src(entry)
     .pipe(sass())
+    .on('error', gutil.log)
+    .on('end', (a) => {
+      gutil.log('File Saved', gutil.colors.cyan(dest + '/' + name + '.css'));
+    })
     .pipe(gulp.dest(dest));
 }
 
