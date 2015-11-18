@@ -1,7 +1,7 @@
 {
   "name": "@mattmcfarland/tw-client",
   "main": "",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "",
   "browser": "",
   "scripts": {
@@ -21,7 +21,9 @@
     ]
   },
   "files": [
-    "dist/*"
+    "dist/*",
+    "public/*",
+    "views/*"
   ],
   "browserify": {
     "transform": [
@@ -70,17 +72,21 @@
     "gulp-uglify": "^1.4.2",
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
+    "highlight.js": "^8.9.1",
     "jest": "^0.1.40",
     "jquery": "^2.1.4",
     "lessify": "^1.0.1",
     "lodash": "^3.10.1",
+    "marked": "^0.3.5",
     "moment": "^2.10.6",
     "normalizr": "^1.4.0",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
+    "react-select": "^0.9.1",
     "superagent": "^1.4.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.4.0"
+    "watchify": "^3.4.0",
+    "xss": "^0.2.7"
   }
 }
