@@ -1,0 +1,92 @@
+/*------------------------------------*\
+    $BUTTONS
+\*------------------------------------*/
+
+button, input[type="submit"] {
+  color: inherit;
+  border: none;
+  background: inherit;
+  display: inline-block;
+  width: auto;
+}
+
+.btn {
+  font-family: 'Ubuntu', sans-serif;
+  display: inline-block;
+  background: $gray-dark;
+  color: $white;
+  line-height: 1;
+  border-radius: 2px;
+  font-weight: normal;
+  padding: $pad;
+  border: 0;
+  text-align: center;
+  &:hover, &:focus {
+    background: $gray;
+    color: $white;
+  }
+  &.disabled {
+    background: $gray-light-2;
+    color: $gray;
+  }
+
+
+  &.btn-primary {
+    background: $blue;
+    color:$white;
+    &:hover, &:focus {
+      background: $grey;
+      color: $white;
+    }
+  }
+
+  &.btn-white {
+    background: $white;
+    color: $blue;
+    &:hover, &:focus {
+      background: $grey;
+      color: $white;
+    }
+  }
+  &.btn-share {
+    min-width: 0;
+    padding: 8px;
+    transition: 0.3s;
+    &.facebook {
+      background: #3B5998;
+      &:hover {
+       opacity: 0.8;
+      }
+    }
+    &.twitter {
+      background: #4099FF;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    > span.icon {
+      min-width: 25px;
+      margin: 0;
+    }
+  }
+}
+a.btn {
+  display: inline-block;
+}
+
+.btn-small {
+  padding: $pad-half;
+}
+
+.btn-large {
+  padding: $pad-half;
+  text-transform: uppercase;
+  background: $gray;
+  font-size: 1.4rem;
+  font-weight: normal;
+}
+
+
+.text-btn {
+  font-style: italic;
+}

@@ -1,0 +1,23 @@
+.tag {
+  background-color: $grey;
+  display: inline-block;
+  color: white;
+  font-size: 13px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  padding: 0 12px;
+  line-height: 24px;
+}
+
+.tags {
+  list-style: none;
+  > li {
+    &:nth-child(even) {
+      background-color: $yellow;
+    }
+    &:nth-child(odd) {
+      background-color: $pink;
+    }
+  }
+}
+

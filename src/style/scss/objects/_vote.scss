@@ -1,0 +1,38 @@
+.vote {
+  display: inline-block;
+  width: auto;
+  text-align: center;
+  button {
+    color: $blue;
+    background: white;
+    transition: 0.3s;
+    padding: 0;
+    border: none;
+    .icon {
+      font-size: 26px;
+    }
+    &.up {
+      &:hover {
+        color: $green;
+      }
+    }
+    &.down {
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+  .score {
+    font-size: 14px;
+    font-family: Ubuntu, sans-serif;
+    font-weight: 700;
+    color: $dark;
+    display: block;
+  }
+  &.vote-lg {
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+    padding: 0.66em 0.88em;
+    border-radius: 8px;
+
+  }
+}

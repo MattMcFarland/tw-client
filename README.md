@@ -19,11 +19,14 @@ Both `/dist/js` and `/dist/style` are bundled files from gulp.
 
 ### Changelog
 
-#### v1.0.1
+#### v2.0.1
 
 - Add link to dist/style/main.css (fix)
 
-#### v1.0.0
+#### v2.0.0
+
+Accidentally incremented major version too high.
+
 
 Breaking changes.
 

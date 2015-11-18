@@ -1,0 +1,28 @@
+.user {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  display: table;
+  vertical-align: top;
+  width: 100%;
+  .body {
+    display: table-row;
+    > .avatar-container {
+      vertical-align: top;
+      display: table-cell;
+      width: 32px;
+      padding-right: 0.5em;
+    }
+    > .meta {
+      display: table-cell;
+      .user-name {
+        display: block;
+        line-height: 16px;
+      }
+      .timestamp {
+        display: block;
+        font-size: 14px;
+        color: rgb(152, 157, 171);
+      }
+    }
+  }
+}

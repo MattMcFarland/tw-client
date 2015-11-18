@@ -1,0 +1,62 @@
+.categorybar {
+  background-color: $blue;
+  height: auto;
+  line-height: 80px;
+  padding: 20px 0;
+  border-bottom: 1px solid #dbdbdb;
+  width: 100%;
+  position: relative;
+  .content {
+    max-width: 1200px;
+    padding: 0 0.5em;
+    @extend .lc;
+    ul {
+      width: 66%;
+      > li {
+        border: 2px solid $white;
+        display: inline-block;
+        border-radius: 4px;
+        margin-left: 15px;
+        &:first-child {
+          margin-left: 5px;
+        }
+        a, button {
+          min-width: 75px;
+          line-height: 26px;
+          font-size: 16px;
+          padding: 0 14px;
+          display: block;
+          background: $blue;
+          color: white;
+          border: none;
+          font-weight: 200;
+          &.static {
+            background: $white;
+            color: $blue;
+          }
+          &:hover {
+            text-decoration: none;
+          }
+        }
+        &.static {
+          background: $white;
+          color: $blue;
+          a, button {
+              background: $white;
+              color: $blue;
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .categorybar .content ul {
+    width: 100%;
+  }
+}

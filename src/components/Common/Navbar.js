@@ -33,33 +33,37 @@ class Navbar extends Component {
   }
   render () {
     return (
-      <nav className="navbar navbar-inverse">
-        <div className="container-fluid">
-          <div className="navbar-header">
-            <a href="/" className="navbar-brand">Tuts-Wanted</a>
+      <header>
+        <nav className="topbar">
+          <div className="topbar__content">
+            <div className="row">
+              <div className="col-lg-9 col-lg-offset-2">
+                <a href="/" className="topbar__logo">WT</a>
+                <ul className="topbar__list pull-right">
+                  <li className="topbar__list__item">
+                    {this.state && this.state.username ? <DropDown title="Account" options={[
+                  {
+                    type: "link",
+                    href: "/account",
+                    icon: "user",
+                    title: "My Account"
+                  },
+                  {
+                    type: "link",
+                    href: "/logout",
+                    icon: "log-out",
+                    title: "Logout"
+                  }
+                  ]} /> :
+                      <a href="/login">Login</a>
+                    }
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-            <ul className="nav navbar-nav navbar-right">
-              <li>
-                {this.state && this.state.username ? <DropDown title="Account" options={[
-                {
-                  type: "link",
-                  href: "/account",
-                  icon: "user",
-                  title: "My Account"
-                },
-                {
-                  type: "link",
-                  href: "/logout",
-                  icon: "log-out",
-                  title: "Logout"
-                }
-                ]} /> :
-                <a href="/login">Login</a>
-                }
-              </li>
-            </ul>
-        </div>
-      </nav>
+        </nav>
+      </header>
     );
   }
 }

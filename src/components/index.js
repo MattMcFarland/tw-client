@@ -1,5 +1,8 @@
 exports.Common = {
-  Navbar: require('./Common/Navbar')
+  Layout: require('./Common/Layout'),
+  Navbar: require('./Common/Navbar'),
+  Sidebar: require('./Common/Sidebar'),
+  Categorybar: require('./Common/Categorybar')
 };
 exports.TutReqList = require('./TutReqList/TutReqList');
 exports.TutReqForm = require('./TutReqForm/TutReqForm');

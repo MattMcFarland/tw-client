@@ -1,0 +1,43 @@
+.solution-form {
+  background-color: $blue;
+  height: auto;
+  line-height: 1.3;
+  padding: 20px 0;
+  border-bottom: 1px solid #dbdbdb;
+  width: 100%;
+  position: relative;
+  fieldset, footer {
+    max-width: 1200px;
+    padding: 0 0.5em;
+    @extend .lc;
+    > section {
+      width: 66%;
+    }
+  }
+  legend {
+    line-height: 3em;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: white;
+  }
+  p {
+    color: white;
+  }
+
+  input[type="url"], textarea {
+    margin: 20px 0;
+    border: thin solid rgba(0,0,0, 0.2);
+  }
+
+  input[type="submit"] {
+    min-width: 80px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .solution-form fieldset > section{
+    width: 100%;
+  }
+}

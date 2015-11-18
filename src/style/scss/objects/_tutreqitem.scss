@@ -1,0 +1,121 @@
+
+.tut-request-item, .tut-request-detail, .tut-solution-detail  {
+  display: block;
+  >section.title {
+    margin-bottom: 20px;
+  }
+  .content {
+    display: table;
+
+    &:hover {
+      opacity: 1;
+    }
+    .vote-cell {
+      display: table-cell;
+      min-width: 90px;
+    }
+    .content-cell {
+      vertical-align: top;
+      display:table-cell;
+      > section.meta {
+        display: block;
+        margin-bottom: 6px;
+      }
+      > ul.tags {
+        margin-bottom: 6px;
+        min-height: 42px;
+      }
+      > section.title {
+        display: block;
+      }
+    }
+  }
+  .divider {
+    position: relative;
+    text-align: center;
+    display:block;
+
+    &:before {
+      border-top: thin solid $light-grey;
+      content: " ";
+      display: block;
+      position: absolute;
+      width: 90%;
+      margin: 16px 5% 0 5%;
+    }
+  }
+  .response-count {
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    opacity: 0.6;
+    transition: 0.3s;
+    &:hover {
+      opacity: 1;
+    }
+    button {
+      white-space: nowrap;
+      line-height: .5em;
+      padding: .5em;
+      border-radius: 4px;
+    }
+  }
+}
+.tutorial-request-list {
+
+  li {
+    margin-bottom: 48px;
+  }
+}
+
+.tut-request-detail {
+  margin-top: 90px;
+}
+
+.tut-solution-detail {
+  .title {
+    .icon {
+      color: $blue;
+      margin-right: 1em;
+    }
+  }
+
+  .link-meta {
+    .image {
+      background-size: cover;
+      height: 250px;
+      .foreground {
+        background-color: rgba(0,0,0, 0.5);
+        color: white;
+        height: 250px;
+        overflow: hidden;
+        position: relative;
+      }
+      .description {
+        padding: 20px 30px;
+        height: 200px;
+      }
+      footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 20px 30px;
+        text-align: right;
+        > button {
+          padding: 12px 20px;
+          min-width: 100px;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+  .body {
+    color: #888;
+  }
+}
+
+.tutorial-solution-list {
+  > li {
+    margin: 70px 0;
+  }
+}

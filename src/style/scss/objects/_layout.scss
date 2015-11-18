@@ -1,0 +1,39 @@
+/*------------------------------------*\
+    $LAYOUT
+\*------------------------------------*/
+
+/* Layout Container */
+.lc {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: $pad-half;
+}
+.load-more {
+  display: block;
+  text-align: center;
+  margin: 94px 0;
+  button {
+    min-width: 240px;
+    padding: 8px 0;
+    border-radius: 4px;
+  }
+}
+
+.main-content.content-tut-request {
+  margin: 40px 0;
+}
+
+.main-content-container {
+  max-width: 1200px;
+  padding: 0 0.5em;
+  @extend .lc;
+  >.main-content {
+    width: 66%;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content-container > .main-content {
+    width: 100%;
+  }
+}

@@ -1,0 +1,85 @@
+.sidebar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 33%;
+  background: $sidebar;
+  min-height: 300px;
+  margin-bottom: 0;
+  z-index:2;
+  .widget {
+    margin: 24px 0;
+    &.share {
+      .widget-body {
+        margin: 20px 0 20px 50px;
+        > button.btn.btn-share > .icon {
+          min-width: 38px;
+        }
+      }
+
+    }
+    &.activity-stream {
+      margin-top: 68px;
+    }
+  }
+  > section {
+    position: relative;
+    padding: 1em;
+    .icon {
+      display: inline-block;
+      min-width: 50px;
+      margin-right: 4px;
+      font-size: 1.5em;
+      text-align: center;
+      vertical-align: top;
+      &.up {
+        color: $green;
+      }
+      &.down {
+        color: $red;
+      }
+      &.blue {
+        color: $blue;
+      }
+    }
+    h2,h3,h4,h5,h6 {
+      text-transform: uppercase;
+      vertical-align: top;
+      padding-top: 4px;
+      > span.icon {
+        margin-top: -4px;
+      }
+    }
+    ul {
+      > li {
+        margin: 20px 0;
+        border-bottom: 1px solid #dadada;
+        &:first-child {
+          margin: 10px 0;
+        }
+        &:last-child {
+          border-bottom: none;
+        }
+        > span {
+          display: inline-block;
+          vertical-align: top;
+          width: 50px;
+        }
+        > p {
+          vertical-align: top;
+          padding-top: 4px;
+          width: 200px;
+          display: inline-block;
+        }
+
+      }
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}

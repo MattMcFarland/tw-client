@@ -1,0 +1,62 @@
+.comment-zone {
+  background-color: $sidebar;
+  padding: 15px 30px;
+}
+
+.comments > header {
+  margin: 0 0 20px 0;
+  h4 {
+    text-transform: uppercase;
+  }
+  .icon {
+    color: $blue;
+    margin-right: 12px;
+    font-size: 22px;
+  }
+}
+
+.comment {
+  color: #999;
+  .comment-heading {
+    margin-bottom: 5px;
+    .comment-author {
+      color: $dark;
+    }
+  }
+  .comment-footer {
+    margin-top: 10px;
+    > div {
+      display: inline-block;
+    }
+    .vote-section {
+      button {
+        line-height: 24px;
+        display: inline-block;
+        padding: 0;
+        vertical-align: baseline;
+        margin-right: 0.33em;
+        color: $blue;
+        transition: 0.3s;
+        &.active, &:hover, &:focus {
+          color: $green;
+        }
+      }
+      .score {
+        vertical-align: top;
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 26px;
+        display: inline-block;
+        color: $dark;
+      }
+    }
+    .share-section {
+      > button {
+        font-size: 19px;
+        vertical-align: baseline;
+        line-height: 18px;
+      }
+    }
+
+  }
+}

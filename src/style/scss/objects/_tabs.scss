@@ -1,0 +1,51 @@
+.tabs {
+
+
+  ul {
+    margin-top: 80px;
+    margin-bottom: 60px;
+    display: block;
+    width: 100%;
+    padding-bottom: 4px;
+    padding-top: 6px;
+    border-bottom: 2px solid $light-grey;
+  }
+
+  li {
+    display: inline-block;
+    text-align: center;
+    margin: 0 1em;
+  }
+
+  a, button {
+    display: inline-block;
+    background: none;
+    font-size: 14px;
+    line-height: 16px;
+    position: relative;
+    color: $dark;
+    padding-left: 4px;
+    padding-right: 4px;
+    min-width: 75px;
+
+    &.active {
+      padding-bottom: 4px;
+      font-weight: bold;
+
+      &:after {
+        content: " ";
+        border-bottom: 3px solid $blue;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        width: 75px;
+        top: 20px;
+      }
+    }
+    &:hover {
+      font-weight: bold;
+    }
+  }
+}
+
