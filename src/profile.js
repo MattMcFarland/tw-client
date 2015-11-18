@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Common} from './components';
 import {Profile} from './components';
-require('./styles/main.less');
+
 require('./utils/polyfills');
 
 ReactDOM.render(
