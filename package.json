@@ -34,7 +34,18 @@
       "lessify"
     ]
   },
-  "author": "mmcfarland",
+  "contributors": [
+    {
+      "name": "Marko Bolliger",
+      "email": "sh4fty@gmail.com",
+      "url": "https://github.com/cannap"
+    },
+    {
+      "name": "Matt McFarland",
+      "email": "contact@mattmcfarland.com",
+      "url": "http://mattmcfarland.com"
+    }
+  ],
   "license": "MIT",
   "devDependencies": {
     "babel-jest": "^6.0.1",
