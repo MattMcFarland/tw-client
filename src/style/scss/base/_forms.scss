@@ -109,3 +109,21 @@ input[type="search"]::-webkit-search-decoration {
 	border-left: 1px solid $gray;
 	color: $gray;
 }
+
+
+
+/* Marked Area */
+
+.marked-area {
+  .marked-area-header {
+    menu {
+      padding: 0;
+      margin: 0;
+    }
+  }
+  .marked-area-text-container {
+    textarea {
+      margin: 0;
+    }
+  }
+}

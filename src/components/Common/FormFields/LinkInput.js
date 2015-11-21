@@ -12,7 +12,7 @@ export default class LinkInput extends Component {
       value: '',
       linkMeta: false,
       status: {
-        message: 'Please start with http:// or https://',
+        message: '',
         icon: 'info',
         className: 'info'
       }

@@ -25,12 +25,12 @@
     color: white;
   }
 
-  input[type="url"], textarea {
-    margin: 20px 0;
+  input[type="url"] {
+    margin: 20px 0 10px 0;
     border: thin solid rgba(0,0,0, 0.2);
   }
-
   input[type="submit"] {
+    margin-top: 20px;
     min-width: 80px;
   }
 }
@@ -39,5 +39,29 @@
 @media (max-width: 768px) {
   .solution-form fieldset > section{
     width: 100%;
+  }
+}
+
+.marked-area-text-container {
+  div {
+    background: white;
+    color: black;
+    padding: 1em;
+    p {
+      color: black;
+    }
+  }
+
+  textarea, div {
+    min-height: 200px;
+  }
+}
+
+.marked-area-button {
+  color: white;
+  margin-bottom: 6px;
+  &.active {
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
   }
 }

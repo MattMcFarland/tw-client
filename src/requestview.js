@@ -10,8 +10,6 @@ ReactDOM.render(
   <div>
     <Header />
     <Layout />
-    <MainContent>
-      <TutReqView />
-    </MainContent>
+    <TutReqView />
   </div>
   , document.getElementById('requestview'));

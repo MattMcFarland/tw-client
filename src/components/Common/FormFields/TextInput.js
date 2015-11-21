@@ -2,7 +2,6 @@ var React = require('react');
 module.exports = React.createClass({
   displayName: "TextInput",
   propTypes: {
-    label: React.PropTypes.string.isRequired,
     id: React.PropTypes.string.isRequired,
     _onChange: React.PropTypes.func.isRequired,
     tip: React.PropTypes.string,
@@ -20,9 +19,10 @@ module.exports = React.createClass({
   render: function () {
     return (
       <label className="text-input">
-        <span className="form-label">{this.props.label}</span>
-        <em className="form-field-tip">{this.props.tip}</em>
+        {this.props.label ? <span className="form-label">{this.props.label}</span> : ''}
+        {this.props.tip ?<em className="form-field-tip">{this.props.tip}</em> : ''}
         <input
+          placeholder={this.props.placeholder}
           min={this.props.minimum}
           type={this.props.type}
           className="text-input-field"

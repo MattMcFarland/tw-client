@@ -8,7 +8,6 @@ export default class LinkPreview extends Component {
   static propTypes = {
     title: React.PropTypes.string.isRequired,
     description: React.PropTypes.string.isRequired,
-    embedUrl: React.PropTypes.url,
     url: React.PropTypes.string,
     thumbnailUrl: React.PropTypes.string
   };

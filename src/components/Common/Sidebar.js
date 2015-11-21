@@ -5,16 +5,16 @@ import ActivityStream from './ActivityStream';
 class Sidebar extends Component {
 
   componentDidMount () {
-    this.refs.sidebar.style.height = window.innerHeight;
+    this.refs.sidebar.style.height = document.body.scrollHeight + 'px';
   }
 
   componentDidUpdate () {
-    this.refs.sidebar.style.height = window.innerHeight;
+    this.refs.sidebar.style.height = document.body.scrollHeight + 'px';
   }
 
   render() {
     return (
-      <aside ref="sidebar" className="sidebar">
+      <aside id="sidebar" ref="sidebar" className="sidebar">
         <section className="content">
           <ShareWidget />
           <ActivityStream />

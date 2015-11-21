@@ -7,6 +7,7 @@ import TutReqActions from '../../actions/TutReqActions.js';
 import TutorialRequest from './TutorialRequest';
 import TutorialSolution from './TutorialSolution';
 import TutSolForm from './TutSolForm';
+import MainContent from '../Common/MainContent';
 
 export default class TutReqView extends React.Component {
 
@@ -25,7 +26,10 @@ export default class TutReqView extends React.Component {
   componentWillUnmount() {
     TutReqStore.unlisten(this.onChange);
   }
-
+  componentDidUpdate() {
+    var sidebar = document.getElementById('sidebar');
+    sidebar.style.height = document.body.scrollHeight + 'px';
+  }
   onChange(state) {
     this.setState(state);
   }
@@ -182,22 +186,25 @@ export default class TutReqView extends React.Component {
             type={sol.type}
             data={sol}
             volatile={sol.volatile}
-            />
+          />
         </li>
       );
     });
     if (this.state && this.state.ready) {
       return (
-        <div>
-          <TutorialRequest
-            data={this.state}
-            handlers={this.handlers}
-            volatile={this.state.volatile}
+        <section>
+          <MainContent>
+            <TutorialRequest
+              data={this.state}
+              handlers={this.handlers}
+              volatile={this.state.volatile}
             />
-          <ul className="tutorial-solution-list">{TutSolList}</ul>
-          {this.state.lockSolution ? <div><img src="/img/loading.gif"/></div> :
-            <TutSolForm id={this.state.id} onSolutionSubmit={this.handlers.onSolutionSubmit}/>}
-        </div>
+            <ul className="tutorial-solution-list">{TutSolList}</ul>
+            {this.state.lockSolution ? <div><img src="/img/loading.gif"/></div> :
+              ''}
+          </MainContent>
+          <TutSolForm id={this.state.id} onSolutionSubmit={this.handlers.onSolutionSubmit}/>
+        </section>
       );
     } else {
       return <div></div>;
