@@ -83,6 +83,7 @@
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
     "react-select": "^0.9.1",
+    "spin.js": "^2.3.2",
     "superagent": "^1.4.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",

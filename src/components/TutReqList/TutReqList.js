@@ -5,6 +5,7 @@ import IndexStore from '../../stores/IndexStore.js'
 import ListItem from './ListItem.js';
 import Tabs from '../Common/Tabs';
 import classNames from 'classnames'
+import Spinner from '../../components/Common/Spinner';
 
 export default class TutReqList extends React.Component {
 
@@ -44,13 +45,13 @@ export default class TutReqList extends React.Component {
           'fufilled': (li.solutions.length)
         }),
         tags = li.tags.map((tag, index) => {
-        return (
-          <li key={index}
-              className={tag.is_pending ? "pending" : "approved"}
-              title={tag.is_pending ? "This tag is pending approval by moderators and may be removed" : "Tutorial request tagged with" + tag.name}
+          return (
+            <li key={index}
+                className={tag.is_pending ? "pending" : "approved"}
+                title={tag.is_pending ? "This tag is pending approval by moderators and may be removed" : "Tutorial request tagged with" + tag.name}
             >{tag.name}</li>
-        );
-      })
+          );
+        })
 
       if (li.solutions.length) {
         info = (<p>
@@ -69,18 +70,22 @@ export default class TutReqList extends React.Component {
       );
     });
     return (
-      <section>
+      <section style={{position: 'relative'}}>
+        {isLoading ? <Spinner /> : ''}
         <Tabs onFilter={this.onFilter} activeTab={activeTab}/>
         <section>
           <ul className="container-fluid tr-list">
             {listItems}
           </ul>
         </section>
-        {lastPage ? '' : <div className="text-center">
-          <button type="button" onClick={this.nextPage} className="btn btn-info">Load more</button>
-        </div>}
+        {lastPage ? '' :
+          <section className="load-more">
+            <button onClick={this.nextPage} className="btn btn-primary">Load More</button>
+          </section>
+        }
       </section>
     )
+
   }
 
 };

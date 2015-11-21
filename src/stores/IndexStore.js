@@ -10,6 +10,11 @@ class IndexStore {
     this.activeTab = localStorage.activeTab || "latest";
   }
 
+  onFetchPending () {
+    this.activeTab = localStorage.activeTab;
+    this.isLoading = true;
+  }
+
   onFetchSuccess (data) {
     this.activeTab = localStorage.activeTab
     this.isLoading = false;

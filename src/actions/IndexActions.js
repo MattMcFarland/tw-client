@@ -4,6 +4,7 @@ import ajax from 'superagent';
 class IndexActions {
   constructor() {
     this.generateActions(
+      'fetchPending',
       'fetchSuccess',
       'fetchFail',
       'nextPageSuccess',
@@ -55,6 +56,8 @@ class IndexActions {
         break;
 
     }
+
+    this.actions.fetchPending();
   }
 
   fetchNextPage (page, filter) {
