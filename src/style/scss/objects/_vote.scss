@@ -10,14 +10,26 @@
     border: none;
     .icon {
       font-size: 26px;
+      &.ion-chevron-up.active {
+        color: $green;
+      }
+      &.ion-chevron-down.active {
+        color: $red;
+      }
     }
     &.up {
       &:hover {
         color: $green;
       }
+      &.active {
+        color: $green;
+      }
     }
     &.down {
       &:hover {
+        color: $red;
+      }
+      &.active {
         color: $red;
       }
     }

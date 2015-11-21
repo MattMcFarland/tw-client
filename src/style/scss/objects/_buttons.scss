@@ -90,3 +90,16 @@ a.btn {
 .text-btn {
   font-style: italic;
 }
+
+
+.btn-link,
+.edit-control {
+  color: $dark;
+  opacity: 0.8;
+  transition: 0.3s;
+  &:hover, &:focus, &:active {
+    opacity: 1;
+    color: $blue;
+    text-decoration: underline;
+  }
+}

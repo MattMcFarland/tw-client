@@ -17,6 +17,12 @@
 
 .comment {
   color: #999;
+  .timestamp {
+    font-size: 12px;
+    vertical-align: top;
+    opacity: 0.6;
+    float: right;
+  }
   .comment-heading {
     margin-bottom: 5px;
     .comment-author {
@@ -35,10 +41,18 @@
         padding: 0;
         vertical-align: baseline;
         margin-right: 0.33em;
-        color: $blue;
         transition: 0.3s;
+        color: $blue;
         &.active, &:hover, &:focus {
           color: $green;
+        }
+        .icon {
+          &.ion-chevron-up.active {
+            color: $green;
+          }
+          &.ion-chevron-down.active {
+            color: $red;
+          }
         }
       }
       .score {
@@ -58,5 +72,13 @@
       }
     }
 
+  }
+}
+
+
+.comment-author > a {
+  color: $dark;
+  &:hover {
+    color: $blue;
   }
 }

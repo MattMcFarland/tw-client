@@ -7,6 +7,7 @@
   }
   .content {
     display: table;
+    width: 100%;
     .title {
       p > a {
         color: $dark;
@@ -21,11 +22,20 @@
     }
     .vote-cell {
       display: table-cell;
-      min-width: 90px;
+      min-width: 50px;
     }
     .content-cell {
       vertical-align: top;
       display:table-cell;
+      button.edit-control {
+        float: right;
+        opacity: 0.6;
+        transition: 0.3s;
+        &:hover {
+          color: $blue;
+          opacity: 1;
+        }
+      }
       > section.meta {
         display: block;
         margin-bottom: 6px;
@@ -78,7 +88,7 @@
 }
 
 .tut-request-detail {
-  margin-top: 90px;
+  margin-top: 84px;
 }
 
 .tut-solution-detail {

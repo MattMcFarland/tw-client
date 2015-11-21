@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Common} from './components';
-import {TutReqView} from './components';
+import { Header, Layout, MainContent } from './components/Common/index.js';
+import { TutReqView } from './components/index.js';
 
 require('./utils/polyfills');
 
+
 ReactDOM.render(
   <div>
-    <header>
-      <Common.Navbar />
-    </header>
-    <div className="container-fluid">
-      <TutReqView/>
-    </div>
+    <Header />
+    <Layout />
+    <MainContent>
+      <TutReqView />
+    </MainContent>
   </div>
   , document.getElementById('requestview'));
