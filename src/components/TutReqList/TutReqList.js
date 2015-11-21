@@ -18,6 +18,10 @@ export default class TutReqList extends React.Component {
     IndexStore.listen(this.onChange);
     IndexActions.fetch();
   }
+  componentDidUpdate() {
+    var sidebar = document.getElementById('sidebar');
+    sidebar.style.height = document.body.scrollHeight + 'px';
+  }
   componentWillUnmount() {
     IndexStore.unlisten(this.onChange);
   }

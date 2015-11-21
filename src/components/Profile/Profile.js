@@ -11,7 +11,10 @@ export default class Profile extends React.Component {
     this.state = UserStore.getState();
     this.onChange = this.onChange.bind(this);
   }
-
+  componentDidUpdate() {
+    var sidebar = document.getElementById('sidebar');
+    sidebar.style.height = document.body.scrollHeight + 'px';
+  }
   componentDidMount() {
     //console.log(this.handlers);
     UserStore.listen(this.onChange);
