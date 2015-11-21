@@ -1,0 +1,44 @@
+#requestform {
+
+
+  h2 {
+    line-height: 32px;
+    margin-bottom: 1em;
+
+    > .icon {
+      font-size: 30px;
+      margin-right: 5px;
+      vertical-align: baseline;
+    }
+  }
+  label {
+    margin: 20px 0;
+  }
+
+  .main-content-container > .main-content {
+    margin-top: 80px;
+  }
+
+  .marked-area {
+
+
+    .marked-area-header {
+      background-color: #4374f4;
+      padding: 10px 12px 5px;
+    }
+
+    .marked-area-help-link {
+      color: white;
+      &:hover {
+        text-decoration: underline;
+      }
+
+    }
+
+    .marked-area-text-container {
+      border: thin solid #bababa;
+    }
+
+  }
+
+}

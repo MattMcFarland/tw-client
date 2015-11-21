@@ -33,7 +33,10 @@ class Header extends React.Component {
           <nav id="nav" className="nav">
             <ul className="nav-list">
               <li>
-                {this.state && this.state.username ? <DropDown title="Account" options={[
+                <a href="/tutorial-request"><span className="icon ion-bonfire"/></a>
+              </li>
+              <li>
+                {this.state && this.state.username ? <DropDown icon="ios-contact" options={[
                   {
                     type: "link",
                     href: "/account",

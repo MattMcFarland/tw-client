@@ -3,51 +3,70 @@
 \*------------------------------------*/
 
 .nav {
-	clear: both;
-	overflow: hidden;
-	max-height: 0;
-    line-height: 80px;
-	a {
-		display: block;
-		border-top: 1px solid $gray-light-2;
-	}
+  clear: both;
+  overflow: hidden;
+  max-height: 0;
+  line-height: 95px;
+  a {
+    display: block;
+    border-top: 1px solid $gray-light-2;
+  }
 
-	&.active {
-		max-height: 40em;
-	}
+  button, a{
+    color: #555;
+    &:hover {
+      color: $blue;
+    }
+  }
 
-	@media all and (min-width: $bp-med) {
-		max-height: none;
-		float: right;
-		clear: none;
+  &.active {
+    max-height: 40em;
+  }
+  .icon {
+    font-size:30px;
+    vertical-align: top;
 
-		li {
-			float: left;
-		}
+    &.ion-android-arrow-dropdown {
+      font-size: 18px;
+      vertical-align: top;
+      line-height: 29px;
+      margin-left: 4px;
+    }
+  }
 
-		a {
-			border: 0;
-		}
-		
-	}
+  @media all and (min-width: $bp-med) {
+    max-height: none;
+    float: right;
+    clear: none;
+
+    li {
+      float: left;
+      margin: 0 10px;
+    }
+
+    a {
+      border: 0;
+    }
+
+  }
 }
 
 //Pagination
 .pagination {
-	overflow: hidden;
+  overflow: hidden;
 
-	li {
-		float: left;
-		border-right: 1px solid $gray-light-2;
+  li {
+    float: left;
+    border-right: 1px solid $gray-light-2;
 
-		&:last-child {
-			border: 0;
-		}
-	}
+    &:last-child {
+      border: 0;
+    }
+  }
 
-	a {
-		padding: $pad;
-	}
+  a {
+    padding: $pad;
+  }
 }
 
 #nav {

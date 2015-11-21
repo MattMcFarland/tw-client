@@ -63,5 +63,12 @@
 @import "scss/objects/tutreqitem";
 @import "scss/objects/comments";
 @import "scss/objects/solution-form";
+@import "scss/objects/request-form";
 @import "scss/objects/loadbox";
 @import "scss/objects/dropdown";
+
+/*------------------------------------*\
+    $VENDORS
+\*------------------------------------*/
+@import "scss/vendor/react-select/scss/default";
+@import "scss/vendor/react-select/scss/components";

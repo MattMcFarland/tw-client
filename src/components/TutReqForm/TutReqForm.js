@@ -56,6 +56,7 @@ export default class TutReqForm extends React.Component {
   render() {
     return (
       <form>
+        <h2><span className="icon ion-bonfire"/>Tutorial Request</h2>
         {this.state.error ? <div className="alert alert-danger">{this.state.error}</div> : ''}
         <TextInput
           ref="title"
@@ -90,7 +91,7 @@ export default class TutReqForm extends React.Component {
         {this.state.error ? <p>oh knowes an error ocurred</p> : ''}
         {this.state.submitting ?
           <img src="/img/loading.gif" /> :
-          <input className="btn btn-success btn-lg" type="submit" onClick={this.onSubmit} value="submit"/>
+          <input className="btn btn-primary" type="submit" onClick={this.onSubmit} value="Submit Request"/>
         }
       </form>
     )

@@ -28,6 +28,7 @@
     padding-left: 4px;
     padding-right: 4px;
     min-width: 75px;
+    border-top: thin solid white;
 
     &.active {
       padding-bottom: 4px;
@@ -45,9 +46,17 @@
       }
     }
     &:hover {
-      font-weight: bold;
+      border-top: thin solid #999;
     }
   }
+
+  a.tutorial-request-link {
+    color: #F7982E;
+    .icon {
+      font-size:20px;
+    }
+  }
+
 }
 
 #account .tabs button {
