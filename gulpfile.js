@@ -1,5 +1,5 @@
 'use strict';
-
+var i = 0, names;
 /* Module Dependencies */
 const gulp = require('gulp');
 
@@ -12,31 +12,39 @@ const
   watch = require('./tasks/watch'),
   sass = require('./tasks/sass');
 
-gulp.task('bundle-prod', ['lint'], () => {
-  bundlemin('src/index', 'index', 'dist/js', true);
-  bundlemin('src/requestform', 'requestform', 'dist/js', true);
-  bundlemin('src/requestview', 'requestview', 'dist/js', true);
-  bundlemin('src/profile', 'profile', 'dist/js', true);
-  bundlemin('src/account', 'account', 'dist/js', true);
+const bundles = [
+  'src/index',
+  'src/requestform',
+  'src/requestview',
+  'src/profile',
+  'src/account'
+]
+
+const next = function (done) {
+  i++;
+  if (i === bundles.length - 1) {
+    done();
+  }
+}
+
+gulp.task('bundle-prod', ['lint'], (done) => {
+
+  i = 0;
+
+  sass('src/style/scss/main.scss', 'main', 'dist/style');
+  bundles.forEach((path) => {
+    bundlemin(path, path.split('/')[1], 'dist/js', () => next(done));
+  })
 });
 
 gulp.task('bundle-dev', (done) => {
-  var count = 5, i = 0;
-  var callback = function () {
-    i++;
-    if (i === count) {
-      done();
-    }
-  }
 
-  bundle('src/index', 'index', 'dist/js', callback);
-  bundle('src/requestform', 'requestform', 'dist/js', callback);
-  bundle('src/requestview', 'requestview', 'dist/js', callback);
-  bundle('src/profile', 'profile', 'dist/js', callback);
-  bundle('src/account', 'account', 'dist/js', callback);
-
+  i = 0;
 
   sass('src/style/scss/main.scss', 'main', 'dist/style');
+  bundles.forEach((path) => {
+    bundle(path, path.split('/')[1], 'dist/js', () => next(done));
+  })
 });
 
 gulp.task('watch-index', () => watch('src/index', 'index', 'dist/js'));

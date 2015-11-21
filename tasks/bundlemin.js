@@ -9,7 +9,7 @@ var
   pkg = require('../package.json'),
   compressionOptions = require('../config/gulpCompressionOptions');
 
-module.exports = function(entry, name, dest) {
+module.exports = function(entry, name, dest, callback) {
   var b = browserify({
     entries: entry,
     debug: true
