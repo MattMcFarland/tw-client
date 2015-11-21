@@ -1,6 +1,5 @@
 .dropdown {
   position: relative;
-  z-index: 3;
   transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
   > button {
     line-height: 40px;
@@ -68,6 +67,9 @@
 
 .dropdown.flag {
   margin-top: -10px;
+  float: right;
+  display: inline-block;
+
   .flag-container {
     margin-top:8px;
     position: absolute;
@@ -75,8 +77,6 @@
     width: 450px;
     text-align: right;
   }
-  float: right;
-  display: inline-block;
   button.btn-danger {
     background: #ec4f4f;
     color: #FFF;
@@ -100,5 +100,27 @@
         }
       }
     }
+  }
+}
+
+.comment-zone .dropdown.flag {
+  float: none;
+  display: inline-block;
+  margin: 0;
+  > button {
+    line-height: 1;
+  }
+  .dropdown-items {
+    left: 0;
+    top: 23px;
+  }
+  .flag-container {
+    margin-top: 8px;
+    position: absolute;
+    width: 450px;
+    text-align: left;
+    top: -5px;
+    left: 37px;
+    right: 0;
   }
 }

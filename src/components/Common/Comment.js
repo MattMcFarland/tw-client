@@ -34,7 +34,13 @@ class CommentHeading extends Component {
         <h4>
           {this.renderAuthor()}
           &nbsp;
-          <button className="edit-control"><span className="icon ion-flag"/></button>
+          {!this.props.removed && !this.props.isOwner ?
+            <FlagMenu
+              onFlagSave = {this.props.handlers.onFlagSave}
+              contextId  = {this.props.id}
+              userFlags  = {this.props.userFlags}/>
+            : ''}
+
           <span className="timestamp">{this.props.editorName ? this.editTime() : this.createTime() }</span>
         </h4>
       </header>
@@ -65,12 +71,7 @@ class CommentBody extends Component {
         </button> :
         ''
       }
-      {!this.props.removed && !this.props.isOwner ?
-        <FlagMenu
-          onFlagSave = {this.props.handlers.onFlagSave}
-          contextId  = {this.props.id}
-          userFlags  = {this.props.userFlags}/>
-        : ''}
+
     </div>
     )
   };
@@ -78,6 +79,7 @@ class CommentBody extends Component {
     return (
       <div>
         <span>{this.props.message}</span>
+        {this.displayEditControls()}
       </div>
     );
   }

@@ -104,6 +104,7 @@ export default class BasePost extends Component {
       <h2 className="title">{this.props.data.title}
         {!this.props.data.isOwner ?
           <FlagMenu
+
             onFlagSave={this.handlers.onFlagSave}
             contextId = {this.props.data.id}
             userFlags = {this.props.data.userFlags}/>
