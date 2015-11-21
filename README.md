@@ -4,7 +4,7 @@
 
 - [x] Tut request form validation.
 - [x] Validate form for tutorial solution
-- [ ] add flagging UX
+- [x] add flagging UX
 - [ ] x tutorials button on tut request list not working
 - [ ] need preloader for "load more" button
 - [ ] admin/moderator not seeing edit buttons
@@ -49,6 +49,11 @@ Both `/dist/js` and `/dist/style` are bundled files from gulp.
 
 
 ### Changelog
+
+
+#### v2.2.0
+
+- implements flagging ux
 
 #### v2.1.0
 
