@@ -3,7 +3,7 @@
 
 
 - [x] Tut request form validation.
-- [ ] Validate form for tutorial solution
+- [x] Validate form for tutorial solution
 - [ ] add flagging UX
 - [ ] x tutorials button on tut request list not working
 - [ ] need preloader for "load more" button
