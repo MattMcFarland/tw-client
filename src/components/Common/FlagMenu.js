@@ -42,7 +42,7 @@ export default class FlagMenu extends React.Component {
       if (flag.value) {
         return (
           <button data-id={this.props.contextId} key={'enabled_' + flag.key} data-key={flag.key} onClick={this.toggleFlag} className="btn btn-danger btn-xs">
-            <span className="label label-danger">x</span>
+            <span>x</span>
             <span>&nbsp;</span>
             <span>{flag.key}</span>
           </button>
@@ -58,13 +58,14 @@ export default class FlagMenu extends React.Component {
       )
     });
     return (
-      <div style={{color: "inherit"}}className={"btn-group" + (this.state.expanded ? " open" : "")}>
-        {enabledFlags}
-        <button data-id={this.props.contextId} style={{color: "inherit"}}className="btn btn-link dropdown-toggle" onClick={this.toggle}>
-          <span className="glyphicon glyphicon-flag"/>&nbsp;
+      <div className={"dropdown flag" + (this.state.expanded ? " open" : "")}>
+        <div className="flag-container">{enabledFlags}</div>
+        <button data-id={this.props.contextId} onClick={this.toggle}>
+          <span className="icon ion-flag"/>&nbsp;
           {this.props.children}
+          <span className="icon ion-android-arrow-dropdown"/>
         </button>
-        <ul className="dropdown-menu">
+        <ul className="dropdown-items">
           {flags}
         </ul>
       </div>

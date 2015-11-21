@@ -65,3 +65,40 @@
     }
   }
 }
+
+.dropdown.flag {
+  margin-top: -10px;
+  .flag-container {
+    margin-top:8px;
+    position: absolute;
+    right: 56px;
+    width: 450px;
+    text-align: right;
+  }
+  float: right;
+  display: inline-block;
+  button.btn-danger {
+    background: #ec4f4f;
+    color: #FFF;
+    line-height: 1;
+    font-size: 12px;
+    padding: 4px;
+    vertical-align: top;
+
+  }
+  .dropdown-items {
+    background: white;
+    top: 39px;
+    left: -172px;
+    li {
+      width: 100%;
+      button {
+        width: 100%;
+        text-align: left;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
