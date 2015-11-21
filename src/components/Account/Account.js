@@ -64,7 +64,7 @@ class AccountTab extends React.Component {
           <input id="email" type="email" className="form-control" name="email" onChange={this.onEmailChange} value={this.state.formEmail}/>
         </fieldset>
 
-        <input className="btn btn-info" type="submit" value="Save Changes"/>
+        <input className="btn btn-primary" type="submit" value="Save Changes"/>
 
         <hr/>
         <h3>Password</h3>
@@ -99,8 +99,8 @@ class LinkRemoveButton extends React.Component {
               onClick={this.props.onClick}
               title="append this link">
         <span
-              style={{color: 'red'}}
-              className="glyphicon glyphicon-minus"/>
+          style={{color: 'red'}}
+          className="glyphicon glyphicon-minus"/>
       </button>
     );
   }
@@ -291,11 +291,12 @@ export default class Account extends React.Component {
     return (
       <div className="pagewrapper">
         <h2 style={{marginBottom: '28px'}}>My Account </h2>
-        <ul style={{marginBottom: '28px'}}className="tabz">
-          <li className={this.state.activeTab === "account" ? "active" : ""}><button id="account" onClick={this.setTab}>Edit Account</button></li>
-          <li className={this.state.activeTab === "profile" ? "active" : ""}><button id="profile" onClick={this.setTab}>Edit Profile</button></li>
-        </ul>
-
+        <div className="tabs">
+          <ul style={{marginBottom: '28px'}}className="tab-list">
+            <li><button className={this.state.activeTab === "account" ? "active" : ""} id="account" onClick={this.setTab}>Edit Account</button></li>
+            <li><button className={this.state.activeTab === "profile" ? "active" : ""} id="profile" onClick={this.setTab}>Edit Profile</button></li>
+          </ul>
+        </div>
         {this.state.activeTab === "account" ?
           <AccountTab /> :
           this.state.activeTab === "profile" ?

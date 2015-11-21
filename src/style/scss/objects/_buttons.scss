@@ -48,6 +48,14 @@ button, input[type="submit"] {
       color: $white;
     }
   }
+  &.btn-danger {
+    background: $red;
+    color:$white;
+    &:hover, &:focus {
+      background: $grey;
+      color: $white;
+    }
+  }
   &.btn-share {
     min-width: 0;
     padding: 8px;

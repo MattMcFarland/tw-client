@@ -34,7 +34,6 @@ input[type=text], input[type=search], input[type=url], input[type=number], texta
 }
 
 button, input[type="submit"] {
-	padding: $pad-half;
 	background: $gray-dark;
 	border: 1px solid $gray;
 	cursor: pointer;
@@ -125,5 +124,14 @@ input[type="search"]::-webkit-search-decoration {
     textarea {
       margin: 0;
     }
+  }
+}
+
+
+.form-group {
+  display: block;
+  margin: 10px 0 20px;
+  label {
+    font-weight: bold;
   }
 }
