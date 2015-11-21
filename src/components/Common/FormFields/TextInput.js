@@ -18,14 +18,14 @@ module.exports = React.createClass({
   },
   render: function () {
     return (
-      <label className="text-input">
+      <label className='text-input'>
         {this.props.label ? <span className="form-label">{this.props.label}</span> : ''}
         {this.props.tip ?<em className="form-field-tip">{this.props.tip}</em> : ''}
         <input
           placeholder={this.props.placeholder}
           min={this.props.minimum}
           type={this.props.type}
-          className="text-input-field"
+          className={(this.props.error ? 'has-error' : '') + ' text-input-field'}
           id={this.props.id}
           value={this.props.value}
           onChange={this.props._onChange}

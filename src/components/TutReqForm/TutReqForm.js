@@ -6,6 +6,7 @@ import Select from 'react-select';
 import ajax from 'superagent';
 import { TextInput, MarkedArea } from '../Common/FormFields';
 import xss from 'xss';
+import Spinner from '../../components/Common/Spinner';
 
 export default class TutReqForm extends React.Component {
 
@@ -22,19 +23,91 @@ export default class TutReqForm extends React.Component {
   onTitleChange = (e) => {
     this.setState({formTitle: e.currentTarget.value})
   }
+  validateTags = (values) => {
+    return (values.length > 1 && values.length < 5)
+  }
+  validateContent = (value) => {
+    return (value.length > 30)
+  }
+  validateTitle = (value) => {
+    return (value.length > 10)
+  }
+
+  validate = () => {
+    var
+      errors = [],
+      tags = this.refs.tags.state.values,
+      title = this.state.formTitle,
+      content = this.refs.content.state.value,
+      rules = [
+        {
+          el: 'tags',
+          failOn: tags.length < 1,
+          error: 'You must select at least one tag.'
+        },
+        {
+          el: 'tags',
+          failOn: tags.length > 4,
+          error: 'You may not select more than 4 tags.'
+        },
+        {
+          el: 'title',
+          failOn: title.length < 10,
+          error: 'Title is not long enough and must be at least 10 characters in length.'
+        },
+        {
+          el: 'content',
+          failOn: content.length < 24,
+          error: 'Request content is not long enough and must be 24 characters in length.'
+        }
+      ];
+
+
+    rules.forEach((rule, index) => {
+
+      if (rule.failOn) {
+        errors.push(rule);
+      }
+    });
+
+    if (errors.length) {
+      return {
+        errors: errors,
+        valid: false
+      };
+    } else {
+      return {
+        errors: null,
+        valid: true
+      }
+    }
+
+
+  }
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.setState({submitting: true});
-    // simple (hacky) validation on client
-    if (this.state.formTitle.length < 10 ||
-      this.refs.content.state.value.length < 10 ||
-      this.refs.tags.state.value < 1) {
+
+
+    var valid = this.validate();
+
+    if (valid.errors) {
+
+      let article = valid.errors.length > 1 ? 'are' : 'is';
+      let noun = valid.errors.length > 1 ? 'errors' : 'error';
+      let count = valid.errors.length > 1 ? valid.errors.length : 'one';
+
       this.setState({
-        error: 'Please make sure to fill out the entire form, minimum of 10 characters, or at least 1 tag.',
-        submitting: false
+        error: {
+          message: `There ${article} ${count} ${noun} in your tutorial request, please try again.`,
+          data: valid.errors
+        }
       })
+
+      return false;
+
     } else {
+      this.setState({submitting: true});
       ajax.post('/api/tutorial-requests')
         .send({
           title: xss(this.state.formTitle),
@@ -45,20 +118,41 @@ export default class TutReqForm extends React.Component {
           if (err && res.status === 403) {
             window.location.href = window.location = "/login?next=" + window.location.pathname;
           } else if (err) {
-            this.setState({submitting: false, error: 'Please make sure to fill out the entire form, minimum of 10 characters, or at least 1 tag.'});
+            this.setState({submitting: false, error: 'An unknown error occurred, please try again.'});
           } else if (res) {
             window.location.href = window.location = "/tutorial-request/" + res.body.permalink;
           }
         })
     }
+
+
   }
 
   render() {
+
+    var tagError, titleError, contentError;
+
+    // key could be tags title and/or content
+    if (this.state.error && this.state.error.data) {
+      let data = this.state.error.data;
+      data.forEach((err) => {
+        console.log(err);
+        if (err.el === "tags") {
+          tagError = err.error;
+        } else if (err.el === "title") {
+          titleError = err.error;
+        } else if (err.el === "content") {
+          contentError = err.error;
+        }
+      })
+    }
+
     return (
       <form>
         <h2><span className="icon ion-bonfire"/>Tutorial Request</h2>
-        {this.state.error ? <div className="alert alert-danger">{this.state.error}</div> : ''}
+        {titleError ? <aside className="error">{titleError}</aside> : ''}
         <TextInput
+          error={titleError ? true : false}
           ref="title"
           label="In a few words, what kind of tutorial are you looking for?"
           id="title"
@@ -67,15 +161,18 @@ export default class TutReqForm extends React.Component {
           required="true"
           minLength="10"
         />
+        {contentError ? <aside className="error">{contentError}</aside> : ''}
         <MarkedArea
+          error={contentError ? true : false}
           ref="content"
           label="Please explain, (the more detail, the better!)"
           id="content"
           tip="You can use Github flavored markdown to dress up your request."
           required="true"
-          minLength="10"
+          minLength="24"
         />
-        <label>
+        {tagError ? <aside className="error">{tagError}</aside> : ''}
+        <label className={tagError ? 'error' : ''}>
           <span className="form-label">Tags:</span>
           <em className="form-field-tip">Select between one and four tags.</em>
           <br/>
@@ -84,13 +181,12 @@ export default class TutReqForm extends React.Component {
             id="tagbox"
             allowCreate={true}
             multi={true}
-            required="true"
           />
         </label>
         <br/>
-        {this.state.error ? <p>oh knowes an error ocurred</p> : ''}
-        {this.state.submitting ?
-          <img src="/img/loading.gif" /> :
+        {this.state.error ? <aside className="error-box">{this.state.error.message}</aside> : ''}
+        {this.state.submitting ? <Spinner />
+           :
           <input className="btn btn-primary" type="submit" onClick={this.onSubmit} value="Submit Request"/>
         }
       </form>

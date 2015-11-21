@@ -52,7 +52,7 @@ export default class MarkedArea extends React.Component {
   }
   get raw () {
     return (
-      <textarea {...this.props} id={this.props.id} onChange={this.props.onChange || this._onChange} value={this.state.value}/>
+      <textarea className={(this.props.error ? 'has-error' : '') + ' text-input-field'} {...this.props} id={this.props.id} onChange={this.props.onChange || this._onChange} value={this.state.value}/>
     );
   }
   get tabbedToolbar () {
@@ -127,10 +127,10 @@ export default class MarkedArea extends React.Component {
     return (
       <div>
         <label htmlFor={this.props.id}>{this.props.label}</label>
-      <div className={this.props.classNames.root}>
-        {this.props.mode === "live" ? this.liveMode : this.tabbedMode}
-        {this.props.children}
-      </div>
+          <div className={this.props.classNames.root}>
+            {this.props.mode === "live" ? this.liveMode : this.tabbedMode}
+            {this.props.children}
+          </div>
       </div>
     )
   }

@@ -1,11 +1,17 @@
 ### Todos
 
-- [x] add dropdown menus
+
+
+- [ ] Tut request form validation.
 - [ ] Validate form for tutorial solution
+- [ ] add flagging UX
 - [ ] x tutorials button on tut request list not working
 - [ ] need preloader for "load more" button
 - [ ] admin/moderator not seeing edit buttons
 - [ ] admin/moderator not seeing tag vote buttons
+
+
+- [x] add dropdown menus
 - [x] Fix user info missing from account page
 - [x] Fix tabs in account page (not displayed properly)
 - [x] Fix reset password button in account page.

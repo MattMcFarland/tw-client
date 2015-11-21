@@ -57,6 +57,7 @@ export default class LinkInput extends Component {
 
         <TextInput
             {...this.props}
+            className={(this.props.error ? 'error' : '') + ' text-input-field'}
             type="url"
             _onChange={this._onChange}
             value={this.state.value}
