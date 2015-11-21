@@ -22,7 +22,7 @@
     }
     .vote-cell {
       display: table-cell;
-      min-width: 50px;
+      width: 80px;
     }
     .content-cell {
       vertical-align: top;
@@ -89,6 +89,9 @@
 
 .tut-request-detail {
   margin-top: 84px;
+  .inner-content {
+    min-height:98px;
+  }
 }
 
 .tut-solution-detail {
@@ -98,7 +101,9 @@
       margin-right: 1em;
     }
   }
-
+  .inner-content {
+    min-height:0;
+  }
   .link-meta {
     .image {
       background-size: cover;

@@ -187,7 +187,7 @@ export default class BasePost extends Component {
     }
   }
   innerContent = () => {
-    return <div style={{minHeight: '98px'}}>
+    return <div className="inner-content">
       <div dangerouslySetInnerHTML={{__html: marked(this.props.data.content.toString(), {sanitize: true}) }} />
     </div>;
   }
