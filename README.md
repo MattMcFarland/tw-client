@@ -1,3 +1,21 @@
+### Todos
+
+- [ ] add dropdown menus
+- [ ] Validate form for tutorial solution
+- [ ] x tutorials button on tut request list not working
+- [ ] need preloader for "load more" button
+- [ ] admin/moderator not seeing edit buttons
+- [ ] admin/moderator not seeing tag vote buttons
+- [ ] Fix user info missing from account page
+- [ ] Fix tabs in account page (not displayed properly)
+- [ ] Fix reset password button in account page.
+
+- [ ] Add vote functionality to the tut list view
+- [ ] Add Category to db
+- [ ] Add "Activity Stream" functionality
+- [ ] add social network share function and og tags
+
+
 ### Exports
 
 tw-server relies on the following directories:
