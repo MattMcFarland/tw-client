@@ -278,39 +278,3 @@ export default class TutorialSolution extends BasePost {
   }
 
 }
-
-/**
-<section className="tut-solution-detail">
-  <section className="title">
-    <h2><span className="icon ion-android-open"></span>Over 200 CSS / HTML Tricks</h2>
-  </section>
-  <div className="content">
-    <div className="vote-cell">
-      {{> molecules-vote-lg }}
-    </div>
-    <div className="content-cell">
-      <section className="link-meta">
-        <div className="image" style="background-image: url(http://lorempixel.com/800/600/nature);">
-          <div className="foreground">
-            <p className="description">Ei sea eros inermis epicuri, nec ei commodo neglegentur concludaturque. Pri quot luptatum liberavisse et, his solum pericula explicari id. An essent concludaturque sed</p>
-            <footer>
-              <button className="btn btn-primary">Get it</button>
-            </footer>
-          </div>
-        </div>
-      </section>
-      <hr/>
-      <section className="body">
-        <p>Donec eu libero sit amet quam egestas semperlaoreet non velit non, oin lobortis pellentesque felis... Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-      </section>
-      <section className="meta">
-        {{> molecules-user-meta}}
-      </section>
-    </div>
-  </div>
-  <footer>
-    {{> organisms-comment-list}}
-  </footer>
-</section>
- */
