@@ -75,11 +75,13 @@ export default class BasePost extends Component {
       title: React.PropTypes.string,
       permalink: React.PropTypes.string,
       content: React.PropTypes.string,
+      /*
       linkMeta: React.PropTypes.shape({
         title: React.PropTypes.string,
         url: React.PropTypes.url,
         description: React.PropTypes.string
-      }),
+      }),*/
+
       tags: React.PropTypes.array,
       authorName: React.PropTypes.string,
       authorUrl: React.PropTypes.string,

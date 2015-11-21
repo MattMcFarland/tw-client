@@ -29,6 +29,7 @@ module.exports = React.createClass({
           id={this.props.id}
           value={this.props.value}
           onChange={this.props._onChange}
+          onInput={this.props.onInput}
           style={{width: '100%', height: '36px'}}
           />
       </label>

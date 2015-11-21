@@ -111,3 +111,14 @@ a.btn {
     text-decoration: underline;
   }
 }
+
+
+[disabled], .disabled,
+button[disabled], button.disabled
+input[disabled], input.disabled {
+
+  pointer-events: none;
+  color: #ddd;
+  opacity: 0.4;
+  cursor: default;
+}

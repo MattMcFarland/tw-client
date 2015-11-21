@@ -86,7 +86,10 @@
 }
 
 .error {
-	color: $error;
+    color: #D85A5A;
+    padding: 8px 16px;
+    background: #FFCACA;
+    border: thick solid #FFFFFF;
 }
 
 .warning {

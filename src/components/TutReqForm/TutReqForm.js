@@ -56,6 +56,11 @@ export default class TutReqForm extends React.Component {
           error: 'Title is not long enough and must be at least 10 characters in length.'
         },
         {
+          el: 'title',
+          failOn: title.length > 20,
+          error: 'Title is too long and must not exceed 20 characters..'
+        },
+        {
           el: 'content',
           failOn: content.length < 24,
           error: 'Request content is not long enough and must be 24 characters in length.'
@@ -150,7 +155,7 @@ export default class TutReqForm extends React.Component {
     return (
       <form>
         <h2><span className="icon ion-bonfire"/>Tutorial Request</h2>
-        {titleError ? <aside className="error">{titleError}</aside> : ''}
+        {titleError ? <aside className="error"><span className="ion-alert-circled"/>&nbsp;{titleError}</aside> : ''}
         <TextInput
           error={titleError ? true : false}
           ref="title"
@@ -161,7 +166,7 @@ export default class TutReqForm extends React.Component {
           required="true"
           minLength="10"
         />
-        {contentError ? <aside className="error">{contentError}</aside> : ''}
+        {contentError ? <aside className="error"><span className="ion-alert-circled"/>&nbsp;{contentError}</aside> : ''}
         <MarkedArea
           error={contentError ? true : false}
           ref="content"
@@ -171,7 +176,7 @@ export default class TutReqForm extends React.Component {
           required="true"
           minLength="24"
         />
-        {tagError ? <aside className="error">{tagError}</aside> : ''}
+        {tagError ? <aside className="error"><span className="ion-alert-circled"/>&nbsp;{tagError}</aside> : ''}
         <label className={tagError ? 'error' : ''}>
           <span className="form-label">Tags:</span>
           <em className="form-field-tip">Select between one and four tags.</em>

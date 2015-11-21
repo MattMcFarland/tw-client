@@ -85,10 +85,10 @@ input[type="search"]::-webkit-search-decoration {
 
 /* Validation */
 .has-error {
-  border-color: $error;
+  border-color: $red;
 }
 .is-valid {
-  border-color: $valid;
+  border-color: $green;
 }
 
 

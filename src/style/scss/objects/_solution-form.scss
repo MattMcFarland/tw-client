@@ -65,3 +65,40 @@
     border-bottom: 2px solid white;
   }
 }
+
+input.btn.btn-white[disabled] {
+  pointer-events: none;
+  color: #ddd;
+  opacity: 0.4;
+}
+
+
+.link-preview {
+  padding: 1em;
+  background: rgba(255, 255, 255, 0.8);
+  color: #444;
+  header {
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .link-preview-body {
+
+    > .link-preview-action {
+      width: 200px;
+      display: inline-block;
+    }
+    > .link-preview-description {
+      width: calc(100% - 200px);
+      display: inline-block;
+      vertical-align: top;
+      > p {
+        padding: 1em;
+        font-size: 13px;
+        color: #444;
+      }
+    }
+
+  }
+
+}
