@@ -160,8 +160,8 @@ export default class BasePost extends Component {
                 <img className="avatar" src="http://lorempixel.com/32/32/people/" alt="Avatar" />
               </div>
               <div className="meta">
-                <div className="user-name"><a className="p-name u-url" href={this.props.data.editorUrl}>{this.props.data.editorName}</a></div>
-                <div className="timestamp">{moment(this.props.data.updated_at).fromNow()}</div>
+                <div className="user-name"><a className="p-name u-url" href={this.props.data.authorUrl}>{this.props.data.authorName}</a></div>
+                <div className="timestamp">{moment(this.props.data.created_at).fromNow()}</div>
               </div>
             </div>
           </div>
@@ -177,8 +177,8 @@ export default class BasePost extends Component {
                 <img className="avatar" src="http://lorempixel.com/32/32/people/" alt="Avatar" />
               </div>
               <div className="meta">
-                <div className="user-name"><a className="p-name u-url" href={this.props.data.editorUrl}>{this.props.data.editorName}</a></div>
-                <div className="timestamp">{moment(this.props.data.updated_at).fromNow()}</div>
+                <div className="user-name"><a className="p-name u-url" href={this.props.data.authorUrl}>{this.props.data.authorName}</a></div>
+                <div className="timestamp">{moment(this.props.data.created_at).fromNow()}</div>
               </div>
             </div>
           </div>
