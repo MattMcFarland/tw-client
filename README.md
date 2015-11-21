@@ -35,7 +35,19 @@ Both `/dist/js` and `/dist/style` are bundled files from gulp.
 
 `npm install @mattmcfarland/tw-client`
 
+
+### Contributors
+
+- Matt McFarland @docodemore
+- Marko Bolliger
+
+
 ### Changelog
+
+#### v2.1.0
+
+- Implmement new visual designs from Marko.
+
 
 #### v2.0.1
 
@@ -60,7 +72,3 @@ Breaking changes.
 
 - cant remember.
 
-### Contributors
-
-- Matt McFarland @docodemore
-- Marko Bolliger
