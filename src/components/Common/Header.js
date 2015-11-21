@@ -37,7 +37,7 @@ class Header extends React.Component {
                   {
                     type: "link",
                     href: "/account",
-                    icon: "user",
+                    icon: "ios-person",
                     title: "My Account"
                   },
                   {
