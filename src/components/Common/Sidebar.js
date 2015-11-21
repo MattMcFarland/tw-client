@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
+import ShareWidget from './ShareWidget';
+import ActivityStream from './ActivityStream';
+
 class Sidebar extends Component {
   render() {
     return (
-      <div id="sidebar">
-        Sidebar
-      </div>
+      <aside className="sidebar">
+        <section className="content">
+          <ShareWidget />
+          <ActivityStream />
+        </section>
+      </aside>
     )
   }
 }

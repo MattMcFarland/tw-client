@@ -1,18 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Common} from './components';
-import {TutReqList} from './components';
+import { Header, Layout, MainContent } from './components/Common/index.js';
+import { TutReqList } from './components/index.js';
 
 require('./utils/polyfills');
 
 
 ReactDOM.render(
   <div>
-    <header>
-      <Common.Navbar/>
-    </header>
-    <Common.Layout>
-      <TutReqList/>
-    </Common.Layout>
+    <Header />
+    <Layout />
+    <MainContent>
+      <TutReqList />
+    </MainContent>
   </div>
 , document.getElementById('index'));

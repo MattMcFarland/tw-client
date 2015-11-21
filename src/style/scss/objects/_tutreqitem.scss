@@ -6,7 +6,15 @@
   }
   .content {
     display: table;
-
+    .title {
+      p > a {
+        color: $dark;
+        transition: 0.3s;
+        &:hover {
+          color: $blue;
+        }
+      }
+    }
     &:hover {
       opacity: 1;
     }

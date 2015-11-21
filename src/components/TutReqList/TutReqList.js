@@ -2,6 +2,8 @@ import React from 'react';
 import moment from 'moment';
 import IndexActions from '../../actions/IndexActions.js'
 import IndexStore from '../../stores/IndexStore.js'
+import ListItem from './ListItem.js';
+import Tabs from '../Common/Tabs';
 import classNames from 'classnames'
 
 export default class TutReqList extends React.Component {
@@ -61,47 +63,14 @@ export default class TutReqList extends React.Component {
         </p>);
       }
       return (
-        <li key={li.id} className="row">
-            <div className={liClassName}>
-              <span className="score-label">score:</span>
-              <div className="score-num">{li.score}</div>
-            </div>
-            <div className="tr-col well">
-              <h4><a href={"/tutorial-request/" + li.permalink}>{li.title}</a></h4>
-              <p>
-                <em>
-                  <span>Submitted by</span>
-                  &nbsp;
-                  <a href={li.authorUrl}>{li.authorName}</a>
-                  &nbsp;
-                  <a href={"/tutorial-request/" + li.permalink}>{moment(li.created_at).fromNow()}</a>
-                </em>
-              </p>
-              <div>
-                {info}
-                <ul className="taglist">
-                  {tags}
-                </ul>
-              </div>
-            </div>
+        <li key={li.id}>
+          <ListItem {...li} />
         </li>
       );
     });
     return (
       <section>
-        <section className="tut-tabs">
-          <ul className="nav nav-tabs">
-            <li className={activeTab === "latest" ? 'active' : ''}>
-              <button data-filter="latest" onClick={this.onFilter} type="button">Latest Requests</button>
-            </li>
-            <li className={activeTab === "wanted" ? 'active' : ''}>
-              <button data-filter="wanted" onClick={this.onFilter} type="button">Most Wanted</button>
-            </li>
-            <li className={activeTab === "best" ? 'active' : ''}>
-              <button data-filter="best" onClick={this.onFilter} type="button">Best Tutorials</button>
-            </li>
-          </ul>
-        </section>
+        <Tabs onFilter={this.onFilter} activeTab={activeTab}/>
         <section>
           <ul className="container-fluid tr-list">
             {listItems}

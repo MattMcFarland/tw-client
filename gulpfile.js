@@ -36,13 +36,13 @@ gulp.task('watch-profile', () => watch('src/profile', 'profile', 'dist/js'));
 gulp.task('watch-account', () => watch('src/account', 'account', 'dist/js'));
 
 gulp.task('watch-sass', () => {
-  gutil.log('Watch src/style/scss/**/*.scss');
-  gulp.watch('src/style/scss/**/*.scss', (e) => {
+  gutil.log('Watch src/style/**/*.scss');
+  gulp.watch('src/style/**/*.scss', (e) => {
     gutil.log('File Changed', gutil.colors.cyan(e.path));
-    sass('src/style/scss/main.scss', 'main', 'dist/style')
+    sass('src/style/main.scss', 'main', 'dist/style')
   });
 });
 
 
 gulp.task('lint', () => lint('src/**/*.js'));
-gulp.task('sass', () => sass('src/style/scss/main.scss', 'main', 'dist/style'));
+gulp.task('sass', () => sass('src/style/main.scss', 'main', 'dist/style'));
