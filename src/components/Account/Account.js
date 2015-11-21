@@ -85,7 +85,7 @@ class LinkAddButton extends React.Component {
               title="append this link">
 
         <span style={{color: 'green'}}
-              className="glyphicon glyphicon-plus"/>
+              className="icon ion ion-plus"/>
       </button>
     );
   }
@@ -100,7 +100,7 @@ class LinkRemoveButton extends React.Component {
               title="append this link">
         <span
           style={{color: 'red'}}
-          className="glyphicon glyphicon-minus"/>
+          className="icon ion-ios-trash"/>
       </button>
     );
   }
@@ -242,7 +242,7 @@ class ProfileTab extends React.Component {
         </fieldset>
 
         <fieldset className="form-group">
-          <legend>Links</legend>
+          <legend><strong>Links</strong></legend>
           <table>
 
             <thead><tr><th>Link Name</th><th>URL</th><th>Control</th></tr></thead>
@@ -253,7 +253,7 @@ class ProfileTab extends React.Component {
           </table>
         </fieldset>
 
-        <input className="btn btn-info" type="submit" value="Update Profile"/>
+        <input className="btn btn-primary" type="submit" value="Update Profile"/>
 
       </form>
     );
