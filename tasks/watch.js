@@ -25,6 +25,9 @@ module.exports = function(entry, name, dest) {
       .pipe(source(filename))
       .pipe(buffer())
       .pipe(sourcemaps.write('./'))
+      .on('end', () => {
+        gutil.log('File Saved', gutil.colors.cyan(dest + '/' + name + '.js'));
+      })
       .pipe(gulp.dest(dest));
   };
   watch();

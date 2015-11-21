@@ -22,6 +22,9 @@ module.exports = function(entry, name, dest) {
     .pipe(sourcemaps.init({loadMaps: true}))
     .pipe(uglify(compressionOptions))
     .pipe(sourcemaps.write('./'))
+    .on('end', () => {
+      gutil.log('File Saved', gutil.colors.cyan(dest + '/' + name + '.min.js'));
+    })
     .pipe(gulp.dest(dest));
 };
 

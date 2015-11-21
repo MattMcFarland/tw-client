@@ -1,0 +1,36 @@
+.dropdown {
+  position: relative;
+
+  .dropdown-items {
+
+    position: absolute;
+    z-index: 2;
+    display: none;
+    li {
+
+      font-size: 14px;
+      border-bottom: thin solid #bababa;
+      line-height: 28px;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      button,a {
+        background: white;
+        color: $dark;
+
+        &:hover {
+          background: $blue;
+          color: white;
+        }
+      }
+    }
+  }
+
+  &.open {
+    .dropdown-items {
+      display: block;
+    }
+  }
+}

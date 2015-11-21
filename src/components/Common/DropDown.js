@@ -15,7 +15,7 @@ export default class DropDown extends React.Component {
   render ()  {
     var options = this.props.options.map((opt, idx) => {
       opt.icon || (opt.icon = "minus");
-      let iconClass = "glyphicon glyphicon-" + opt.icon;
+      let iconClass = "icon ion ion-" + opt.icon;
       let action = opt.type === "link" ?
         (<a href={opt.href}><span className={iconClass}/>{opt.title}</a>) :
         (<button onClick={opt.onClick}><span className={iconClass}/>{opt.title}</button>);
@@ -26,11 +26,11 @@ export default class DropDown extends React.Component {
       );
     });
     return (
-      <div style={{backgroundColor: "inherit", color: "inherit"}} className={"btn-group" + (this.state.expanded ? " open" : "")}>
-        <button style={{backgroundColor: "inherit", color: "white"}} className="nav nav-btn btn-link dropdown-toggle" onClick={this.toggle}>
-          {this.props.title} <span className="caret"/>
+      <div style className={"dropdown" + (this.state.expanded ? " open" : "")}>
+        <button onClick={this.toggle}>
+          {this.props.title} <span className="icon ion-arrow-down-a"/>
         </button>
-        <ul className="dropdown-menu">
+        <ul className="dropdown-items">
           {options}
         </ul>
       </div>

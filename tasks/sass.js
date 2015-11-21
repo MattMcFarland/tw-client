@@ -7,7 +7,7 @@ module.exports = function(entry, name, dest) {
   return gulp.src(entry)
     .pipe(sass())
     .on('error', gutil.log)
-    .on('end', (a) => {
+    .on('end', () => {
       gutil.log('File Saved', gutil.colors.cyan(dest + '/' + name + '.css'));
     })
     .pipe(gulp.dest(dest));

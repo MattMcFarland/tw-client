@@ -20,12 +20,22 @@ gulp.task('bundle-prod', ['lint'], () => {
   bundlemin('src/account', 'account', 'dist/js', true);
 });
 
-gulp.task('bundle-dev', () => {
-  bundle('src/index', 'index', 'dist/js', true);
-  bundle('src/requestform', 'requestform', 'dist/js', true);
-  bundle('src/requestview', 'requestview', 'dist/js', true);
-  bundle('src/profile', 'profile', 'dist/js', true);
-  bundle('src/account', 'account', 'dist/js', true);
+gulp.task('bundle-dev', (done) => {
+  var count = 5, i = 0;
+  var callback = function () {
+    i++;
+    if (i === count) {
+      done();
+    }
+  }
+
+  bundle('src/index', 'index', 'dist/js', callback);
+  bundle('src/requestform', 'requestform', 'dist/js', callback);
+  bundle('src/requestview', 'requestview', 'dist/js', callback);
+  bundle('src/profile', 'profile', 'dist/js', callback);
+  bundle('src/account', 'account', 'dist/js', callback);
+
+
   sass('src/style/scss/main.scss', 'main', 'dist/style');
 });
 
