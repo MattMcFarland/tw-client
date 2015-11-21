@@ -6,10 +6,9 @@
 	clear: both;
 	overflow: hidden;
 	max-height: 0;
-	
+    line-height: 80px;
 	a {
 		display: block;
-		line-height: 80px;
 		border-top: 1px solid $gray-light-2;
 	}
 
@@ -49,4 +48,8 @@
 	a {
 		padding: $pad;
 	}
+}
+
+#nav {
+  overflow: visible;
 }
