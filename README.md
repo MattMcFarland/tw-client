@@ -51,6 +51,12 @@ Both `/dist/js` and `/dist/style` are bundled files from gulp.
 ### Changelog
 
 
+
+#### v2.2.4
+
+- implmement minified version, optimized file-size.
+
+
 #### v2.2.0
 
 - implements flagging ux

@@ -1,7 +1,7 @@
 {
   "name": "@mattmcfarland/tw-client",
   "main": "",
-  "version": "2.2.1",
+  "version": "2.2.4",
   "description": "",
   "browser": "",
   "scripts": {
@@ -49,6 +49,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "alt": "^0.17.9",
     "babel-jest": "^6.0.1",
     "babel-plugin-syntax-jsx": "^6.1.18",
     "babel-plugin-transform-es2015-arrow-functions": "^6.1.18",
@@ -63,6 +64,7 @@
     "babelify": "^6.4.0",
     "browserify": "^11.2.0",
     "classnames": "^2.2.0",
+    "clean-css": "^3.4.8",
     "faker": "^3.0.1",
     "gulp": "^3.9.0",
     "gulp-eslint": "^1.0.0",

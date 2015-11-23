@@ -2,6 +2,7 @@
 var i = 0, names;
 /* Module Dependencies */
 const gulp = require('gulp');
+const minifyCss = require('gulp-minify-css');
 
 /* Task Dependencies */
 const
@@ -27,7 +28,7 @@ const next = function (done) {
   }
 }
 
-gulp.task('bundle-prod', ['lint'], (done) => {
+gulp.task('bundle-prod', (done) => {
 
   i = 0;
 
