@@ -2,8 +2,6 @@
 var i = 0, names;
 /* Module Dependencies */
 const gulp = require('gulp');
-const minifyCss = require('gulp-minify-css');
-
 /* Task Dependencies */
 const
   bundle = require('./tasks/bundle'),

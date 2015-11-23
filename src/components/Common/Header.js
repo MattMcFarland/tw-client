@@ -29,7 +29,7 @@ class Header extends React.Component {
     return (
       <header className="header" role="banner">
         <div className="content cf">
-          <a href="/"><img src="/img/wt-logo-alpha.png" className="logo" alt="Logo Alt Text" /></a>
+          <a href="/"><img src="/img/wt-logo-2.png" className="logo" alt="Logo" /></a>
           <nav id="nav" className="nav">
             <ul className="nav-list">
               <li>

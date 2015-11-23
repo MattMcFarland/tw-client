@@ -2,24 +2,31 @@
 
 
 
-- [x] Tut request form validation.
-- [x] Validate form for tutorial solution
-- [x] add flagging UX
+#### fixes
+
 - [ ] x tutorials button on tut request list not working
 - [ ] need preloader for "load more" button
 - [ ] admin/moderator not seeing edit buttons
 - [ ] admin/moderator not seeing tag vote buttons
 
 
-- [x] add dropdown menus
-- [x] Fix user info missing from account page
-- [x] Fix tabs in account page (not displayed properly)
-- [x] Fix reset password button in account page.
+#### missing features
 
 - [ ] Add vote functionality to the tut list view
 - [ ] Add Category to db
 - [ ] Add "Activity Stream" functionality
 - [ ] add social network share function and og tags
+- [ ] add serverside rendering
+
+
+- [x] Tut request form validation.
+- [x] Validate form for tutorial solution
+- [x] add flagging UX
+- [x] add dropdown menus
+- [x] Fix user info missing from account page
+- [x] Fix tabs in account page (not displayed properly)
+- [x] Fix reset password button in account page.
+
 
 
 ### Exports
@@ -74,13 +81,6 @@ Both `/dist/js` and `/dist/style` are bundled files from gulp.
 
 Accidentally incremented major version too high.
 
-
-Breaking changes.
-
-- Swapped out LESS with SASS to add Marko's visual design patterns.
-- Refactored to use `public`, `views`, and separate `dist/js` and `dist/style`
-
-
 #### v0.2.0
 
 - Add unit testing with jest
@@ -88,4 +88,12 @@ Breaking changes.
 #### v0.1.0
 
 - cant remember.
+
+
+Breaking changes.
+
+- Swapped out LESS with SASS to add Marko's visual design patterns.
+- Refactored to use `public`, `views`, and separate `dist/js` and `dist/style`
+
+
 
