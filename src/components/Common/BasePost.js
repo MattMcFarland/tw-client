@@ -100,14 +100,22 @@ export default class BasePost extends Component {
     })
   }
   renderHeading = () => {
-    return (
-      <h2 className="title">{this.props.data.title}
-        {!this.props.data.isOwner ?
-          <FlagMenu
 
+    let { isOwner, id, userFlags, title } = this.props.data;
+
+    return (
+      <h2 className="title">{title}
+        {!isOwner ?
+          <FlagMenu
+            defaultFlags={[
+                  { "key": "spam",      "value": false },
+                  { "key": "offensive", "value": false },
+                  { "key": "vague",     "value": false },
+                  { "key": "duplicate", "value": false }
+            ]}
             onFlagSave={this.handlers.onFlagSave}
-            contextId = {this.props.data.id}
-            userFlags = {this.props.data.userFlags}/>
+            contextId = {id}
+            userFlags = {userFlags}/>
           : '' }
       </h2>
     );

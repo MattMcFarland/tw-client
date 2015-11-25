@@ -29,24 +29,33 @@ class CommentHeading extends Component {
   };
 
   render () {
+
+    let { removed, isOwner, editorName, id, userFlags } = this.props;
+
     return (
       <header>
         <h4>
           {this.renderAuthor()}
           &nbsp;
-          {!this.props.removed && !this.props.isOwner ?
+          {!removed && !isOwner ?
             <FlagMenu
+              defaultFlags = {[
+                { "key": "spam",      "value": false },
+                { "key": "offensive", "value": false }
+              ]}
               onFlagSave = {this.props.handlers.onFlagSave}
-              contextId  = {this.props.id}
-              userFlags  = {this.props.userFlags}/>
+              contextId  = {id}
+              userFlags  = {userFlags}/>
             : ''}
 
-          <span className="timestamp">{this.props.editorName ? this.editTime() : this.createTime() }</span>
+          <span className="timestamp">{editorName ? this.editTime() : this.createTime() }</span>
         </h4>
       </header>
     );
   }
 }
+
+
 
 class CommentBody extends Component {
 

@@ -5,7 +5,7 @@ export default class FlagMenu extends React.Component {
     super(props);
     this.state = {
       expanded: false,
-      userFlags: props.userFlags
+      userFlags: props.userFlags || props.defaultFlags
     };
   }
   static displayName = "FlagMenu";
@@ -13,12 +13,6 @@ export default class FlagMenu extends React.Component {
     onChange: React.PropTypes.func
   };
   static defaultProps = {
-    userFlags: [
-      { "key": "spam", "value": false },
-      { "key": "offensive", "value": false },
-      { "key": "duplicate", "value": false },
-      { "key": "vague", "value": false }
-    ],
     onFlagSave: (e, flags) => {
       console.error('Flag (id: ' + e.currentTarget.dataset.id + ') no function handler for onFlagSave', e.currentTarget);
     }

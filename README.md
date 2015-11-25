@@ -1,41 +1,35 @@
 ### Todos
 
+#### Complete for v2.2.6
+- [x] flags for comment should only be spam or offensive
 
-#### fixes
-
+#### Fixes
+- [ ] flag x button reversed
 - [ ] admin/moderator not seeing edit buttons
 - [ ] admin/moderator not seeing tag vote buttons
-- [ ] flag x button reversed
 - [ ] link to user profile incorrect (showing logged in user instead)
 - [ ] User avatar missing
+
+
 
 #### missing features
 
 - [ ] Add vote functionality to the tut list view
 - [ ] Add Category to db
 - [ ] Add "Activity Stream" functionality
-  -  [ ] Using either websockets or standard xhr polling
+  - [ ] Using either websockets or standard xhr polling
 
-- [ ] add social network share function and og tags
-- [ ] add serverside rendering
+- [ ] Add social network share function and og tags
+- [ ] Add serverside rendering
 - [ ] Avatar management
 - [ ] Share buttons to comments
 - [ ] Share buttons on sidebar
 - [ ] User point system
 
 
+
 #### Done
 
-- [x] need preloader for "load more" button
-- [x] x tutorials button on tut request list not working
-- [x] no image fallback
-- [x] Tut request form validation.
-- [x] Validate form for tutorial solution
-- [x] add flagging UX
-- [x] add dropdown menus
-- [x] Fix user info missing from account page
-- [x] Fix tabs in account page (not displayed properly)
-- [x] Fix reset password button in account page.
 
 
 
@@ -69,13 +63,24 @@ Both `/dist/js` and `/dist/style` are bundled files from gulp.
 
 #### v2.2.5
 
-- Add preloader for "load more" button
+- Fixed preloader for "load more" button
 - Fixed tutorials button on tut request list not working
 - Fixed "no image" fallback for preview / link meta
+- [x] need preloader for "load more" button
+- [x] x tutorials button on tut request list not working
+- [x] no image fallback
 
 #### v2.2.4
 
 - implmement minified version, optimized file-size.
+
+- [x] Tut request form validation.
+- [x] Validate form for tutorial solution
+- [x] add flagging UX
+- [x] add dropdown menus
+- [x] Fix user info missing from account page
+- [x] Fix tabs in account page (not displayed properly)
+- [x] Fix reset password button in account page.
 
 
 #### v2.2.0

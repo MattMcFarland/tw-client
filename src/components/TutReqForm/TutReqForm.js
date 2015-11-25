@@ -57,13 +57,18 @@ export default class TutReqForm extends React.Component {
         },
         {
           el: 'title',
-          failOn: title.length > 20,
-          error: 'Title is too long and must not exceed 20 characters..'
+          failOn: title.length > 80,
+          error: 'Title is too long and must not exceed 80 characters..'
         },
         {
           el: 'content',
-          failOn: content.length < 24,
-          error: 'Request content is not long enough and must be 24 characters in length.'
+          failOn: content.length < 30,
+          error: 'Request content is not long enough and must be 30 characters in length.'
+        },
+        {
+          el: 'content',
+          failOn: content.length > 2400,
+          error: 'Request content is too long may not exceed 2400 characters in length.'
         }
       ];
 
