@@ -15,6 +15,11 @@ class CommentHeading extends Component {
   }
 
   renderAuthor = () => {
+    let selfEdited = this.props.editorName && this.props.authorName === this.props.editorName;
+    let superEdited = this.props.editorName && this.props.authorName !== this.props.editorName;
+
+
+
     return (
       <span className="comment-author">
       <a href={this.props.authorUrl}>
@@ -22,8 +27,8 @@ class CommentHeading extends Component {
             className={this.props.isOwner ? 'owner' : ''}>
             {this.props.isOwner ? 'You' : this.props.authorName}</span>
       </a>
-    {this.props.editorName && this.props.authorName === this.props.editorName ? <sup>Edited</sup> : ''}
-    {this.props.editorName && this.props.authorName !== this.props.editorName ? <sup>Edited by <a href={this.props.editorUrl}>{this.props.editorName}</a></sup> : ''}
+    {selfEdited ? <sup className="edit">Edited&nbsp;<span> -</span>{this.editTime()}</sup> : ''}
+    {superEdited ? <sup className="edit">Edited by <a href={this.props.editorUrl}>{this.props.editorName}</a><span> -</span>{this.editTime()}</sup> : ''}
     </span>
     )
   };

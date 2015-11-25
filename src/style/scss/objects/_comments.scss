@@ -82,12 +82,24 @@
       }
     }
   }
-}
-
-
-.comment-author > a {
-  color: $dark;
-  &:hover {
-    color: $blue;
+  .comment-author {
+    a {
+      color: $dark;
+      &:hover {
+        color: $blue;
+      }
+    }
+    .edit {
+      font-weight: 300;
+      font-size: 10px;
+      color: #a9a9a9;
+      font-style: italic;
+      &:before {
+        content: "["
+      }
+      &:after {
+        content: "]"
+      }
+    }
   }
 }

@@ -154,7 +154,7 @@ export default class BasePost extends Component {
     if (this.props.data.editorName && this.props.data.editorName !== this.props.data.authorName) {
       return (
         <section className="meta">
-          <div className="user">
+          <div className="user editor">
             <div className="body editor">
               <div className="avatar-container">
                 <img className="avatar" src="http://lorempixel.com/32/32/people/" alt="Avatar" />
@@ -165,7 +165,7 @@ export default class BasePost extends Component {
               </div>
             </div>
           </div>
-          <div className="user">
+          <div className="user author">
             <div className="body author">
               <div className="avatar-container">
                 <img className="avatar" src="http://lorempixel.com/32/32/people/" alt="Avatar" />
@@ -182,7 +182,7 @@ export default class BasePost extends Component {
     else {
       return (
         <section className="meta">
-          <div className="user">
+          <div className="user author">
             <div className="body author">
               <div className="avatar-container">
                 <img className="avatar" src="http://lorempixel.com/32/32/people/" alt="Avatar" />

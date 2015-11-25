@@ -7,12 +7,15 @@
 - [x] edit controls on comment fixed
 - [x] preload not showing on tut request submit
 - [x] preload not showing on tut solution submit
+- [x] edited by styling for comment  - comment-author .edit class
+- [x] edited by styling for tutsolution & tutrequest - .user.editor
+- [x] edits not updating when editing comment.
 
 #### Pending Fixes
 
 
-- [ ] edits not updating when editing comment.
-- [ ] edited by styling for comment
+- [ ] need visual indication edit is pending for comment
+
 - [ ] admin/moderator not seeing tag vote buttons
 - [ ] link to user profile incorrect (showing logged in user instead)
 - [ ] User avatar missing

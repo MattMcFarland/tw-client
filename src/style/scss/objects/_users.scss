@@ -4,6 +4,7 @@
   display: table;
   vertical-align: top;
   width: 100%;
+  padding: 0 4px;
   .body {
     display: table-row;
     > .avatar-container {
@@ -23,6 +24,31 @@
         font-size: 14px;
         color: rgb(152, 157, 171);
       }
+    }
+  }
+}
+
+.content-cell .user {
+  display: inline-block;
+  width: auto;
+  padding: 4px 0;
+  &.editor {
+    background:#fafafa;
+    border: thin solid #bababa;
+    margin-right:12px;
+    padding:4px;
+    position:relative;
+    &:before {
+      content:"Editor";
+      position:absolute;
+      bottom:-19px;
+      left: -1px;
+      padding:0 6px;
+      background:#fafafa;
+      border: thin solid #bababa;
+      border-top: 0;
+      font-size:12px;
+      color: #888;
     }
   }
 }
