@@ -160,22 +160,13 @@ class TutReqStore {
     target.volatile.isEditingTags = !target.volatile.isEditingTags
     this.setState(this);
   }
-  onUpdateItemPending ({collection, parent, id}) {
+  onUpdateItemPending ({items, item, collection, parent, id, data}) {
     var target = getTarget({collection, parent, id}, this),
       update = {
         volatile: {
           isEditing: false,
-          editLocked: true
-        }
-      }
-    Object.assign(target, update);
-  }
-  onUpdateItemSuccess ({items, item, collection, parent, id, data}) {
-    var target = getTarget({collection, parent, id}, this),
-      update = {
-        volatile: {
-          isEditing: false,
-          editLocked: false
+          editLocked: true,
+          isSaving: true
         }
       };
     Object.assign(target, update);
@@ -184,9 +175,37 @@ class TutReqStore {
     }
     if (items) {
       items.forEach((updateItem) => {
-        target[updateItem] = data[updateItem]
+        target[updateItem] = data[updateItem];
       })
     }
+    this.updated = target;
+    if (parent && parent.collection === "solutions") {
+      //console.debug('solutions update ?', this.solutions);
+      this.setState({solutions: this.solutions})
+    } else {
+      this.setState(this);
+    }
+
+  }
+  onUpdateItemSuccess ({items, item, collection, parent, id, data}) {
+    var target = getTarget({collection, parent, id}, this),
+      update = {
+        volatile: {
+          isEditing: false,
+          editLocked: false,
+          isSaving: false
+        }
+      };
+    Object.assign(target, update);
+    if (item) {
+      target[item] = data[item];
+    }
+    if (items) {
+      items.forEach((updateItem) => {
+        target[updateItem] = data[updateItem];
+      })
+    }
+    this.updated = target;
     if (parent && parent.collection === "solutions") {
       //console.debug('solutions update ?', this.solutions);
       this.setState({solutions: this.solutions})

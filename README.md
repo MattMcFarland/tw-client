@@ -10,11 +10,11 @@
 - [x] edited by styling for comment  - comment-author .edit class
 - [x] edited by styling for tutsolution & tutrequest - .user.editor
 - [x] edits not updating when editing comment.
+- [x] need visual indication edit is pending for comment
 
 #### Pending Fixes
 
 
-- [ ] need visual indication edit is pending for comment
 
 - [ ] admin/moderator not seeing tag vote buttons
 - [ ] link to user profile incorrect (showing logged in user instead)
@@ -36,7 +36,7 @@
 - [ ] Share buttons to comments
 - [ ] Share buttons on sidebar
 - [ ] User point system
-
+- [ ] Add Validation to comment form.
 
 
 #### Done

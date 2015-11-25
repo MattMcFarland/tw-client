@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import moment from 'moment';
 import FlagMenu from './FlagMenu';
-
+import classNames from 'classnames';
 
 
 class CommentHeading extends Component {
@@ -21,12 +21,14 @@ class CommentHeading extends Component {
 
 
     return (
-      <span className="comment-author">
+      <span
+        className="comment-author">
       <a href={this.props.authorUrl}>
           <span
             className={this.props.isOwner ? 'owner' : ''}>
             {this.props.isOwner ? 'You' : this.props.authorName}</span>
       </a>
+        {this.props.volatile.isSaving ? <sup className="edit">Saving...</sup> : ''}
     {selfEdited ? <sup className="edit">Edited&nbsp;<span> -</span>{this.editTime()}</sup> : ''}
     {superEdited ? <sup className="edit">Edited by <a href={this.props.editorUrl}>{this.props.editorName}</a><span> -</span>{this.editTime()}</sup> : ''}
     </span>
@@ -36,13 +38,15 @@ class CommentHeading extends Component {
   render () {
 
     let { removed, isOwner, editorName, id, userFlags } = this.props;
+    let isSaving = this.props.volatile.isSaving;
+    let isLocked = this.props.volatile.editLocked;
 
     return (
       <header>
         <h4>
           {this.renderAuthor()}
           &nbsp;
-          {!removed && !isOwner ?
+          {!removed && !isOwner && !isLocked && !isSaving ?
             <FlagMenu
               defaultFlags = {[
                 { "key": "spam",      "value": false },
@@ -53,7 +57,14 @@ class CommentHeading extends Component {
               userFlags  = {userFlags}/>
             : ''}
 
-          <span className="timestamp">{editorName ? this.editTime() : this.createTime() }</span>
+          <span
+            style = {{ display: isSaving ? 'inline' : 'none' }}
+            className="minispin"><img src="/img/minispin.gif"/>
+          </span>
+          <span
+            style = {{ display: isSaving ? 'none' : 'inline' }}
+            className="timestamp">{ this.createTime() }
+          </span>
         </h4>
       </header>
     );
@@ -67,13 +78,13 @@ class CommentBody extends Component {
   displayEditControls = () => {
     return (
     <div className="edit-controls">
-      {this.props.userPrivs.userCanEdit && !this.props.volatile.isEditing && !this.props.editLocked && !this.props.removed ?
+      {this.props.userPrivs.userCanEdit && !this.props.volatile.isEditing && !this.props.volatile.editLocked && !this.props.removed ?
         <button data-id={this.props.id} onClick={this.props.handlers.onEnableEdit} className="edit-control" type="button">
           <span className="icon ion ion-edit"/>
         </button> :
         ''
       }
-      {this.props.userPrivs.userCanDelete && !this.props.volatile.isEditing && !this.props.editLocked && !this.props.removed ?
+      {this.props.userPrivs.userCanDelete && !this.props.volatile.isEditing && !this.props.volatile.editLocked && !this.props.removed ?
         <button data-id={this.props.id} onClick={this.props.handlers.onDelete} className="edit-control" type="button">
           <span className="icon ion ion-ios-trash"/>
         </button> :
@@ -165,10 +176,16 @@ export default class Comment extends Component {
   }
 
   render () {
+
+    var classes = classNames('comment', {
+      'deleted': this.props.removed,
+      'saving': this.props.volatile.isSaving
+    });
+
     return (
       <div
         id={"comment-" + this.props.id}
-        className={this.props.removed ? "comment deleted" : "comment"}>
+        className={classes}>
 
         <CommentHeading {...this.props}/>
         <CommentBody    {...this.props}/>

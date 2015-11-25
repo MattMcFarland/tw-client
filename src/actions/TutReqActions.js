@@ -115,7 +115,7 @@ class TutReqActions {
     this.actions.toggleFlagPending();
   }
 
-  // TODO: Add Validation to comment form.
+
   /**
    * Comment Action
    * @param type        {string} "TutorialRequest", or "TutorialSolution" - Available from model itself
@@ -198,7 +198,7 @@ class TutReqActions {
       })
       .end(done)
 
-    this.actions.updateItemPending({type, collection, id, parent, fields});
+    this.actions.updateItemPending({items, type, collection, id, parent, data: fields});
   }
 
   judgeTag ({id, decision}) {

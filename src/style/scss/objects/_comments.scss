@@ -15,13 +15,45 @@
   }
 }
 
+
 .comment {
   color: #999;
-  .timestamp {
+  transition: 0.3s;
+  background: inherit;
+  position: relative;
+  .minispin {
+    opacity: 0.6;
+    height: 18px;
+    overflow: hidden;
+  }
+  &.saving {
+    background: rgba(255, 255, 170, 0.33);
+    &:before, &:after {
+      content:" ";
+      position:absolute;
+      background: rgba(255, 255, 170, 0.33);
+      width: 16px;
+      height: 100%;
+      top: 0;
+    }
+    &:before {
+      left:-16px
+    }
+    &:after {
+      top: 0;
+      right:-16px
+    }
+  }
+  .timestamp, .minispin {
     font-size: 12px;
     vertical-align: top;
     opacity: 0.6;
     float: right;
+    > img {
+      opacity: 0.8;
+      width: 90%;
+      padding: 10% 0 0 0;
+    }
   }
   .comment-heading {
     margin-bottom: 5px;
