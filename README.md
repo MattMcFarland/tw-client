@@ -17,7 +17,6 @@
 
 #### Pending Fixes
 
-- [ ] admin/moderator not seeing tag vote buttons
 - [ ] link to user profile incorrect (showing logged in user instead)
 - [ ] Separate vendor from bundles
 
