@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Spinner from '../Common/Spinner';
 import {TextInput, LinkInput, MarkedArea } from '../Common/FormFields';
 
 const pattern = /\b((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))/i;
@@ -110,7 +111,6 @@ export default class TutSolForm extends Component {
 
   render () {
     var urlError, contentError;
-
     // key could be tags title and/or content
     if (this.state && this.state.error && this.state.error.data) {
       let data = this.state.error.data;
@@ -124,10 +124,11 @@ export default class TutSolForm extends Component {
       })
     }
 
+    let isPending = this.props.pending;
     return (
       <form className="solution-form">
         <fieldset>
-          <section>
+          <section className="solution-form-body">
             <legend>Submit Tutorial</legend>
             <p>Fill out the fields below to share your tutorial request.<br/>Make sure to use http(s) prefix</p>
 
@@ -142,13 +143,16 @@ export default class TutSolForm extends Component {
               placeholder="Provide a description of your tutorial"
               tip="You can use Github flavored markdown to dress up your request."
             />
-
+            {isPending ? <Spinner top="50%"/> : ''}
           </section>
         </fieldset>
         <footer>
-          <section>
-            <input className="btn btn-white" type="submit" value="Submit" onClick={this.onSubmit}/>
-          </section>
+          {isPending ?
+            '' :
+            <section>
+              <input className="btn btn-white" type="submit" value="Submit" onClick={this.onSubmit}/>
+            </section>
+          }
         </footer>
       </form>
     );

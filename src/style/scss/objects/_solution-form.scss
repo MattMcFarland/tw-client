@@ -6,6 +6,9 @@
   border-bottom: 1px solid #dbdbdb;
   width: 100%;
   position: relative;
+  .solution-form-body {
+    position: relative;
+  }
   fieldset, footer {
     max-width: 1200px;
     padding: 0 0.5em;

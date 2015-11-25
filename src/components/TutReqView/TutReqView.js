@@ -203,7 +203,7 @@ export default class TutReqView extends React.Component {
             {this.state.lockSolution ? <div><img src="/img/loading.gif"/></div> :
               ''}
           </MainContent>
-          <TutSolForm id={this.state.id} onSolutionSubmit={this.handlers.onSolutionSubmit}/>
+          <TutSolForm id={this.state.id} pending={this.state.volatile.solutionPending} onSolutionSubmit={this.handlers.onSolutionSubmit}/>
         </section>
       );
     } else {

@@ -6,10 +6,10 @@
 - [x] admin/moderator not seeing edit buttons
 - [x] edit controls on comment fixed
 - [x] preload not showing on tut request submit
+- [x] preload not showing on tut solution submit
 
 #### Pending Fixes
 
-- [ ] preload not showing on tut solution submit
 
 - [ ] edits not updating when editing comment.
 - [ ] edited by styling for comment
@@ -17,6 +17,7 @@
 - [ ] link to user profile incorrect (showing logged in user instead)
 - [ ] User avatar missing
 - [ ] Indication for post editor missing
+- [ ] Separate vendor from bundles
 
 #### missing features
 

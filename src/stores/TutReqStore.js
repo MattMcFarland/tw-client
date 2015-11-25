@@ -51,7 +51,8 @@ class TutReqStore {
       isEditingLinkMeta: false,
       userCanEdit: false,
       userCanDelete: false,
-      userCanSeeDeleted: false
+      userCanSeeDeleted: false,
+      solutionPending: false
     }
     this.solutions = [];
   }
@@ -216,13 +217,16 @@ class TutReqStore {
   }
   onAddSolutionPending () {
     this.setState({lockSolution: true});
+    this.setState({solutionPending: true})
   }
   onAddSolutionFail ({id, data}) {
     this.setState({lockSolution: false});
+    this.setState({solutionPending: false})
   }
   onAddSolutionSuccess ({id, data}) {
     this.solutions.push(data);
     this.setState({lockSolution: false});
+    this.setState({solutionPending: false})
     this.setState(this);
   }
   onDeleteSuccess ({collection, id, parent, type, data}) {
