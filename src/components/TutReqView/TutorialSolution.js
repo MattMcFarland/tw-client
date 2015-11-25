@@ -177,7 +177,7 @@ export default class TutorialSolution extends BasePost {
   }
   renderLinkMetaThumb = () => {
 
-    var thumbnailUrl = this.props.data.linkMeta.thumbnailUrl ? this.props.data.linkMeta.thumbnailUrl : '';
+    var thumbnailUrl = this.props.data.linkMeta.thumbnailUrl ? this.props.data.linkMeta.thumbnailUrl : '/img/colors.png';
 
     return (
     <div className="image"

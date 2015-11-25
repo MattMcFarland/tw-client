@@ -8,6 +8,9 @@
 - [ ] need preloader for "load more" button
 - [ ] admin/moderator not seeing edit buttons
 - [ ] admin/moderator not seeing tag vote buttons
+- [ ] no image fallback
+- [ ] flag x button reversed
+- [ ] link to user profile incorrect (showing logged in user instead)
 
 
 #### missing features
@@ -17,7 +20,10 @@
 - [ ] Add "Activity Stream" functionality
 - [ ] add social network share function and og tags
 - [ ] add serverside rendering
-
+- [ ] Avatar management
+- [ ] Share buttons to comments
+- [ ] Share buttons on sidebar
+- [ ] User point system
 
 - [x] Tut request form validation.
 - [x] Validate form for tutorial solution
