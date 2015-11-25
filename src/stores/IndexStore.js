@@ -22,10 +22,13 @@ class IndexStore {
     this.reqList = data;
   }
 
+  onNextPagePending () {
+    this.isLoadingNextPage = true;
+  }
   onNextPageSuccess (data) {
     this.lastPage = (data.length < 10);
     this.page ++;
-    this.isLoading = false;
+    this.isLoadingNextPage = false;
     this.reqList = [].concat(this.reqList, data);
   }
 
@@ -36,7 +39,7 @@ class IndexStore {
   }
 
   onNextPageFail (err) {
-    this.isLoading = false;
+    this.isLoadingNextPage = false;
     this.errorMessage = err;
   }
 

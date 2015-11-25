@@ -8,7 +8,8 @@ class IndexActions {
       'fetchSuccess',
       'fetchFail',
       'nextPageSuccess',
-      'nextPageFail'
+      'nextPageFail',
+      'nextPagePending'
     )
   }
 
@@ -70,6 +71,10 @@ class IndexActions {
         this.actions.nextPageSuccess(res.body);
       }
     });
+
+
+    this.actions.nextPagePending();
+
 
     switch (filter) {
       case "latest":

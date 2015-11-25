@@ -28,7 +28,7 @@ const opts = {
 export default class Spinner extends React.Component {
 
   componentDidMount () {
-    var spinner = new window.Spinner(opts).spin()
+    var spinner = new window.Spinner(Object.assign(opts, this.props)).spin()
     this.refs.body.appendChild(spinner.el)
   }
   render () {

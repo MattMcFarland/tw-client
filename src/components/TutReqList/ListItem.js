@@ -53,9 +53,9 @@ export default class ListItem extends React.Component {
         <div className="divider">
         </div>
         <div className="response-count">
-          <button className="btn btn-primary">
+          <a href={"/tutorial-request/" + this.props.permalink} className="btn btn-primary">
             <span className="icon ion-chatboxes"></span>&nbsp; <span>{this.props.solutions.length} Tutorials</span>
-          </button>
+          </a>
         </div>
       </section>
     );

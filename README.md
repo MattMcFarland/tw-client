@@ -1,23 +1,21 @@
 ### Todos
 
 
-
 #### fixes
 
-- [ ] x tutorials button on tut request list not working
-- [ ] need preloader for "load more" button
 - [ ] admin/moderator not seeing edit buttons
 - [ ] admin/moderator not seeing tag vote buttons
-- [ ] no image fallback
 - [ ] flag x button reversed
 - [ ] link to user profile incorrect (showing logged in user instead)
-
+- [ ] User avatar missing
 
 #### missing features
 
 - [ ] Add vote functionality to the tut list view
 - [ ] Add Category to db
 - [ ] Add "Activity Stream" functionality
+  -  [ ] Using either websockets or standard xhr polling
+
 - [ ] add social network share function and og tags
 - [ ] add serverside rendering
 - [ ] Avatar management
@@ -25,6 +23,12 @@
 - [ ] Share buttons on sidebar
 - [ ] User point system
 
+
+#### Done
+
+- [x] need preloader for "load more" button
+- [x] x tutorials button on tut request list not working
+- [x] no image fallback
 - [x] Tut request form validation.
 - [x] Validate form for tutorial solution
 - [x] add flagging UX
@@ -63,7 +67,11 @@ Both `/dist/js` and `/dist/style` are bundled files from gulp.
 
 ### Changelog
 
+#### v2.2.5
 
+- Add preloader for "load more" button
+- Fixed tutorials button on tut request list not working
+- Fixed "no image" fallback for preview / link meta
 
 #### v2.2.4
 

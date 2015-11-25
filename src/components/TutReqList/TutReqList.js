@@ -36,7 +36,7 @@ export default class TutReqList extends React.Component {
     IndexActions.fetchNextPage(this.state.page, this.state.activeTab);
   }
   render () {
-    var {isLoading, reqList, activeTab, lastPage} = this.state;
+    var {isLoading, isLoadingNextPage, reqList, activeTab, lastPage} = this.state;
     var listItems = reqList.map((li) => {
       // add class called fufilled if there are solutions.length
       // add class up or down if score is +1 or -1 over zero.
@@ -83,6 +83,7 @@ export default class TutReqList extends React.Component {
             {listItems}
           </ul>
         </section>
+        {isLoadingNextPage ? <Spinner top="100%"/> : ''}
         {lastPage ? '' :
           <section className="load-more">
             <button onClick={this.nextPage} className="btn btn-primary">Load More</button>
