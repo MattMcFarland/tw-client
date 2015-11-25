@@ -4,9 +4,11 @@
 - [x] flags for comment should only be spam or offensive
 - [x] flag x button reversed
 - [x] admin/moderator not seeing edit buttons
+- [x] edit controls on comment fixed
 
 #### Pending Fixes
 
+- [ ] edits not updating when editing comment.
 - [ ] edited by styling for comment
 - [ ] admin/moderator not seeing tag vote buttons
 - [ ] link to user profile incorrect (showing logged in user instead)
@@ -17,6 +19,7 @@
 
 #### missing features
 
+- [ ] deleted item ux
 - [ ] Add vote functionality to the tut list view
 - [ ] Add Category to db
 - [ ] Add "Activity Stream" functionality

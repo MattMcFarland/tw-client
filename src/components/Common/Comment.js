@@ -61,7 +61,7 @@ class CommentBody extends Component {
 
   displayEditControls = () => {
     return (
-    <div>
+    <div className="edit-controls">
       {this.props.userPrivs.userCanEdit && !this.props.volatile.isEditing && !this.props.editLocked && !this.props.removed ?
         <button data-id={this.props.id} onClick={this.props.handlers.onEnableEdit} className="edit-control" type="button">
           <span className="icon ion ion-edit"/>
