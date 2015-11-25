@@ -1,0 +1,47 @@
+/* Marked Area */
+
+.marked-area {
+
+  &-header {
+    background-color: #4374f4;
+    padding: 8px 14px;
+
+    menu {
+      padding: 0;
+      margin: 0;
+    }
+  }
+  &-button, a {
+    color: white;
+    min-width: 75px;
+    margin: 0 1em 0 0;
+    &.active {
+      border-top: 2px solid white;
+      border-bottom: 2px solid white;
+    }
+  }
+  &-help-link {
+    color: white;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &-text-container {
+    border: thin solid #bababa;
+    div {
+      background: white;
+      color: $dark;
+      padding: 1em;
+      p {
+        color: black;
+      }
+    }
+
+    textarea, div {
+      min-height: 200px;
+      margin: 0;
+    }
+  }
+}
+
