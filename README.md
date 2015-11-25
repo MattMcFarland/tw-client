@@ -1,6 +1,7 @@
 ### Todos
 
 #### Complete for v2.2.6
+
 - [x] flags for comment should only be spam or offensive
 - [x] flag x button reversed
 - [x] admin/moderator not seeing edit buttons
@@ -14,11 +15,8 @@
 
 #### Pending Fixes
 
-
-
 - [ ] admin/moderator not seeing tag vote buttons
 - [ ] link to user profile incorrect (showing logged in user instead)
-- [ ] User avatar missing
 - [ ] Indication for post editor missing
 - [ ] Separate vendor from bundles
 
@@ -32,7 +30,7 @@
 
 - [ ] Add social network share function and og tags
 - [ ] Add serverside rendering
-- [ ] Avatar management
+- [ ] Avatar management (includes adding avatar upload form etc)
 - [ ] Share buttons to comments
 - [ ] Share buttons on sidebar
 - [ ] User point system
