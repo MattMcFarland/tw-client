@@ -13,7 +13,9 @@ export default class TutReqForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formTitle: ''
+      formTitle: '',
+      error: {},
+      submitting: false
     };
   }
   componentDidUpdate() {
@@ -158,7 +160,7 @@ export default class TutReqForm extends React.Component {
     }
 
     return (
-      <form>
+      <form style={{position: 'relative'}}>
         <h2><span className="icon ion-bonfire"/>Tutorial Request</h2>
         {titleError ? <aside className="error"><span className="ion-alert-circled"/>&nbsp;{titleError}</aside> : ''}
         <TextInput
@@ -195,7 +197,7 @@ export default class TutReqForm extends React.Component {
         </label>
         <br/>
         {this.state.error ? <aside className="error-box">{this.state.error.message}</aside> : ''}
-        {this.state.submitting ? <Spinner />
+        {this.state.submitting ? <Spinner top="50%"/>
            :
           <input className="btn btn-primary" type="submit" onClick={this.onSubmit} value="Submit Request"/>
         }

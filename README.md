@@ -5,16 +5,17 @@
 - [x] flag x button reversed
 - [x] admin/moderator not seeing edit buttons
 - [x] edit controls on comment fixed
+- [x] preload not showing on tut request submit
 
 #### Pending Fixes
+
+- [ ] preload not showing on tut solution submit
 
 - [ ] edits not updating when editing comment.
 - [ ] edited by styling for comment
 - [ ] admin/moderator not seeing tag vote buttons
 - [ ] link to user profile incorrect (showing logged in user instead)
 - [ ] User avatar missing
-- [ ] preload not showing on tut request submit
-- [ ] preload not showing on tut solution submit
 - [ ] Indication for post editor missing
 
 #### missing features
