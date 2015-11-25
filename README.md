@@ -12,7 +12,6 @@
 #### Pending Fixes
 
 
-- [ ] Missing Visual indication for tag voting
 - [ ] Missing Visual indication needed for adding new solution/tutorial
 - [ ] Missing Visual indication of unapproved / approved tags
 - [ ] Content editor tabs are invisible (white on white)
@@ -42,7 +41,6 @@
 - [ ] User point system
 - [ ] Add Validation to comment form.
 - [ ] tooltips needed for buttons/links that are either truncated or use icons only.
-- [ ]
 
 
 #### Done
