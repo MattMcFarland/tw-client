@@ -14,6 +14,7 @@
 
 - [ ] Missing Visual indication needed for adding new solution/tutorial
 - [ ] Missing Visual indication of unapproved / approved tags
+- [ ] Missing Visual for when internal update of link meta from web scraper.
 - [ ] Content editor tabs are invisible (white on white)
 - [ ] Separate vendor from bundles
 
