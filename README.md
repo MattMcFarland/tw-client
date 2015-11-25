@@ -1,26 +1,19 @@
 ### Todos
 
-#### Complete for v2.2.6
-
-- [x] flags for comment should only be spam or offensive
-- [x] flag x button reversed
-- [x] admin/moderator not seeing edit buttons
-- [x] edit controls on comment fixed
-- [x] preload not showing on tut request submit
-- [x] preload not showing on tut solution submit
-- [x] edited by styling for comment  - comment-author .edit class
-- [x] edited by styling for tutsolution & tutrequest - .user.editor
-- [x] edits not updating when editing comment.
-- [x] need visual indication edit is pending for comment
-- [x] Indication for post editor missing
-- [x] tags in select forms styling messed up
+#### Complete for v2.2.7
 
 #### Pending Fixes
 
 - [ ] link to user profile incorrect (showing logged in user instead)
 - [ ] Separate vendor from bundles
+- [ ] Need indication for tag editing is saving
+- [ ] Need indication for tag voting
+- [ ] tags css needs margin-top (24px)
+- [ ] Visual indication needed for adding new solution/tutorial
 
 #### missing features
+
+- [ ] toasts?
 
 - [ ] deleted item ux
 - [ ] Add vote functionality to the tut list view
@@ -69,6 +62,23 @@ Both `/dist/js` and `/dist/style` are bundled files from gulp.
 
 
 ### Changelog
+
+
+#### v2.2.6
+
+- [x] flags for comment should only be spam or offensive
+- [x] flag x button reversed
+- [x] admin/moderator not seeing edit buttons
+- [x] edit controls on comment fixed
+- [x] preload not showing on tut request submit
+- [x] preload not showing on tut solution submit
+- [x] edited by styling for comment  - comment-author .edit class
+- [x] edited by styling for tutsolution & tutrequest - .user.editor
+- [x] edits not updating when editing comment.
+- [x] need visual indication edit is pending for comment
+- [x] Indication for post editor missing
+- [x] tags in select forms styling messed up
+- [x] Visual indication for adding new comment.
 
 #### v2.2.5
 

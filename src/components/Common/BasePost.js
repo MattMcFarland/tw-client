@@ -360,7 +360,10 @@ export default class BasePost extends Component {
   renderFooter = () => {
     var commentCtl = <div>
       {this.props.volatile.isAddingComment ?
-        <img src="/img/loading.gif"/> :
+        <div className="hpreloader">
+          <div className="preload preload-top"/>
+          <div className="preload preload-bottom"/>
+        </div> :
         this.props.volatile.isAddCommentFormExpanded ?
           this.commentForm() :
           <button onClick={this.handlers.onCommentRevealForm} style={{paddingLeft: '0',marginTop: '1em'}}className="edit-control">Add Comment</button>

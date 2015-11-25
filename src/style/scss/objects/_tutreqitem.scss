@@ -31,6 +31,7 @@
         float: right;
         opacity: 0.6;
         transition: 0.3s;
+        line-height: 64px;
         &:hover {
           color: $blue;
           opacity: 1;
@@ -41,6 +42,7 @@
         margin-bottom: 6px;
       }
       > ul.tags {
+        margin-top: 24px;
         margin-bottom: 6px;
         min-height: 42px;
       }
