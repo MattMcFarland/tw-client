@@ -9,10 +9,12 @@
 
 #### Pending Fixes
 
-- [ ] Need indication for tag editing is saving
-- [ ] Need indication for tag voting
-- [ ] Visual indication needed for adding new solution/tutorial
-- [ ] Account changing links does not persist.
+- [ ] Missing Visual for when editing tutorial request is saving.
+- [ ] Missing Visual indication for tag editing is saving
+- [ ] Missing Visual indication for tag voting
+- [ ] Missing Visual indication needed for adding new solution/tutorial
+- [ ] Missing Visual indication of unapproved / approved tags
+- [ ]
 - [ ] Separate vendor from bundles
 
 
