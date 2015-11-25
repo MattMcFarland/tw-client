@@ -78,7 +78,7 @@ export default class MarkedArea extends React.Component {
           title="learn more about github flavored markdown"
           className={this.props.classNames.helpLink}
           >
-          <span>Help</span>
+          <span>Help&nbsp;<span className="icon ion-android-open"></span></span>
         </a>
       </menu>
     );
