@@ -54,7 +54,7 @@
 
 	&.is-disabled {
 		color: $select-option-disabled-color;
-		cursor: default;
+		cursor: not-allowed;
 	}
 
 }
@@ -62,7 +62,9 @@
 
 // no results
 
-.Select-noresults {
+.Select-noresults,
+.Select-search-prompt,
+.Select-searching {
 	box-sizing: border-box;
 	color: $select-noresults-color;
 	cursor: default;

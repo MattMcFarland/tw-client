@@ -70,5 +70,6 @@
 /*------------------------------------*\
     $VENDORS
 \*------------------------------------*/
-@import "scss/vendor/react-select/scss/default";
-@import "scss/vendor/react-select/scss/components";
+
+@import "scss/vendor/react-select/select";
+@import "scss/vendor/react-select/components";

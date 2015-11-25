@@ -12,14 +12,14 @@
 - [x] edited by styling for tutsolution & tutrequest - .user.editor
 - [x] edits not updating when editing comment.
 - [x] need visual indication edit is pending for comment
+- [x] Indication for post editor missing
 
 #### Pending Fixes
 
 - [ ] admin/moderator not seeing tag vote buttons
 - [ ] link to user profile incorrect (showing logged in user instead)
-- [ ] Indication for post editor missing
 - [ ] Separate vendor from bundles
-
+- [ ] tags in select forms styling messed up
 #### missing features
 
 - [ ] deleted item ux
