@@ -5,6 +5,7 @@ import moment from 'moment';
 import { MarkedArea } from './FormFields';
 import marked from 'marked';
 import Select from 'react-select';
+import Spinner from './Spinner';
 
 marked.setOptions({
   highlight: function (code) {
@@ -211,6 +212,10 @@ export default class BasePost extends Component {
     return (
       <div className="content-cell ">
         <section className="body">
+
+
+
+
           {this.props.data.userPrivs.userCanEdit && !this.props.volatile.isEditing && !this.props.volatile.editLocked && !this.props.data.removed ?
             <button className="edit-control" data-id={this.props.data.id} onClick={this.handlers.onEnableEditContent} type="button">
               <span className="icon ion ion-edit"/>
@@ -232,6 +237,8 @@ export default class BasePost extends Component {
             ''
           }
           <div id={this.props.data.id + '-marked'} key={this.props.data.id + '-marked'} >
+            {this.props.volatile.editLocked ? <Spinner top="30px"/>: ''}
+
             {this.innerContent()}
           </div>
           {this.renderContentMeta()}
@@ -292,7 +299,10 @@ export default class BasePost extends Component {
     );
   }
   renderTagList = () => {
-    return this.props.data.tags.map((tag, index) => {
+
+    let tags = (Array.isArray(this.props.data.tags)) ? this.props.data.tags : this.props.data.tags.split(',');
+
+    return tags.map((tag, index) => {
 
       if (tag.is_approved || tag.is_pending) {
         return (
@@ -413,6 +423,7 @@ export default class BasePost extends Component {
       <section
         style={this.props.volatile.editLocked ? this.faded() : {}}
         className={this.props.data.removed ? "deleted tut-request-detail" : "tut-request-detail"}>
+
         <section className="title">
           {this.renderHeading()}
         </section>

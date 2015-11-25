@@ -84,12 +84,12 @@ export default class TutReqView extends React.Component {
     onEditTagsSave: (e) => {
       e.preventDefault();
       var inputElem = document.querySelector('input[type="hidden"]');
-      var tags = inputElem.value;
+      var tags_str = inputElem.value;
 
       TutReqActions.updateItem({
         type: 'TutorialRequest',
         id: this.state.id,
-        fields: { tags },
+        fields: { tags_str },
         items: ['tags', 'editorUrl', 'editorName', 'updated_at', 'created_at']
       })
     },
