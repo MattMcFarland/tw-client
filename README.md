@@ -5,15 +5,20 @@
 - [x] link to user profile incorrect (showing logged in user instead)
 - [x] error when no user logged in.
 - [x] account / bio / profile not showing.
+- [x] Login button off center.
 
 #### Pending Fixes
 
-- [ ] Login button off center.
 - [ ] Need indication for tag editing is saving
 - [ ] Need indication for tag voting
 - [ ] Visual indication needed for adding new solution/tutorial
 - [ ] Account changing links does not persist.
 - [ ] Separate vendor from bundles
+
+
+#### Deferred Problems
+
+- [ ] User profile updating custom data not working, need to check with stormpath.
 
 #### missing features
 
