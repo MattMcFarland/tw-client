@@ -37,6 +37,18 @@
           opacity: 1;
         }
       }
+      .marked-area-header {
+        background: $blue;
+        padding: 8px 14px;
+        a, button  {
+          color: white;
+          min-width: 75px;
+          margin: 0 1em 0 0;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
       > section.meta {
         display: block;
         margin-bottom: 6px;
