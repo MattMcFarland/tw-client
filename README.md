@@ -7,10 +7,11 @@
 - [x] account / bio / profile not showing.
 - [x] Login button off center.
 - [x] Missing Visual indication for tag editing is saving
+- [x] Missing Visual for when editing tutorial request is saving.
 
 #### Pending Fixes
 
-- [ ] Missing Visual for when editing tutorial request is saving.
+
 - [ ] Missing Visual indication for tag voting
 - [ ] Missing Visual indication needed for adding new solution/tutorial
 - [ ] Missing Visual indication of unapproved / approved tags
