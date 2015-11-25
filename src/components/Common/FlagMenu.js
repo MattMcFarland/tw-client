@@ -36,9 +36,9 @@ export default class FlagMenu extends React.Component {
       if (flag.value) {
         return (
           <button data-id={this.props.contextId} key={'enabled_' + flag.key} data-key={flag.key} onClick={this.toggleFlag} className="btn btn-danger btn-xs">
-            <span>x</span>
-            <span>&nbsp;</span>
             <span>{flag.key}</span>
+            <span>&nbsp;&nbsp;&nbsp;</span>
+            <span>x</span>
           </button>
         )
       }

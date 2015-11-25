@@ -2,15 +2,16 @@
 
 #### Complete for v2.2.6
 - [x] flags for comment should only be spam or offensive
+- [x] flag x button reversed
 
-#### Fixes
-- [ ] flag x button reversed
+#### Pending Fixes
 - [ ] admin/moderator not seeing edit buttons
 - [ ] admin/moderator not seeing tag vote buttons
 - [ ] link to user profile incorrect (showing logged in user instead)
 - [ ] User avatar missing
-
-
+- [ ] preload not showing on tut request submit
+- [ ] preload not showing on tut solution submit
+- [ ] Indication for post editor missing
 
 #### missing features
 
