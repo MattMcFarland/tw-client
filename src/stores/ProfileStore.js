@@ -1,6 +1,6 @@
 import alt from '../alt';
 import ProfileActions from '../actions/ProfileActions.js';
-import UserStore from './UserStore';
+import HeadStore from './HeadStore';
 import _ from 'lodash';
 
 class ProfileStore {
@@ -12,8 +12,8 @@ class ProfileStore {
 
 
   onInit () {
-    this.waitFor(UserStore);
-    let user = UserStore.getState();
+    this.waitFor(HeadStore);
+    let user = HeadStore.getState();
     if (!Array.isArray(user.customData.links)) {
       user.customData.links = [];
       user.customData.links.push({name: '', url: ''});

@@ -1,6 +1,6 @@
 import alt from '../alt';
 import AccountActions from '../actions/AccountActions.js';
-import UserStore from './UserStore';
+import HeadStore from './HeadStore';
 import _ from 'lodash';
 
 class AccountStore {
@@ -15,8 +15,8 @@ class AccountStore {
   }
 
   onInit () {
-    this.waitFor(UserStore);
-    let user = UserStore.getState();
+    this.waitFor(HeadStore);
+    let user = HeadStore.getState();
     this.setState({
       formFirstName: user.givenName,
       formLastName: user.surname,

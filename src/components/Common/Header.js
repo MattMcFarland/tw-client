@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
-import UserActions from '../../actions/UserActions';
-import UserStore from '../../stores/UserStore';
+import HeadActions from '../../actions/HeadActions';
+import HeadStore from '../../stores/HeadStore';
 import connectStores from 'alt/utils/connectToStores';
 import DropDown from './DropDown';
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.state = UserStore.getState();
+    this.state = HeadStore.getState();
     this.onChange = this.onChange.bind(this);
   }
 
   componentDidMount() {
     //console.log(this.handlers);
-    UserStore.listen(this.onChange);
-    UserActions.init();
+    HeadStore.listen(this.onChange);
+    HeadActions.init();
   }
 
   componentWillUnmount() {
-    UserStore.unlisten(this.onChange);
+    HeadStore.unlisten(this.onChange);
   }
 
   onChange(state) {

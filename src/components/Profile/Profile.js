@@ -55,68 +55,79 @@ export default class Profile extends React.Component {
   }
 
   renderLinks = () => {
-    var linkList = this.state.customData.links.map((link, idx) => {
+    if (this.state.customData && this.state.customData.links && Array.isArray(this.state.customData.links)) {
+      let linkList = this.state.customData.links.map((link, idx) => {
+        return (
+          <div key={idx}>
+            <dt>{link.name}</dt>
+            <dd><a href={link.url}>{link.url}</a></dd>
+          </div>
+        );
+      })
       return (
-        <div key={idx}>
-          <dt>{link.name}</dt>
-          <dd><a href={link.url}>{link.url}</a></dd>
-        </div>
+        <section>
+          <h3>Links</h3>
+          <dl>
+            {linkList}
+          </dl>
+          <hr/>
+        </section>
       );
-    })
-    return (
-      <section>
-        <h3>Links</h3>
-        <dl>
-          {linkList}
-        </dl>
-        <hr/>
-      </section>
-    );
+    } else {
+      return (<div/>)
+    }
   };
   renderHistory = () => {
-    var activities = this.state.customData.history.map((item, idx) => {
-      return (<tr key={idx}>
-        <td>{item.action}</td>
-        <td><a href={item.url}>{moment(item.timestamp).fromNow()}</a></td>
-      </tr>)
-    });
+    if (this.state.customData && this.state.customData.history && Array.isArray(this.state.customData.history)) {
+      let activities = this.state.customData.history.map((item, idx) => {
+        return (<tr key={idx}>
+          <td>{item.action}</td>
+          <td><a href={item.url}>{moment(item.timestamp).fromNow()}</a></td>
+        </tr>)
+      });
 
-    return (
-      <section>
-        <h3>Recent Activity</h3>
-        <table className="table">
-          <thead>
-          <tr>
-            <th>Activity</th>
-            <th>When</th>
-          </tr>
-          </thead>
-          <tbody>
-          {activities}
-          </tbody>
-        </table>
-      </section>
-    );
+      return (
+        <section>
+          <h3>Recent Activity</h3>
+          <table className="table">
+            <thead>
+            <tr>
+              <th>Activity</th>
+              <th>When</th>
+            </tr>
+            </thead>
+            <tbody>
+            {activities}
+            </tbody>
+          </table>
+        </section>
+      );
+    } else {
+      return (<div/>)
+    }
   }
   render () {
+    if (this.state.fullName) {
+      return (
+        <section>
 
-    return (
-      <section>
-        <header>
-          <h2>{this.state.fullName}</h2>
-          <em>
-            {this.state.customData.occupation ? this.renderOccupation() : ''}
-            {this.state.customData.location ? this.renderFrom() : ''}
-          </em>
-          <hr/>
-        </header>
+          <header>
+            <h2>{this.state.fullName}</h2>
+            <em>
+              {this.state.customData.occupation ? this.renderOccupation() : ''}
+              {this.state.customData.location ? this.renderFrom() : ''}
+            </em>
+            <hr/>
+          </header>
 
-        {this.state.customData.bio ? this.renderBio() : ''}
-        {this.state.customData.links ? this.renderLinks() : ''}
-        {this.state.customData.history ? this.renderHistory() : ''}
-
-      </section>
-    );
+          {this.state.customData.bio ? this.renderBio() : ''}
+          {this.state.customData.links ? this.renderLinks() : ''}
+          {this.state.customData.history ? this.renderHistory() : ''}
+        </section>
+      );
+    } else {
+      return (<section><h2>User not found</h2></section>);
+    }
   }
 
 };

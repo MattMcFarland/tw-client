@@ -1,16 +1,15 @@
 import alt from '../alt';
-import UserActions from '../actions/UserActions.js';
+import HeadActions from '../actions/HeadActions.js';
+import _ from 'lodash';
 
-
-class UserStore {
+class HeadStore {
 
   constructor () {
-    this.bindActions(UserActions);
+    this.bindActions(HeadActions);
     this.customData = {
       history: []
     }
   }
-
 
   onInitSuccess(user) {
     if (user.customData && user.customData.history && Array.isArray(user.customData.history)) {
@@ -27,7 +26,8 @@ class UserStore {
   }
 
 
+
 }
 
 
-export default alt.createStore(UserStore, 'UserStore');
+export default alt.createStore(HeadStore, 'HeadStore');

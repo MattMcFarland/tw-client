@@ -6,13 +6,11 @@
   clear: both;
   overflow: hidden;
   max-height: 0;
-  line-height: 95px;
-  a {
-    display: block;
-    border-top: 1px solid $gray-light-2;
-  }
+  line-height: 80px;
 
   button, a{
+    vertical-align: middle;
+    display: inline-block;
     color: #555;
     &:hover {
       color: $blue;
@@ -24,7 +22,6 @@
   }
   .icon {
     font-size:30px;
-    vertical-align: top;
 
     &.ion-android-arrow-dropdown {
       font-size: 18px;

@@ -2,14 +2,18 @@
 
 #### Complete for v2.2.7
 
+- [x] link to user profile incorrect (showing logged in user instead)
+- [x] error when no user logged in.
+- [x] account / bio / profile not showing.
+
 #### Pending Fixes
 
-- [ ] link to user profile incorrect (showing logged in user instead)
-- [ ] Separate vendor from bundles
+- [ ] Login button off center.
 - [ ] Need indication for tag editing is saving
 - [ ] Need indication for tag voting
-- [ ] tags css needs margin-top (24px)
 - [ ] Visual indication needed for adding new solution/tutorial
+- [ ] Account changing links does not persist.
+- [ ] Separate vendor from bundles
 
 #### missing features
 
@@ -28,6 +32,8 @@
 - [ ] Share buttons on sidebar
 - [ ] User point system
 - [ ] Add Validation to comment form.
+- [ ] tooltips needed for buttons/links that are either truncated or use icons only.
+- [ ]
 
 
 #### Done
@@ -66,6 +72,8 @@ Both `/dist/js` and `/dist/style` are bundled files from gulp.
 
 #### v2.2.6
 
+The following items were fixed:
+
 - [x] flags for comment should only be spam or offensive
 - [x] flag x button reversed
 - [x] admin/moderator not seeing edit buttons
@@ -79,12 +87,15 @@ Both `/dist/js` and `/dist/style` are bundled files from gulp.
 - [x] Indication for post editor missing
 - [x] tags in select forms styling messed up
 - [x] Visual indication for adding new comment.
+- [x] tags css needs margin-top (24px)
 
 #### v2.2.5
 
-- Fixed preloader for "load more" button
-- Fixed tutorials button on tut request list not working
-- Fixed "no image" fallback for preview / link meta
+The following items were fixed:
+
+- [x] preloader for "load more" button
+- [x] tutorials button on tut request list not working
+- [x] "no image" fallback for preview / link meta
 - [x] need preloader for "load more" button
 - [x] x tutorials button on tut request list not working
 - [x] no image fallback
