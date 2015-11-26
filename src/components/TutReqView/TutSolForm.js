@@ -126,7 +126,9 @@ export default class TutSolForm extends Component {
 
     let isPending = this.props.pending;
     return (
-      <form className="solution-form">
+      <form
+        style={{opacity: isPending ? 0.5 : 1}}
+        className="solution-form">
         <fieldset>
           <section className="solution-form-body">
             <legend>Submit Tutorial</legend>

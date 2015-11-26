@@ -160,7 +160,10 @@ export default class TutReqForm extends React.Component {
     }
 
     return (
-      <form style={{position: 'relative'}}>
+      <form style={{
+      position: 'relative',
+      opacity: this.state.submitting ? 0.5 : 1
+      }}>
         <h2><span className="icon ion-bonfire"/>Tutorial Request</h2>
         {titleError ? <aside className="error"><span className="ion-alert-circled"/>&nbsp;{titleError}</aside> : ''}
         <TextInput

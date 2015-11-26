@@ -235,17 +235,14 @@ class TutReqStore {
 
   }
   onAddSolutionPending () {
-    this.setState({lockSolution: true});
-    this.setState({solutionPending: true})
+    this.volatile.solutionPending = true;
   }
   onAddSolutionFail ({id, data}) {
-    this.setState({lockSolution: false});
-    this.setState({solutionPending: false})
+    this.volatile.solutionPending = false;
   }
   onAddSolutionSuccess ({id, data}) {
     this.solutions.push(data);
-    this.setState({lockSolution: false});
-    this.setState({solutionPending: false})
+    this.volatile.solutionPending = false;
     this.setState(this);
   }
   onDeleteSuccess ({collection, id, parent, type, data}) {

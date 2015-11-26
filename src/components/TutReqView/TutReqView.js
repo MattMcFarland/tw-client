@@ -179,7 +179,7 @@ export default class TutReqView extends React.Component {
 
 
   render() {
-    var TutSolList = this.state.solutions.map((sol) => {
+    var tutSolList = this.state.solutions.map((sol) => {
       return (
         <li key={sol.id}>
           <TutorialSolution
@@ -199,11 +199,14 @@ export default class TutReqView extends React.Component {
               handlers={this.handlers}
               volatile={this.state.volatile}
             />
-            <ul className="tutorial-solution-list">{TutSolList}</ul>
+            <ul className="tutorial-solution-list">{tutSolList}</ul>
             {this.state.lockSolution ? <div><img src="/img/loading.gif"/></div> :
               ''}
           </MainContent>
-          <TutSolForm id={this.state.id} pending={this.state.volatile.solutionPending} onSolutionSubmit={this.handlers.onSolutionSubmit}/>
+          <TutSolForm
+            id={this.state.id}
+            pending={this.state.volatile.solutionPending}
+            onSolutionSubmit={this.handlers.onSolutionSubmit}/>
         </section>
       );
     } else {

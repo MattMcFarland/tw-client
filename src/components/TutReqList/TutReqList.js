@@ -75,7 +75,10 @@ export default class TutReqList extends React.Component {
       );
     });
     return (
-      <section style={{position: 'relative'}}>
+      <section style={{
+        opacity: isLoading ? 0.5 : 1,
+        position: 'relative'
+      }}>
         {isLoading ? <Spinner /> : ''}
         <Tabs onFilter={this.onFilter} activeTab={activeTab}/>
         <section>

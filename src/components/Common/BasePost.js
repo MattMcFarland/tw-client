@@ -210,7 +210,10 @@ export default class BasePost extends Component {
     }
 
     return (
-      <div className="content-cell ">
+      <div style={{
+      opacity: this.props.volatile.editLocked ? 0.5 : 1
+      }}
+           className="content-cell ">
         <section className="body">
 
 
