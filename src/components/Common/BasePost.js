@@ -4,8 +4,9 @@ import FlagMenu from './FlagMenu';
 import moment from 'moment';
 import { MarkedArea } from './FormFields';
 import marked from 'marked';
-import Select from 'react-select';
+import Select from './Select';
 import Spinner from './Spinner';
+import _ from 'lodash';
 
 marked.setOptions({
   highlight: function (code) {
@@ -99,6 +100,17 @@ export default class BasePost extends Component {
       comments: React.PropTypes.array,
       removed: React.PropTypes.bool
     })
+  }
+  onTagChange = (value, array) => {
+
+    var tagSelect = this.refs.tags;
+    var tags = value.split(',');
+    var nt = [].concat(_.uniq(tags));
+    if (nt.length !== tags.length) {
+      console.warn('duplicates found');
+      console.log(tagSelect);
+    }
+
   }
   renderHeading = () => {
 
@@ -320,6 +332,7 @@ export default class BasePost extends Component {
             required="true"
             tagset={this.props.data.tags}
             value={this.props.data.tags.map((t)=>t.name)}
+            onChange={this.onTagChange}
           />
         </label>
         <button type="submit" className="btn btn-block btn-info">Save</button>

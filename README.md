@@ -18,12 +18,12 @@
 - [x] downvoted tags can be added back (this might be OK) - feature not a bug
 - [x] Missing Visual indication of approving / unapproving tag - fixed with optimistic update
 - [x] Missing validation on edit tags
+- [x] duplicate tag names causing issues
 
 #### Pending Fixes
 
 
 
-- [ ] duplicate tag names causing issues
 - [ ] Separate vendor from bundles
 
 

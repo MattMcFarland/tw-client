@@ -2,7 +2,7 @@
  * Created by mmcfarland on 11/1/15.
  */
 import React from 'react';
-import Select from 'react-select';
+import Select from '../Common/Select';
 import ajax from 'superagent';
 import { TextInput, MarkedArea } from '../Common/FormFields';
 import xss from 'xss';
