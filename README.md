@@ -59,7 +59,7 @@ Both `/dist/js` and `/dist/style` are bundled files from gulp.
 
 ### Changelog
 
-#### v2.2.7
+#### v2.2.8
 
 The following items were fixed:
 
@@ -84,7 +84,7 @@ The following items were fixed:
 
 
 
-#### v2.2.6
+#### v2.2.7
 
 The following items were fixed:
 
