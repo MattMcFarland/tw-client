@@ -261,11 +261,12 @@ export default class BasePost extends Component {
     var contentError;
 
     // key could be tags title and/or content
-    if (this.state.error && this.state.error.data) {
-      let data = this.state.error.data;
+    if (this.props.data.error && this.props.data.error.data) {
+
+      let data = this.props.data.error.data;
       data.forEach((err) => {
         console.log(err);
-        if (err.el === "tags") {
+        if (err.el === "content") {
           contentError = err.error;
         }
       })
@@ -291,10 +292,10 @@ export default class BasePost extends Component {
   }
   editTagList = () => {
     var tagError;
-
     // key could be tags title and/or content
-    if (this.state.error && this.state.error.data) {
-      let data = this.state.error.data;
+    if (this.props.data.error && this.props.data.error.data) {
+
+      let data = this.props.data.error.data;
       data.forEach((err) => {
         console.log(err);
         if (err.el === "tags") {
@@ -302,6 +303,7 @@ export default class BasePost extends Component {
         }
       })
     }
+
 
     return (
       <form onSubmit={this.handlers.onEditTagsSave}>

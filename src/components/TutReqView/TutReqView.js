@@ -22,7 +22,6 @@ export default class TutReqView extends React.Component {
     TutReqStore.listen(this.onChange);
     TutReqActions.init();
   }
-
   componentWillUnmount() {
     TutReqStore.unlisten(this.onChange);
   }
@@ -33,10 +32,10 @@ export default class TutReqView extends React.Component {
   onChange(state) {
     this.setState(state);
   }
-  validateTags = () => {
+  validateTags = (latags) => {
     var
       errors = [],
-      tags = this.refs.tags.state.values,
+      tags = latags.split(','),
       rules = [
         {
           el: 'tags',
@@ -67,10 +66,9 @@ export default class TutReqView extends React.Component {
       }
     }
   }
-  validateContent = () => {
+  validateContent = (content) => {
     var
       errors = [],
-      content = this.refs.content.state.value,
       rules = [
         {
           el: 'content',
@@ -157,7 +155,7 @@ export default class TutReqView extends React.Component {
       e.preventDefault();
       var inputElem = document.querySelector('input[type="hidden"]');
       var tags = inputElem.value;
-      var valid = this.validateTags();
+      var valid = this.validateTags(tags);
 
       if (valid.errors) {
 
@@ -174,6 +172,7 @@ export default class TutReqView extends React.Component {
 
         return false;
       } else {
+        this.setState({error: null});
         TutReqActions.updateItem({
           type: 'TutorialRequest',
           id: this.state.id,
@@ -198,7 +197,7 @@ export default class TutReqView extends React.Component {
       e.preventDefault();
       var inputElem = document.getElementById(this.state.id + '-edit-content');
       var content = inputElem.value;
-      var valid = this.validateContent();
+      var valid = this.validateContent(content);
 
       if (valid.errors) {
         let article = valid.errors.length > 1 ? 'are' : 'is';
@@ -214,6 +213,8 @@ export default class TutReqView extends React.Component {
 
         return false;
       } else {
+        this.setState({error: null});
+
         TutReqActions.updateItem({
           type: 'TutorialRequest',
           id: this.state.id,
