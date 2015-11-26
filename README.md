@@ -25,13 +25,6 @@
 
 
 
-#### Deferred Problems
-
-- [ ] User profile updating custom data not working, need to check with stormpath.
-- [ ] Tags are sometimes string, and sometimes array, this needs to be ironed out, and keep one type.
-
-
-
 #### missing features
 
 - [ ] toasts?
@@ -51,8 +44,11 @@
 - [ ] tooltips needed for buttons/links that are either truncated or use icons only.
 
 
-#### Done
 
+#### Deferred Problems
+
+- [ ] User profile updating custom data not working, need to check with stormpath.
+- [ ] Tags are sometimes string, and sometimes array, this needs to be ironed out, and keep one type.
 
 
 
