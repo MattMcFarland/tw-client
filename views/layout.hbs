@@ -27,13 +27,16 @@
 <![endif]-->
 
 
+{{#if json}}
+    <script type="application/json" id="json">{{{json}}}</script>
+{{/if}}
+
+
 <script type="text/javascript" src="/vendor/spin.js"></script>
 <script type="text/javascript" src="/js/vendor.min.js"></script>
 
 
-{{#if json}}
-    <script type="application/json" id="json">{{{json}}}</script>
-{{/if}}
+
 {{#if user}}
     <script type="application/json" id="user" >{{{user}}}</script>
 {{/if}}

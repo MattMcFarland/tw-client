@@ -2,32 +2,32 @@
 
 #### Complete for v2.3.0
 
+[ ] Nothing yet :(
 
-#### missing features
+#### Planned for v2.3:
 
-- [ ] toasts?
-- [ ] deleted item ux
 - [ ] Add vote functionality to the tut list view
+- [ ] Add social network share function and og tags
+- [ ] Share buttons to comments
+- [ ] Share buttons on sidebar
+- [ ] ensure 3rd party vendor license compliance.
+- [ ] Add Validation to comment form.
+
+#### Planned for v2.4.x:
+
+
 - [ ] Add Category to db
+- [ ] Add serverside rendering
+- [ ] tooltips needed for buttons/links that are either truncated or use icons only.
 - [ ] Add "Activity Stream" functionality
   - [ ] Using either websockets or standard xhr polling
 
-- [ ] Add social network share function and og tags
-- [ ] Add serverside rendering
+#### Planned for v2.5.x:
+
 - [ ] Avatar management (includes adding avatar upload form etc)
-- [ ] Share buttons to comments
-- [ ] Share buttons on sidebar
 - [ ] User point system
-- [ ] Add Validation to comment form.
-- [ ] tooltips needed for buttons/links that are either truncated or use icons only.
-
-- [ ] ensure 3rd party vendor license compliance.
-
-
-#### Deferred Problems
-
+- [ ] deleted item ux
 - [ ] User profile updating custom data not working, need to check with stormpath.
-- [ ] Tags are sometimes string, and sometimes array, this needs to be ironed out, and keep one type.
 
 
 
