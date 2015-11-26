@@ -33,7 +33,79 @@ export default class TutReqView extends React.Component {
   onChange(state) {
     this.setState(state);
   }
+  validateTags = () => {
+    var
+      errors = [],
+      tags = this.refs.tags.state.values,
+      rules = [
+        {
+          el: 'tags',
+          failOn: tags.length < 1,
+          error: 'You must select at least one tag.'
+        },
+        {
+          el: 'tags',
+          failOn: tags.length > 4,
+          error: 'You may not select more than 4 tags.'
+        }
+      ];
 
+    rules.forEach((rule, index) => {
+      if (rule.failOn) {
+        errors.push(rule);
+      }
+    });
+    if (errors.length) {
+      return {
+        errors: errors,
+        valid: false
+      };
+    } else {
+      return {
+        errors: null,
+        valid: true
+      }
+    }
+  }
+  validateContent = () => {
+    var
+      errors = [],
+      content = this.refs.content.state.value,
+      rules = [
+        {
+          el: 'content',
+          failOn: content.length < 30,
+          error: 'Request content is not long enough and must be 30 characters in length.'
+        },
+        {
+          el: 'content',
+          failOn: content.length > 2400,
+          error: 'Request content is too long may not exceed 2400 characters in length.'
+        }
+      ];
+
+
+    rules.forEach((rule, index) => {
+
+      if (rule.failOn) {
+        errors.push(rule);
+      }
+    });
+
+    if (errors.length) {
+      return {
+        errors: errors,
+        valid: false
+      };
+    } else {
+      return {
+        errors: null,
+        valid: true
+      }
+    }
+
+
+  }
   handlers = {
     onVoteUp: () => {
       TutReqActions.vote({
@@ -85,13 +157,30 @@ export default class TutReqView extends React.Component {
       e.preventDefault();
       var inputElem = document.querySelector('input[type="hidden"]');
       var tags = inputElem.value;
+      var valid = this.validateTags();
 
-      TutReqActions.updateItem({
-        type: 'TutorialRequest',
-        id: this.state.id,
-        fields: { tags },
-        items: ['tags', 'editorUrl', 'editorName', 'updated_at', 'created_at']
-      })
+      if (valid.errors) {
+
+        let article = valid.errors.length > 1 ? 'are' : 'is';
+        let noun = valid.errors.length > 1 ? 'errors' : 'error';
+        let count = valid.errors.length > 1 ? valid.errors.length : 'one';
+
+        this.setState({
+          error: {
+            message: `There ${article} ${count} ${noun} in your tutorial request, please try again.`,
+            data: valid.errors
+          }
+        })
+
+        return false;
+      } else {
+        TutReqActions.updateItem({
+          type: 'TutorialRequest',
+          id: this.state.id,
+          fields: { tags },
+          items: ['tags', 'editorUrl', 'editorName', 'updated_at', 'created_at']
+        })
+      }
     },
     onApproveTag: (e) => {
       TutReqActions.judgeTag({
@@ -109,13 +198,30 @@ export default class TutReqView extends React.Component {
       e.preventDefault();
       var inputElem = document.getElementById(this.state.id + '-edit-content');
       var content = inputElem.value;
+      var valid = this.validateContent();
 
-      TutReqActions.updateItem({
-        type: 'TutorialRequest',
-        id: this.state.id,
-        fields: { content },
-        items: ['content', 'editorUrl', 'editorName', 'updated_at', 'created_at']
-      })
+      if (valid.errors) {
+        let article = valid.errors.length > 1 ? 'are' : 'is';
+        let noun = valid.errors.length > 1 ? 'errors' : 'error';
+        let count = valid.errors.length > 1 ? valid.errors.length : 'one';
+
+        this.setState({
+          error: {
+            message: `There ${article} ${count} ${noun} in your tutorial request, please try again.`,
+            data: valid.errors
+          }
+        })
+
+        return false;
+      } else {
+        TutReqActions.updateItem({
+          type: 'TutorialRequest',
+          id: this.state.id,
+          fields: { content },
+          items: ['content', 'editorUrl', 'editorName', 'updated_at', 'created_at']
+        })
+      }
+
     },
     onDelete: (e) => {
       var id = e.currentTarget.dataset.id;

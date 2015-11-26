@@ -258,8 +258,21 @@ export default class BasePost extends Component {
     );
   }
   renderEditContentCell = () => {
+    var contentError;
+
+    // key could be tags title and/or content
+    if (this.state.error && this.state.error.data) {
+      let data = this.state.error.data;
+      data.forEach((err) => {
+        console.log(err);
+        if (err.el === "tags") {
+          contentError = err.error;
+        }
+      })
+    }
     return (
       <div className="content-cell">
+        {contentError ? <aside className="error"><span className="ion-alert-circled"/>&nbsp;{contentError}</aside> : ''}
         <form onSubmit = {this.handlers.onEditContentSave}>
           <MarkedArea
             label="You are editing this post"
@@ -277,10 +290,24 @@ export default class BasePost extends Component {
     );
   }
   editTagList = () => {
+    var tagError;
+
+    // key could be tags title and/or content
+    if (this.state.error && this.state.error.data) {
+      let data = this.state.error.data;
+      data.forEach((err) => {
+        console.log(err);
+        if (err.el === "tags") {
+          tagError = err.error;
+        }
+      })
+    }
+
     return (
       <form onSubmit={this.handlers.onEditTagsSave}>
         <label>
           <span className="form-label">Tags:</span>
+          {tagError ? <aside className="error"><span className="ion-alert-circled"/>&nbsp;{tagError}</aside> : ''}
           <em className="form-field-tip">Select between one and four tags.</em>
           <br/>
           <Select
