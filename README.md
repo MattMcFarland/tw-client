@@ -15,14 +15,17 @@
    - [x] Use <Spinner /> for this
 - [x] Clearout solution form on submit.
 - [x] Missing Visual for when internal update of link meta from web scraper.
+- [x] downvoted tags can be added back (this might be OK) - feature not a bug
+- [x] Missing Visual indication of approving / unapproving tag - fixed with optimistic update
 
 
 #### Pending Fixes
 
 
-- [ ] Missing Visual indication of unapproved / approved tags
-- [ ] Separate vendor from bundles
 
+- [ ] duplicate tag names causing issues
+- [ ] Separate vendor from bundles
+- [ ] Missing validation on edit tags
 
 
 #### missing features

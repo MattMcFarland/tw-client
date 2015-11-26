@@ -225,7 +225,9 @@ class TutReqStore {
     Object.assign(target, update);
   }
   onJudgeTagPending ({id, decision}) {
-
+    var target = getTarget({collection: 'tags', id}, this);
+    target.is_pending = false;
+    target.is_approved = decision === 'approve';
   }
   onJudgeTagSuccess ({id, decision, data}) {
     var target = getTarget({collection: 'tags', id}, this);

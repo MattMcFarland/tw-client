@@ -325,7 +325,7 @@ export default class BasePost extends Component {
           </li>
         );
       } else {
-        return (<div key={tag.id + '-' + index}/>);
+        return (<li style={{display:'none'}}key={tag.id + '-' + index}/>);
       }
 
     });
