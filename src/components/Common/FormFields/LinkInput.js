@@ -12,6 +12,7 @@ export default class LinkInput extends Component {
     this.state = {
       value: '',
       linkMeta: false,
+      scraping: false,
       status: {
         message: '',
         icon: 'info',
@@ -19,11 +20,11 @@ export default class LinkInput extends Component {
       }
     };
     this.scrapeUrl = (url) => {
-      this.setState({linkMeta: null});
+      this.setState({linkMeta: null, scraping: true});
 
       ajax.post('/_api/scrape/', {url}, (err, res) => {
         if (!err && res) {
-          this.setState({linkMeta: res.body});
+          this.setState({linkMeta: res.body, scraping: false});
         }
       });
     };
@@ -41,9 +42,18 @@ export default class LinkInput extends Component {
   }
 
   render () {
+
+    var linkPreview;
+
+    if (this.state.linkMeta) {
+      linkPreview = (<LinkPreview scraping={false} {...this.state.linkMeta}  />);
+    } else if (this.state.scraping) {
+      linkPreview = (<LinkPreview scraping={true} />);
+    }
+
     return (
       <div className="link-input">
-        {this.state.linkMeta ? <LinkPreview {...this.state.linkMeta} /> : ''}
+        {linkPreview ? linkPreview : ''}
 
         <aside>
           {this.state.status.message}

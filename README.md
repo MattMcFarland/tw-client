@@ -14,11 +14,13 @@
    - [x] Make sure to scroll to newly added post when finished
    - [x] Use <Spinner /> for this
 - [x] Clearout solution form on submit.
+- [x] Missing Visual for when internal update of link meta from web scraper.
+
 
 #### Pending Fixes
 
+
 - [ ] Missing Visual indication of unapproved / approved tags
-- [ ] Missing Visual for when internal update of link meta from web scraper.
 - [ ] Separate vendor from bundles
 
 
@@ -33,7 +35,6 @@
 #### missing features
 
 - [ ] toasts?
-
 - [ ] deleted item ux
 - [ ] Add vote functionality to the tut list view
 - [ ] Add Category to db

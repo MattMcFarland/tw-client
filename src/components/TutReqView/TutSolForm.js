@@ -30,8 +30,8 @@ export default class TutSolForm extends Component {
         },
         {
           el: 'url',
-          failOn: urlInput.length > 64,
-          error: 'URL amy not exceed 64 characters in length'
+          failOn: urlInput.length > 128,
+          error: 'URL may not exceed 128 characters in length'
         },
         {
           el: 'url',
@@ -51,6 +51,16 @@ export default class TutSolForm extends Component {
         {
           el: 'url',
           failOn: !linkMeta,
+          error: 'Invalid url, please enter a full domain with protocol prefix included'
+        },
+        {
+          el: 'url',
+          failOn: !linkMeta.description,
+          error: 'Invalid url, please enter a full domain with protocol prefix included'
+        },
+        {
+          el: 'url',
+          failOn: !linkMeta.title,
           error: 'Invalid url, please enter a full domain with protocol prefix included'
         }
       ];

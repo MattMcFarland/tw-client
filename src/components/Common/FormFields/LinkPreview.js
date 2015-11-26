@@ -14,7 +14,18 @@ export default class LinkPreview extends Component {
 
   render () {
     var actionBlock;
-    const { embedUrl, title, url, thumbnailUrl, description } = this.props;
+    let { embedUrl, title, url, thumbnailUrl, description } = this.props;
+
+    if (this.props.scraping) {
+      title="loading";
+      thumbnailUrl="/img/loading.gif";
+      description="Scraping......";
+    } else if (!title || !description) {
+        thumbnailUrl="/img/scrape-error-m.png";
+        description="Sorry, we are not able to process this url, please try again later or contact us if this persists."
+        title="Parse error :("
+
+    }
 
     if (embedUrl) {
       actionBlock = (
