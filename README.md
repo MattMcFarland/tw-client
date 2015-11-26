@@ -13,20 +13,22 @@
 - [x] Missing Visual indication needed for adding new solution/tutorial
    - [x] Make sure to scroll to newly added post when finished
    - [x] Use <Spinner /> for this
+- [x] Clearout solution form on submit.
 
 #### Pending Fixes
 
-
-- [ ] Clearout solution form when submit completes.
 - [ ] Missing Visual indication of unapproved / approved tags
 - [ ] Missing Visual for when internal update of link meta from web scraper.
 - [ ] Separate vendor from bundles
+
 
 
 #### Deferred Problems
 
 - [ ] User profile updating custom data not working, need to check with stormpath.
 - [ ] Tags are sometimes string, and sometimes array, this needs to be ironed out, and keep one type.
+
+
 
 #### missing features
 

@@ -200,8 +200,6 @@ export default class TutReqView extends React.Component {
               volatile={this.state.volatile}
             />
             <ul className="tutorial-solution-list">{tutSolList}</ul>
-            {this.state.lockSolution ? <div><img src="/img/loading.gif"/></div> :
-              ''}
           </MainContent>
           <TutSolForm
             id={this.state.id}

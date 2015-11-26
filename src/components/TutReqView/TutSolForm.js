@@ -100,12 +100,18 @@ export default class TutSolForm extends Component {
     } else {
 
       var formData = {
-        content: this.refs.content.state.value,
-        linkMeta: this.refs.url.state.linkMeta
+        content: new String(this.refs.content.state.value),
+        linkMeta: Object.assign({}, this.refs.url.state.linkMeta)
       };
-      this.props.onSolutionSubmit(this.props.id, formData)
-    }
 
+      this.props.onSolutionSubmit(this.props.id, formData);
+
+      // TODO: should be using Alt state management instead of this hack.
+      this.refs.content.state.value = '';
+      this.refs.url.state.linkMeta = null;
+      this.refs.url.state.value = '';
+      this.state.error = {};
+    }
   };
 
 
