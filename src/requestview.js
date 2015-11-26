@@ -5,6 +5,8 @@ import { TutReqView } from './components/index.js';
 
 require('./utils/polyfills');
 
+window.scrollTo = require('./utils/scrollTo');
+
 
 ReactDOM.render(
   <div>

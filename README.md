@@ -9,16 +9,17 @@
 - [x] Missing Visual indication for tag editing is saving
 - [x] Missing Visual for when editing tutorial request is saving.
 - [x] Content editor tabs are invisible (white on white)
-- [ ] Cleanup UX for spinners
+- [x] Cleanup UX for spinners
 
+- [x] Missing Visual indication needed for adding new solution/tutorial
+   - [x] Make sure to scroll to newly added post when finished
+   - [x] Use <Spinner /> for this
 #### Pending Fixes
 
 
 
-- [ ] Missing Visual indication needed for adding new solution/tutorial
-   - [ ] Make sure to scroll to newly added post when finished
-   - [x] Use <Spinner /> for this
 
+- [ ] Clearout solution form when submit completes.
 - [ ] Missing Visual indication of unapproved / approved tags
 - [ ] Missing Visual for when internal update of link meta from web scraper.
 

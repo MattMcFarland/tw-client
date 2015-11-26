@@ -3,6 +3,7 @@ import TutReqActions from '../actions/TutReqActions.js';
 import _ from 'lodash';
 import UserStore from './UserStore';
 import UserActions from '../actions/UserActions';
+import scrollTo from '../utils/scrollTo';
 
 /**
  * Determines correct target by collection or parent collection
@@ -244,6 +245,13 @@ class TutReqStore {
     this.solutions.push(data);
     this.volatile.solutionPending = false;
     this.setState(this);
+    // there should be a cleaner way to do this:
+    setTimeout(() => {
+      var newPost = document.getElementById('tutorialsolution-' + data.id);
+      if (newPost) {
+        scrollTo({target: newPost});
+      }
+    }, 300)
   }
   onDeleteSuccess ({collection, id, parent, type, data}) {
     var target = getTarget({collection, parent, id}, this);
