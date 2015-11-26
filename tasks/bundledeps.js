@@ -6,17 +6,15 @@ var
   uglify = require('gulp-uglify'),
   gutil = require('gulp-util'),
   getNPMPackageIds = require('./helpers').getNPMPackageIds,
+  nodeResolve = require('resolve'),
   compressionOptions = require('../config/gulpCompressionOptions');
 
-module.exports = function(entry, name, dest, callback) {
-  var b = browserify({
-    entries: entry,
-    debug: false
-  });
+module.exports = function(name, dest, callback) {
+  var b = browserify({debug: false});
   var filename = name + ".min.js";
 
   getNPMPackageIds().forEach(function (id) {
-    b.external(id);
+    b.require(nodeResolve.sync(id), { expose: id });
   });
 
   return b.bundle()

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import uniq from 'lodash.uniq';
 import Comment from './Comment';
 import FlagMenu from './FlagMenu';
 import moment from 'moment';
@@ -6,7 +7,7 @@ import { MarkedArea } from './FormFields';
 import marked from 'marked';
 import Select from './Select';
 import Spinner from './Spinner';
-import _ from 'lodash';
+
 
 marked.setOptions({
   highlight: function (code) {
@@ -105,7 +106,7 @@ export default class BasePost extends Component {
 
     var tagSelect = this.refs.tags;
     var tags = value.split(',');
-    var nt = [].concat(_.uniq(tags));
+    var nt = [].concat(uniq(tags));
     if (nt.length !== tags.length) {
       console.warn('duplicates found');
       console.log(tagSelect);
@@ -174,7 +175,7 @@ export default class BasePost extends Component {
               </div>
               <div className="meta">
                 <div className="user-name"><a className="p-name u-url" href={this.props.data.editorUrl}>{this.props.data.editorName}</a></div>
-                <div className="timestamp">{moment(this.props.data.updated_at).fromNow()}</div>
+                <div className="timestamp">{moment(this.props.updated_at).fromNow()}</div>
               </div>
             </div>
           </div>
@@ -185,7 +186,7 @@ export default class BasePost extends Component {
               </div>
               <div className="meta">
                 <div className="user-name"><a className="p-name u-url" href={this.props.data.authorUrl}>{this.props.data.authorName}</a></div>
-                <div className="timestamp">{moment(this.props.data.created_at).fromNow()}</div>
+                <div className="timestamp">{moment(this.props.created_at).fromNow()}</div>
               </div>
             </div>
           </div>
@@ -202,7 +203,7 @@ export default class BasePost extends Component {
               </div>
               <div className="meta">
                 <div className="user-name"><a className="p-name u-url" href={this.props.data.authorUrl}>{this.props.data.authorName}</a></div>
-                <div className="timestamp">{moment(this.props.data.created_at).fromNow()}</div>
+                <div className="timestamp">{moment(this.props.created_at).fromNow()}</div>
               </div>
             </div>
           </div>

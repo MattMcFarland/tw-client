@@ -6,51 +6,38 @@ const gulp = require('gulp');
 const
   bundle = require('./tasks/bundle'),
   bundlemin = require("./tasks/bundlemin"),
-  lint = require('./tasks/lint'),
+  bundledeps = require('./tasks/bundledeps'),
   gutil = require('gulp-util'),
   watch = require('./tasks/watch'),
   sass = require('./tasks/sass');
 
-const bundles = [
-  'src/index',
-  'src/requestform',
-  'src/requestview',
-  'src/profile',
-  'src/account'
-]
-
-const next = function (done) {
-  i++;
-  if (i === bundles.length - 1) {
-    done();
-  }
-}
-
-gulp.task('bundle-prod', (done) => {
-
-  i = 0;
-
-  sass('src/style/scss/main.scss', 'main', 'dist/style');
-  bundles.forEach((path) => {
-    bundlemin(path, path.split('/')[1], 'dist/js', () => next(done));
-  })
+gulp.task('bundle-vendor', (done) => {
+  bundledeps('vendor', 'dist/js', done);
 });
 
-gulp.task('bundle-dev', (done) => {
+gulp.task('bundle-prod',['sass', 'bundlemin-index','bundlemin-requestview','bundlemin-requestform','bundlemin-profile','bundlemin-account']);
 
-  i = 0;
+gulp.task('bundlemin-index', () => bundlemin('src/index', 'index', 'dist/js'));
+gulp.task('bundlemin-requestview', () => bundlemin('src/requestview', 'requestview', 'dist/js'));
+gulp.task('bundlemin-requestform', () => bundlemin('src/requestform', 'requestform', 'dist/js'));
+gulp.task('bundlemin-profile', () => bundlemin('src/profile', 'profile', 'dist/js'));
+gulp.task('bundlemin-account', () => bundlemin('src/account', 'account', 'dist/js'));
 
-  sass('src/style/scss/main.scss', 'main', 'dist/style');
-  bundles.forEach((path) => {
-    bundle(path, path.split('/')[1], 'dist/js', () => next(done));
-  })
-});
+gulp.task('bundle-dev',['sass', 'bundle-index','bundle-requestview','bundle-requestform','bundle-profile','bundle-account']);
+
+gulp.task('bundle-index', () => bundle('src/index', 'index', 'dist/js'));
+gulp.task('bundle-requestview', () => bundle('src/requestview', 'requestview', 'dist/js'));
+gulp.task('bundle-requestform', () => bundle('src/requestform', 'requestform', 'dist/js'));
+gulp.task('bundle-profile', () => bundle('src/profile', 'profile', 'dist/js'));
+gulp.task('bundle-account', () => bundle('src/account', 'account', 'dist/js'));
+
 
 gulp.task('watch-index', () => watch('src/index', 'index', 'dist/js'));
 gulp.task('watch-requestview', () => watch('src/requestview', 'requestview', 'dist/js'));
 gulp.task('watch-requestform', () => watch('src/requestform', 'requestform', 'dist/js'));
 gulp.task('watch-profile', () => watch('src/profile', 'profile', 'dist/js'));
 gulp.task('watch-account', () => watch('src/account', 'account', 'dist/js'));
+
 
 gulp.task('watch-sass', () => {
   gutil.log('Watch src/style/**/*.scss');
@@ -60,6 +47,5 @@ gulp.task('watch-sass', () => {
   });
 });
 
-
-gulp.task('lint', () => lint('src/**/*.js'));
 gulp.task('sass', () => sass('src/style/main.scss', 'main', 'dist/style'));
+

@@ -11,7 +11,10 @@
 </head>
 <body>
 
-<script src="/vendor/spin.js"></script>
+<noscript>
+    <h1>Browser Exception:</h1>
+    <p class="browserupgrade">To view this site it is necessary to enable JavaScript.  Here are the <a href="http://www.enable-javascript.com/" target="_blank">instructions how to enable JavaScript in your web browser</a>.</p>
+</noscript>
 
 <!--[if lt IE 9]>
 <h1>Browser Exception:</h1>
@@ -23,7 +26,11 @@
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<!--[if !IE]> -->
+
+<script type="text/javascript" src="/vendor/spin.js"></script>
+<script type="text/javascript" src="/js/vendor.min.js"></script>
+
+
 {{#if json}}
     <script type="application/json" id="json">{{{json}}}</script>
 {{/if}}
@@ -41,10 +48,5 @@
     ga('create', 'UA-17944087-2', 'auto');
     ga('send', 'pageview');
 </script>
-<!-- <![endif]-->
-<noscript>
-    <h1>Browser Exception:</h1>
-    <p class="browserupgrade">To view this site it is necessary to enable JavaScript.  Here are the <a href="http://www.enable-javascript.com/" target="_blank">instructions how to enable JavaScript in your web browser</a>.</p>
-</noscript>
 </body>
 </html>

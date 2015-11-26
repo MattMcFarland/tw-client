@@ -1,6 +1,5 @@
 import React from 'react';
 import moment from 'moment';
-import classNames from 'classnames'
 import UserActions from '../../actions/UserActions';
 import UserStore from '../../stores/UserStore';
 

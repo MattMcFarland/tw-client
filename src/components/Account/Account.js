@@ -1,7 +1,5 @@
 import React from 'react';
-import _ from 'lodash';
-import moment from 'moment';
-import classNames from 'classnames'
+import remove from 'lodash.remove';
 import AccountActions from '../../actions/AccountActions';
 import AccountStore from '../../stores/AccountStore';
 import ProfileActions from '../../actions/ProfileActions';
@@ -174,7 +172,7 @@ class ProfileTab extends React.Component {
   onLinkRemove = (e) => {
     var links = this.state.links;
     // do array splicing or push or pop I guess
-    _.remove(links, (i, index) => {
+    remove(links, (i, index) => {
       return index === parseInt(e.currentTarget.dataset.index);
     });
     this.setState({links});

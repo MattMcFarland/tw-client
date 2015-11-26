@@ -7,17 +7,27 @@ const
   gutil       = require('gulp-util'),
   source      = require('vinyl-source-stream'),
   sourcemaps  = require('gulp-sourcemaps'),
+  getNPMPackageIds = require('./helpers').getNPMPackageIds,
   watchify    = require('watchify');
 
 module.exports = function(entry, name, dest) {
+
   var customOpts = {
     entries: entry,
     debug: true
   };
+
+
   var watch = function () {
     var opts = assign({}, watchify.args, customOpts);
     var b = watchify(browserify(opts));
     var filename = name + ".js";
+
+    getNPMPackageIds().forEach(function (id) {
+      b.external(id);
+    });
+
+
     b.on('update', watch);
     b.on('log', gutil.log);
     return b.bundle()

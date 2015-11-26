@@ -3,7 +3,6 @@
   "main": "",
   "version": "2.2.7",
   "description": "",
-  "browser": "",
   "scripts": {
     "test": "jest",
     "start": "node ./express/bin/www"
@@ -47,9 +46,23 @@
       "url": "http://mattmcfarland.com"
     }
   ],
-  "license": "MIT",
-  "devDependencies": {
+  "license": "GPL-3.0",
+  "dependencies": {
     "alt": "^0.17.9",
+    "classnames": "^2.2.0",
+    "highlight.js": "^8.9.1",
+    "lodash.findindex": "^3.2.1",
+    "lodash.remove": "^3.1.0",
+    "lodash.uniq": "^3.2.2",
+    "marked": "^0.3.5",
+    "moment": "^2.10.6",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
+    "react-select": "0.9.1",
+    "superagent": "^1.4.0"
+  },
+  "devDependencies": {
+    "lodash": "^3.10.1",
     "babel-jest": "^6.0.1",
     "babel-plugin-syntax-jsx": "^6.1.18",
     "babel-plugin-transform-es2015-arrow-functions": "^6.1.18",
@@ -63,9 +76,7 @@
     "babel-preset-stage-0": "^6.1.18",
     "babelify": "^6.4.0",
     "browserify": "^11.2.0",
-    "classnames": "^2.2.0",
     "clean-css": "^3.4.8",
-    "faker": "^3.0.1",
     "gulp": "^3.9.0",
     "gulp-eslint": "^1.0.0",
     "gulp-plumber": "^1.0.1",
@@ -74,22 +85,10 @@
     "gulp-uglify": "^1.4.2",
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
-    "highlight.js": "^8.9.1",
     "jest": "^0.1.40",
-    "jquery": "^2.1.4",
-    "lessify": "^1.0.1",
-    "lodash": "^3.10.1",
-    "marked": "^0.3.5",
-    "moment": "^2.10.6",
-    "normalizr": "^1.4.0",
-    "react": "^0.14.0",
-    "react-dom": "^0.14.0",
-    "react-select": "0.9.1",
-    "spin.js": "^2.3.2",
-    "superagent": "^1.4.0",
+    "resolve": "^1.1.6",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.4.0",
-    "xss": "^0.2.7"
+    "watchify": "^3.4.0"
   }
 }

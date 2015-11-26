@@ -1,6 +1,6 @@
 import alt from '../alt';
 import TutReqActions from '../actions/TutReqActions.js';
-import _ from 'lodash';
+import findIndex from 'lodash.findindex';
 import UserStore from './UserStore';
 import UserActions from '../actions/UserActions';
 import scrollTo from '../utils/scrollTo';
@@ -23,11 +23,11 @@ function getTarget(state, store) {
 
   if (parent) {
     // get correct parent object.
-    let parentIndex = _.findIndex(store[parent.collection], {id: parent.id});
-    let targetIndex = _.findIndex(store[parent.collection][parentIndex][collection], {id});
+    let parentIndex = findIndex(store[parent.collection], {id: parent.id});
+    let targetIndex = findIndex(store[parent.collection][parentIndex][collection], {id});
     result = store[parent.collection][parentIndex][collection][targetIndex];
   } else if (collection) {
-    let targetIndex = _.findIndex(store[collection], {id});
+    let targetIndex = findIndex(store[collection], {id});
     result = store[collection][targetIndex];
   } else if (id) {
     result = store;

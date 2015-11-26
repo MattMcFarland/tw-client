@@ -1,6 +1,6 @@
 import alt from '../alt';
 import ajax from 'superagent';
-import _ from 'lodash';
+import remove from 'lodash.remove';
 
 class ProfileActions {
   constructor() {
@@ -13,7 +13,7 @@ class ProfileActions {
   }
 
   updateProfileInfo({bio, links, location, occupation, customProps}) {
-    _.remove(links, (link) => {
+    remove(links, (link) => {
       return (!link.name && !link.url);
     });
     // result handler function (done) will execute the appropriate action in the store.

@@ -1,7 +1,7 @@
 import alt from '../alt';
 import ProfileActions from '../actions/ProfileActions.js';
 import HeadStore from './HeadStore';
-import _ from 'lodash';
+
 
 class ProfileStore {
 

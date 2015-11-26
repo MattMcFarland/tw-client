@@ -1,7 +1,7 @@
 import alt from '../alt';
 import AccountActions from '../actions/AccountActions.js';
 import HeadStore from './HeadStore';
-import _ from 'lodash';
+
 
 class AccountStore {
 

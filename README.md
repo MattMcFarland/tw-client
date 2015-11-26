@@ -1,31 +1,6 @@
 ### Todos
 
-#### Complete for v2.2.7
-
-- [x] link to user profile incorrect (showing logged in user instead)
-- [x] error when no user logged in.
-- [x] account / bio / profile not showing.
-- [x] Login button off center.
-- [x] Missing Visual indication for tag editing is saving
-- [x] Missing Visual for when editing tutorial request is saving.
-- [x] Content editor tabs are invisible (white on white)
-- [x] Cleanup UX for spinners
-- [x] Missing Visual indication needed for adding new solution/tutorial
-   - [x] Make sure to scroll to newly added post when finished
-   - [x] Use <Spinner /> for this
-- [x] Clearout solution form on submit.
-- [x] Missing Visual for when internal update of link meta from web scraper.
-- [x] downvoted tags can be added back (this might be OK) - feature not a bug
-- [x] Missing Visual indication of approving / unapproving tag - fixed with optimistic update
-- [x] Missing validation on edit tags
-- [x] duplicate tag names causing issues
-
-#### Pending Fixes
-
-
-
-- [ ] Separate vendor from bundles
-
+#### Complete for v2.3.0
 
 
 #### missing features
@@ -46,6 +21,7 @@
 - [ ] Add Validation to comment form.
 - [ ] tooltips needed for buttons/links that are either truncated or use icons only.
 
+- [ ] ensure 3rd party vendor license compliance.
 
 
 #### Deferred Problems
@@ -82,6 +58,30 @@ Both `/dist/js` and `/dist/style` are bundled files from gulp.
 
 
 ### Changelog
+
+#### v2.2.7
+
+The following items were fixed:
+
+- [x] link to user profile incorrect (showing logged in user instead)
+- [x] error when no user logged in.
+- [x] account / bio / profile not showing.
+- [x] Login button off center.
+- [x] Missing Visual indication for tag editing is saving
+- [x] Missing Visual for when editing tutorial request is saving.
+- [x] Content editor tabs are invisible (white on white)
+- [x] Cleanup UX for spinners
+- [x] Missing Visual indication needed for adding new solution/tutorial
+   - [x] Make sure to scroll to newly added post when finished
+   - [x] Use <Spinner /> for this
+- [x] Clearout solution form on submit.
+- [x] Missing Visual for when internal update of link meta from web scraper.
+- [x] downvoted tags can be added back (this might be OK) - feature not a bug
+- [x] Missing Visual indication of approving / unapproving tag - fixed with optimistic update
+- [x] Missing validation on edit tags
+- [x] duplicate tag names causing issues
+- [x] Separate vendor from bundles
+
 
 
 #### v2.2.6

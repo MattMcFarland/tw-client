@@ -1,6 +1,6 @@
 import alt from '../alt';
 import HeadActions from '../actions/HeadActions.js';
-import _ from 'lodash';
+
 
 class HeadStore {
 

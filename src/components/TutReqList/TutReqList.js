@@ -1,5 +1,4 @@
 import React from 'react';
-import moment from 'moment';
 import IndexActions from '../../actions/IndexActions.js'
 import IndexStore from '../../stores/IndexStore.js'
 import ListItem from './ListItem.js';
