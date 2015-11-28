@@ -11,6 +11,7 @@
 - [ ] Refactor from Alt to Redux
 - [ ] Implement Serverside rendering
 - [ ] Implement Clientside routing
+- [ ] ensure 3rd party vendor license compliance.
 
 
 #### Planned for v3.1.x:
@@ -19,14 +20,12 @@
 - [ ] Add social network share function and og tags
 - [ ] Share buttons to comments
 - [ ] Share buttons on sidebar
-- [ ] ensure 3rd party vendor license compliance.
 - [ ] Add Validation to comment form.
 
 #### Planned for v3.3.x:
 
 
 - [ ] Add Category to db
-- [ ] Add serverside rendering
 - [ ] tooltips needed for buttons/links that are either truncated or use icons only.
 - [ ] Add "Activity Stream" functionality
   - [ ] Using either websockets or standard xhr polling
