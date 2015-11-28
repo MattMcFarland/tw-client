@@ -11,7 +11,7 @@
 - [ ] Refactor from Alt to Redux
 - [ ] Implement Serverside rendering
 - [ ] Implement Clientside routing
-- [ ] ensure 3rd party vendor license compliance.
+- [ ] Implement Unit Tests
 
 
 #### Planned for v3.1.x:
@@ -36,6 +36,7 @@
 - [ ] User point system
 - [ ] deleted item ux
 - [ ] User profile updating custom data not working, need to check with stormpath.
+- [ ] ensure 3rd party vendor license compliance.
 
 
 
