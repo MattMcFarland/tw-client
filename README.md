@@ -92,7 +92,7 @@ The following items were fixed:
 
 
 
-#### v2.2.7
+#### v2.2.6-7
 
 The following items were fixed:
 
@@ -122,7 +122,7 @@ The following items were fixed:
 - [x] x tutorials button on tut request list not working
 - [x] no image fallback
 
-#### v2.2.4
+#### v2.2.1-4
 
 - implmement minified version, optimized file-size.
 
@@ -150,6 +150,11 @@ The following items were fixed:
 
 #### v2.0.0
 
+Breaking changes.
+
+- Swapped out LESS with SASS to add Marko's visual design patterns.
+- Refactored to use `public`, `views`, and separate `dist/js` and `dist/style`
+
 Accidentally incremented major version too high.
 
 #### v0.2.0
@@ -161,10 +166,6 @@ Accidentally incremented major version too high.
 - cant remember.
 
 
-Breaking changes.
-
-- Swapped out LESS with SASS to add Marko's visual design patterns.
-- Refactored to use `public`, `views`, and separate `dist/js` and `dist/style`
 
 
 
