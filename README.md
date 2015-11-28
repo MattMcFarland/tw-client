@@ -1,10 +1,19 @@
 ### Todos
 
-#### Complete for v2.3.0
+#### Complete for v3.0.0
 
 [ ] Nothing yet :(
 
-#### Planned for v2.3:
+
+
+#### Planned for v3.0.0
+
+- [ ] Refactor from Alt to Redux
+- [ ] Implement Serverside rendering
+- [ ] Implement Clientside routing
+
+
+#### Planned for v3.1.x:
 
 - [ ] Add vote functionality to the tut list view
 - [ ] Add social network share function and og tags
@@ -13,7 +22,7 @@
 - [ ] ensure 3rd party vendor license compliance.
 - [ ] Add Validation to comment form.
 
-#### Planned for v2.4.x:
+#### Planned for v3.3.x:
 
 
 - [ ] Add Category to db
@@ -22,7 +31,7 @@
 - [ ] Add "Activity Stream" functionality
   - [ ] Using either websockets or standard xhr polling
 
-#### Planned for v2.5.x:
+#### Planned for v3.4.x:
 
 - [ ] Avatar management (includes adding avatar upload form etc)
 - [ ] User point system
