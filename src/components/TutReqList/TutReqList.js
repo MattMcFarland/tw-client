@@ -1,7 +1,7 @@
 import React from 'react';
 import IndexActions from '../../actions/IndexActions.js'
 import IndexStore from '../../stores/IndexStore.js'
-import ListItem from './ListItem.js';
+import { ListItem } from './ListItem.js';
 import Tabs from '../Common/Tabs';
 
 import classNames from 'classnames'
@@ -13,27 +13,45 @@ export default class TutReqList extends React.Component {
     super(props);
     this.state = IndexStore.getState();
     this.onChange = this.onChange.bind(this);
-  }
+  };
   componentDidMount() {
     IndexStore.listen(this.onChange);
+    IndexActions.init();
     IndexActions.fetch();
-  }
+  };
   componentDidUpdate() {
     var sidebar = document.getElementById('sidebar');
     sidebar.style.height = document.body.scrollHeight + 'px';
-  }
+  };
   componentWillUnmount() {
     IndexStore.unlisten(this.onChange);
-  }
+  };
   onChange(state) {
     this.setState(state);
-  }
+  };
   onFilter = (e) => {
     IndexActions.fetch(e.currentTarget.dataset.filter);
   };
   nextPage = () => {
     IndexActions.fetchNextPage(this.state.page, this.state.activeTab);
-  }
+  };
+
+  handleVoteUp = (e) => {
+    IndexActions.vote({
+      id: e.currentTarget.dataset.id,
+      type: 'TutorialRequest',
+      direction: 'up',
+      collection: 'reqList'
+    });
+  };
+  handleVoteDown = (e) => {
+    IndexActions.vote({
+      id: e.currentTarget.dataset.id,
+      type: 'TutorialRequest',
+      direction: 'down',
+      collection: 'reqList'
+    });
+  };
   render () {
     var {isLoading, isLoadingNextPage, reqList, activeTab, lastPage} = this.state;
     var listItems = reqList.map((li) => {
@@ -69,7 +87,7 @@ export default class TutReqList extends React.Component {
       }
       return (
         <li key={li.id}>
-          <ListItem {...li} />
+          <ListItem {...li} onVoteUp={this.handleVoteUp} onVoteDown={this.handleVoteDown} />
         </li>
       );
     });

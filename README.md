@@ -1,36 +1,27 @@
 ### Todos
 
-#### Complete for v3.0.0
+#### Complete for v2.3.0
 
-[ ] Nothing yet :(
-
-
-
-#### Planned for v3.0.0
-
-- [ ] Refactor from Alt to Redux
-- [ ] Implement Serverside rendering
-- [ ] Implement Clientside routing
-- [ ] Implement Unit Tests
+- [x] Add vote functionality to the tut list view
 
 
-#### Planned for v3.1.x:
+#### Planned for v2.3.0
 
-- [ ] Add vote functionality to the tut list view
-- [ ] Add social network share function and og tags
+- [ ] Add social network share functions
 - [ ] Share buttons to comments
 - [ ] Share buttons on sidebar
 - [ ] Add Validation to comment form.
 
-#### Planned for v3.3.x:
 
+#### Planned for v2.4.x:
 
 - [ ] Add Category to db
 - [ ] tooltips needed for buttons/links that are either truncated or use icons only.
 - [ ] Add "Activity Stream" functionality
   - [ ] Using either websockets or standard xhr polling
 
-#### Planned for v3.4.x:
+
+#### Planned for v2.5.x:
 
 - [ ] Avatar management (includes adding avatar upload form etc)
 - [ ] User point system
