@@ -5,7 +5,7 @@ export default function () {
   if (pageJSON) {
 
     try {
-      return JSON.parse(pageJSON.innerText).title;
+      return JSON.parse(pageJSON.innerHTML).title;
     } catch (e) {
       return 'all';
     }

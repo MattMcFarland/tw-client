@@ -51,7 +51,7 @@ class TutReqActions {
   }
 
   init () {
-    var json = JSON.parse(document.getElementById('json').innerText);
+    var json = JSON.parse(document.getElementById('json').innerHTML);
     this.actions.initSuccess(json);
   }
 

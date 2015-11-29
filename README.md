@@ -51,6 +51,12 @@ Both `/dist/js` and `/dist/style` are bundled files from gulp.
 ### Changelog
 
 
+#### v2.4.2
+
+Critical error fixed:
+
+- [x] forgot innerText elems
+
 #### v2.4.1
 
 Critical errors fixed:

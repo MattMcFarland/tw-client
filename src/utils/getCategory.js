@@ -6,7 +6,7 @@ export default function () {
   if (pageJSON) {
 
     try {
-      return JSON.parse(pageJSON.innerText).category;
+      return JSON.parse(pageJSON.innerHTML).category;
     } catch (e) {
       return 'all';
     }
