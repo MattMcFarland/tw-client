@@ -13,7 +13,7 @@
 
 
 #### Bugs:
-
+- [ ] activity stream not working in production server.
 - [ ] activity stream grows without limits.
 - [ ] share button urls not wokring properly. appear to be set though.
 - [ ] tutorial solutions are not sorting by votes.
