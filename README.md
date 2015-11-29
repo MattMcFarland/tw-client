@@ -3,13 +3,13 @@
 #### Complete for v2.3.0
 
 - [x] Add vote functionality to the tut list view
-
+- [x] Share buttons on sidebar
+- [x] Add social network share functions
+- [x] Share buttons to comments
 
 #### Planned for v2.3.0
 
-- [ ] Add social network share functions
-- [ ] Share buttons to comments
-- [ ] Share buttons on sidebar
+
 - [ ] Add Validation to comment form.
 
 
@@ -29,7 +29,10 @@
 - [ ] User profile updating custom data not working, need to check with stormpath.
 - [ ] ensure 3rd party vendor license compliance.
 
+#### Bugs:
 
+- [ ]  share button urls not wokring properly. appear to be set though.
+- [ ]  tutorial solutions are not sorting by votes.
 
 ### Exports
 

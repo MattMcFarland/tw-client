@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import moment from 'moment';
 import FlagMenu from './FlagMenu';
 import classNames from 'classnames';
-
+import PopUp from './PopUp';
+import { FacebookBtn, TwitterBtn, EmailBtn } from './ShareBtns';
 
 class CommentHeading extends Component {
 
@@ -138,6 +139,7 @@ class CommentBody extends Component {
 class CommentFooter extends Component {
 
   render () {
+    var shareUrl = window.location + "/#comment-" + this.props.id;
     return (
       <footer className="comment-footer">
         <div className="vote-section">
@@ -155,7 +157,11 @@ class CommentFooter extends Component {
           <span className="score">{this.props.score}</span>
         </div>
         <div className="share-section">
-          <button className="edit-control"><span className="icon ion-share"/></button>
+          <PopUp direction="down" icon="share">
+            <FacebookBtn href={shareUrl}/>
+            <TwitterBtn href={shareUrl}/>
+            <EmailBtn href={shareUrl}/>
+          </PopUp>
         </div>
       </footer>
     );

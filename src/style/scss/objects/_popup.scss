@@ -1,0 +1,76 @@
+/* PopUp - objects/popup */
+
+
+.popup {
+  position: relative;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+
+  &-body {
+    opacity: 0;
+    background: white;
+    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    position: absolute;
+    z-index: 2;
+    display: none;
+    min-width: 60px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.18), 0 1px 4px rgba(0, 0, 0, 0.24);
+    white-space: nowrap;
+    padding: 1em;
+    > a {
+      min-width: 45px;
+      margin: 0 0.5em;
+    }
+    &:before, &:after {
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+    }
+  }
+
+  &.up &-body {
+    top:-100%;
+  }
+  &.right &-body {
+    right:0;
+  }
+  &.down &-body {
+    top:2em;
+    opacity: 1;
+    &:before, &:after {
+      bottom: 100%;
+      left: 13px;
+    }
+    &:before {
+      border-color: rgba(255, 255, 255, 0);
+      border-bottom-color: #fff;
+      border-width: 12px;
+      margin-left: -12px;
+      z-index:2;
+    }
+    &:after {
+      border-color: rgba(164, 190, 207, 0);
+      border-bottom-color: #a4becf;
+      border-width: 13px;
+      margin-left: -13px;
+      z-index: 0;
+    }
+  }
+  &.left &-body {
+    left:0;
+  }
+
+  &.open {
+    > button {
+      background: $blue;
+      color:white;
+
+    }
+    .popup-body {
+      display: block;
+    }
+  }
+
+}
