@@ -139,9 +139,12 @@ export default class BasePost extends Component {
       <div className="vote-cell">
         <div className="vote vote-lg">
           <button
+            data-tipsy={this.props.data.userVote === 1 ?
+             'Remove vote' : 'Vote up'
+            }
+            className="tipsy tipsy--n up"
             onClick={this.handlers.onVoteUp}
             disabled={this.props.volatile.lockVote}
-            className="up"
           >
             <span
               className={this.props.data.userVote === 1 ?
@@ -151,9 +154,13 @@ export default class BasePost extends Component {
           </button>
           <span className="score">{this.props.data.score}</span>
           <button
+            data-tipsy={this.props.data.userVote === -1 ?
+             'Remove vote' : 'Vote down'
+            }
+            className="tipsy tipsy--s down"
             onClick={this.handlers.onVoteDown}
             disabled={this.props.volatile.lockVote}
-            className="down">
+            >
             <span
               className={this.props.data.userVote === -1 ?
               "icon ion-chevron-down active" :
@@ -231,20 +238,21 @@ export default class BasePost extends Component {
 
 
 
+          {this.props.data.userPrivs.userCanDelete && !this.props.volatile.isEditing && !this.props.volatile.editLocked && !this.props.data.removed ?
+            <button style={{lineHeight: '1.125'}} data-tipsy="Delete this post" className="tipsy tipsy--sw edit-control" data-id={this.props.data.id} onClick={this.handlers.onDelete} type="button">
+              <span className="icon ion ion-ios-trash"/>
+            </button> :
+            ''
+          }
 
           {this.props.data.userPrivs.userCanEdit && !this.props.volatile.isEditing && !this.props.volatile.editLocked && !this.props.data.removed ?
-            <button className="edit-control" data-id={this.props.data.id} onClick={this.handlers.onEnableEditContent} type="button">
+            <button style={{lineHeight: '1.125'}}  data-tipsy="Edit this comment" className="tipsy tipsy--sw edit-control" data-id={this.props.data.id} onClick={this.handlers.onEnableEditContent} type="button">
               <span className="icon ion ion-edit"/>
             </button> :
             ''
           }
 
-          {this.props.data.userPrivs.userCanDelete && !this.props.volatile.isEditing && !this.props.volatile.editLocked && !this.props.data.removed ?
-            <button className="edit-control" data-id={this.props.data.id} onClick={this.handlers.onDelete} type="button">
-              <span className="icon ion ion-ios-trash"/>
-            </button> :
-            ''
-          }
+
 
           {this.props.data.userPrivs.userCanDelete && !this.props.volatile.isEditing && !this.props.volatile.editLocked && this.props.data.removed ?
             <button data-id={this.props.data.id} onClick={this.handlers.onDelete} type="button">
@@ -358,10 +366,10 @@ export default class BasePost extends Component {
           >{tag.name}
             {tag.is_pending && this.props.data.userPrivs && this.props.data.userPrivs.isModerator ?
               <span>
-          <button data-id={tag.id} onClick={this.handlers.onApproveTag}>
+          <button data-tipsy="Approve tag" className="tipsy tipsy--n" data-id={tag.id} onClick={this.handlers.onApproveTag}>
             <span className="icon ion-thumbsup"/>
           </button>
-           <button data-id={tag.id} onClick={this.handlers.onDenyTag}>
+           <button data-tipsy="Remove tag" className="tipsy tipsy--n" data-id={tag.id} onClick={this.handlers.onDenyTag}>
              <span className="icon ion-thumbsdown"/>
            </button>
         </span> : ''}

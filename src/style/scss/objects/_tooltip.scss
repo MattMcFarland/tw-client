@@ -1,42 +1,9 @@
-.tooltip-container {
-	display: inline-block;
-	position: relative;
 
-	&:hover {
-		.tooltip {
-			display: block;
-		}
-	}
-}
-
-.tooltip-link {
-	background: $gray-light;
-}
-
-.tooltip {
-	display: none;
-	position: absolute;
-	top: 1.5em;
-	left: 0;
-	width: 18em;
-	padding: $pad;
-	background: $white;
-	border: 1px solid $gray;
-	box-shadow: 0.3em 0.3em 1em 0 rgba(0,0,0,0.2);
-
-	h2 {
-		margin-top: 0;
-	}
-
-	@media all and (min-width: $bp-small) {
-		width: 22em;
-	}
-
-	@media all and (min-width: $bp-small-2) {
-		width: 27em;
-	}
-
-	@media all and (min-width: $bp-small-3) {
-		width: 30em;
-	}
-}
+.tipsy--nw { @include tipsy(nw, #444, 0, 0); 		line-height: 1.125; }
+.tipsy--n  { @include tipsy(n, 	#444, 5px, 3px); 	line-height: 1.125;	}
+.tipsy--ne { @include tipsy(ne, #444, 0, 0); 		line-height: 1.125; }
+.tipsy--e  { @include tipsy(e, 	#444, 5px, 3px); 	line-height: 1.125;	}
+.tipsy--se { @include tipsy(se, #444, 0, 0); 		line-height: 1.125; }
+.tipsy--s  { @include tipsy(s, 	#444, 0, 3px); 		line-height: 1.125;	}
+.tipsy--sw { @include tipsy(sw, #444, 5px, 0); 		line-height: 1.125; }
+.tipsy--w  { @include tipsy(w, 	#444, 0, 3px); 		line-height: 1.125;	}

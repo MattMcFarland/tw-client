@@ -30,7 +30,7 @@ export default class PopUp extends React.Component {
   render () {
     return (
       <div className={this.baseClass + (this.state.expanded ? " open" : "")}>
-        <button onClick={this.toggle}>
+        <button style={{lineHeight: '1.125'}} data-tipsy={this.props.tooltip} className={'tipsy ' + this.props.tooltipClass} onClick={this.toggle}>
           <span className={"icon ion-" + this.props.icon}/>
           {this.props.title ? this.props.title : ''}
         </button>

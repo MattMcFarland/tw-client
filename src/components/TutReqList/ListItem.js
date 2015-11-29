@@ -13,7 +13,10 @@ export const ListItem = (
       <div className="vote-cell">
         <div className="vote">
           <button
-            className="up"
+            data-tipsy={props.userVote === 1 ?
+             'Remove vote' : 'Vote up'
+            }
+            className="tipsy tipsy--n up"
             data-id={props.id}
             disabled={props.lockVote}
             onClick={props.onVoteUp}>
@@ -25,7 +28,10 @@ export const ListItem = (
           </button>
           <span className="score">{props.score}</span>
           <button
-            className="down"
+            data-tipsy={props.userVote === -1 ?
+             'Remove vote' : 'Vote down'
+            }
+            className="tipsy tipsy--s down"
             data-id={props.id}
             disabled={props.lockVote}
             onClick={props.onVoteDown}>

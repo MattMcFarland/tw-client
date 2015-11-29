@@ -4,6 +4,7 @@ import HeadStore from '../../stores/HeadStore';
 import connectStores from 'alt/utils/connectToStores';
 import DropDown from './DropDown';
 
+
 class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -33,10 +34,10 @@ class Header extends React.Component {
           <nav id="nav" className="nav">
             <ul className="nav-list">
               <li>
-                <a href="/tutorial-request"><span className="icon ion-bonfire"/></a>
+                <a data-tipsy="Request a tutorial" className="tipsy tipsy--sw" href="/tutorial-request"><span className="icon ion-bonfire"/></a>
               </li>
               <li>
-                {this.state && this.state.username ? <DropDown icon="ios-contact" options={[
+                {this.state && this.state.username ? <DropDown tooltip="Account options" tooltipClass="tipsy--n" icon="ios-contact" options={[
                   {
                     type: "link",
                     href: "/account",

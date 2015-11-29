@@ -27,7 +27,7 @@ export default class DropDown extends React.Component {
     });
     return (
       <div className={"dropdown" + (this.state.expanded ? " open" : "")}>
-        <button onClick={this.toggle}>
+        <button data-tipsy={this.props.tooltip} className={'tipsy ' + this.props.tooltipClass} onClick={this.toggle}>
           <span className={"icon ion ion-" + this.props.icon}/>
           {this.props.title ? this.props.title : ''}
           <span className="icon ion-android-arrow-dropdown"/>

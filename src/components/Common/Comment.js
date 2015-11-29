@@ -80,13 +80,13 @@ class CommentBody extends Component {
     return (
     <div className="edit-controls">
       {this.props.userPrivs.userCanEdit && !this.props.volatile.isEditing && !this.props.volatile.editLocked && !this.props.removed ?
-        <button data-id={this.props.id} onClick={this.props.handlers.onEnableEdit} className="edit-control" type="button">
+        <button data-tipsy="Edit this comment " className="tipsy tipsy--sw edit-control" data-id={this.props.id} onClick={this.props.handlers.onEnableEdit} type="button">
           <span className="icon ion ion-edit"/>
         </button> :
         ''
       }
       {this.props.userPrivs.userCanDelete && !this.props.volatile.isEditing && !this.props.volatile.editLocked && !this.props.removed ?
-        <button data-id={this.props.id} onClick={this.props.handlers.onDelete} className="edit-control" type="button">
+        <button data-tipsy="Delete this comment" className="tipsy tipsy--sw edit-control" data-id={this.props.id} onClick={this.props.handlers.onDelete} type="button">
           <span className="icon ion ion-ios-trash"/>
         </button> :
         ''
@@ -163,6 +163,10 @@ class CommentFooter extends Component {
             disabled={this.props.volatile.lockVote}
             data-id={this.props.id}
             onClick={this.props.handlers.onVoteUp}
+            data-tipsy={this.props.userVote === 1 ?
+                          "Remove vote" :
+                          "Vote up"}
+            className="tipsy tipsy--n"
           >
             <span
               className={this.props.userVote === 1 ?
@@ -173,7 +177,7 @@ class CommentFooter extends Component {
           <span className="score">{this.props.score}</span>
         </div>
         <div className="share-section">
-          <PopUp direction="down" icon="share">
+          <PopUp tooltip="Share options" tooltipClass="tipsy--n" direction="down" icon="share">
             <FacebookBtn href={shareUrl}/>
             <TwitterBtn href={shareUrl}/>
             <EmailBtn href={shareUrl}/>

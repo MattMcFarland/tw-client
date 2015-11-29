@@ -54,7 +54,7 @@ export default class FlagMenu extends React.Component {
     return (
       <div className={"dropdown flag" + (this.state.expanded ? " open" : "")}>
         <div className="flag-container">{enabledFlags}</div>
-        <button data-id={this.props.contextId} onClick={this.toggle}>
+        <button data-tipsy="Flag this as..." className="tipsy tipsy--n" data-id={this.props.contextId} onClick={this.toggle}>
           <span className="icon ion-flag"/>&nbsp;
           {this.props.children}
           <span className="icon ion-android-arrow-dropdown"/>
