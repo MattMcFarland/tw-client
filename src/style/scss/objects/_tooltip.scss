@@ -1,4 +1,9 @@
-
+.tipsy {
+  &:before, &:after {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
 .tipsy--nw { @include tipsy(nw, #444, 0, 0); 		line-height: 1.125; }
 .tipsy--n  { @include tipsy(n, 	#444, 5px, 3px); 	line-height: 1.125;	}
 .tipsy--ne { @include tipsy(ne, #444, 0, 0); 		line-height: 1.125; }

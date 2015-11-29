@@ -2,9 +2,11 @@
 
 #### Complete for v2.4.x
 
+- [x] tooltips needed for buttons/links that are either truncated or use icons only.
+
 #### Planned for v2.4.x:
 
-- [ ] tooltips needed for buttons/links that are either truncated or use icons only.
+
 - [ ] Add "Activity Stream" functionality
   - [ ] Using either websockets or standard xhr polling
 
@@ -23,7 +25,7 @@
 - [ ] tutorial solutions are not sorting by votes.
 - [ ] comment validation errors persisting and showing on other comment forms
 - [ ] comment validation not working on solution.
-- [ ] widget visuals are now off (not enough top margin for activity, sharing buttons squished together)
+- [ ] widget visuals are now off (not enough top margin for activity, sharing buttons squished togethe
 
 ### Exports
 
