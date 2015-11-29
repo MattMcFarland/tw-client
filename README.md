@@ -3,12 +3,9 @@
 #### Complete for v2.4.x
 
 - [x] tooltips needed for buttons/links that are either truncated or use icons only.
+- [x] Add "Activity Stream" functionality with socket.io and local storage
 
 #### Planned for v2.4.x:
-
-
-- [ ] Add "Activity Stream" functionality
-  - [ ] Using either websockets or standard xhr polling
 
 
 #### Planned for v2.5.x:
@@ -16,7 +13,6 @@
 - [ ] Avatar management (includes adding avatar upload form etc)
 - [ ] User point system
 - [ ] deleted item ux
-- [ ] User profile updating custom data not working, need to check with stormpath.
 - [ ] ensure 3rd party vendor license compliance.
 
 #### Bugs:
@@ -26,6 +22,7 @@
 - [ ] comment validation errors persisting and showing on other comment forms
 - [ ] comment validation not working on solution.
 - [ ] widget visuals are now off (not enough top margin for activity, sharing buttons squished togethe
+- [ ] User profile updating custom data not working, need to check with stormpath.
 
 ### Exports
 

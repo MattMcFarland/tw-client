@@ -45,7 +45,7 @@ $radius : px, em, rem
 #### HTML
 
 ```html
-<span class="tipsy" data-tipsy="Simple Tipsy">Simple Tipsy</span>
+<span className="tipsy" data-tipsy="Simple Tipsy">Simple Tipsy</span>
 ```
 
 #### SCSS

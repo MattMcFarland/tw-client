@@ -58,18 +58,21 @@ p {
 
   li {
     display: inline-block;
+    margin-right: 1em;
+    font-size: 14px;
+    line-height: 18px;
     &:after {
       margin-left: 1em;
       opacity: 0.5;
       content: ">"
     }
     &:last-child {
-      font-weight: bold;
+      color: #888;
+      font-style: italic;
       &:after {
         content: "";
       }
     }
-    margin-right: 1em;
   }
   a {
     display: inline;

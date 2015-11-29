@@ -14,12 +14,13 @@
     ul {
       width: 66%;
       > li {
+        text-align: center;
         border: 2px solid $white;
         display: inline-block;
         border-radius: 4px;
         margin-left: 15px;
         &:first-child {
-          margin-left: 5px;
+          margin-left: 0;
         }
         a, button {
           min-width: 75px;

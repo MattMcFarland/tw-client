@@ -29,15 +29,13 @@ class Header extends React.Component {
   render () {
     return (
       <header className="header" role="banner">
-        <div className="content cf">
-          <a href="/"><img src="/img/wt-logo-2.png" className="logo" alt="Logo" /></a>
-          <nav id="nav" className="nav">
-            <ul className="nav-list">
-              <li>
-                <a data-tipsy="Request a tutorial" className="tipsy tipsy--sw" href="/tutorial-request"><span className="icon ion-bonfire"/></a>
-              </li>
-              <li>
-                {this.state && this.state.username ? <DropDown tooltip="Account options" tooltipClass="tipsy--n" icon="ios-contact" options={[
+        <nav id="nav" className="nav">
+          <ul className="nav-list">
+            <li>
+              <a data-tipsy="Request a tutorial" className="tipsy tipsy--w" href="/tutorial-request"><span className="icon ion-bonfire"/></a>
+            </li>
+            <li>
+              {this.state && this.state.username ? <DropDown tooltip="Account options" tooltipClass="tipsy--w" icon="ios-contact" options={[
                   {
                     type: "link",
                     href: "/account",
@@ -53,8 +51,10 @@ class Header extends React.Component {
                   ]} /> :
                 <a href="/login">Login</a>
               }</li>
-            </ul>
-          </nav>
+          </ul>
+        </nav>
+        <div className="content cf">
+          <a href="/"><img src="/img/wt-logo-2.png" className="logo" alt="Logo" /></a>
         </div>
       </header>
     );

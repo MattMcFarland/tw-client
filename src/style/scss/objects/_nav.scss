@@ -2,7 +2,7 @@
     $NAVIGATION
 \*------------------------------------*/
 
-.nav {
+#nav {
   clear: both;
   overflow: hidden;
   max-height: 0;
@@ -35,10 +35,13 @@
     max-height: none;
     float: right;
     clear: none;
-
+    width: 33%;
+    .nav-list {
+      margin-left:138px;
+    }
     li {
       float: left;
-      margin: 0 10px;
+      margin: 0 25px 0 10px;
     }
 
     a {
