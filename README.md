@@ -1,17 +1,6 @@
 ### Todos
 
-#### Complete for v2.3.0
-
-- [x] Add vote functionality to the tut list view
-- [x] Share buttons on sidebar
-- [x] Add social network share functions
-- [x] Share buttons to comments
-- [x] Add Validation to comment form.
-- [x] Add Category to db
-- [x] Add Catergory filtering to UX
-- [x] Add Category Selection to Form
-- [x] Add Breadcrumb navigation
-
+#### Complete for v2.4.x
 
 #### Planned for v2.4.x:
 
@@ -30,11 +19,11 @@
 
 #### Bugs:
 
-- [ ]  share button urls not wokring properly. appear to be set though.
-- [ ]  tutorial solutions are not sorting by votes.
-- [ ]  comment validation errors persisting and showing on other comment forms
-- [ ]  comment validation not working on solution.
-
+- [ ] share button urls not wokring properly. appear to be set though.
+- [ ] tutorial solutions are not sorting by votes.
+- [ ] comment validation errors persisting and showing on other comment forms
+- [ ] comment validation not working on solution.
+- [ ] widget visuals are now off (not enough top margin for activity, sharing buttons squished together)
 
 ### Exports
 

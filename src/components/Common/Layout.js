@@ -32,8 +32,6 @@ var breadcrumbs = (() => {
   return result;
 })();
 
-console.log(breadcrumbs);
-
 const Breadcrumbs = () => (
   <ul className="breadcrumbs">
     {breadcrumbs.map((link, i) => {

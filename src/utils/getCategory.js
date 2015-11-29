@@ -13,7 +13,6 @@ export default function () {
 
   } else {
     try {
-      console.log('path', path[1], path[2]);
       return path[1] === 'category' ? path[2] : 'all';
     } catch (err) {
       return 'all';
