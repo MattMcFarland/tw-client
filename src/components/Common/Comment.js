@@ -110,9 +110,25 @@ class CommentBody extends Component {
     );
   }
   commentEditForm = () => {
+
+    var commentError;
+    // key could be tags title and/or content
+    if (this.props.error && this.props.error.data) {
+      let data = this.props.error.data;
+      data.forEach((err) => {
+        console.log(err);
+        if (err.el === "message") {
+          commentError = err.error;
+        }
+      })
+    }
+
+
     return (
       <form data-id={this.props.id}
             onSubmit={this.props.handlers.onEditSave}>
+        {commentError ? <aside className="error"><span className="ion-alert-circled"/>&nbsp;{commentError}</aside> : ''}
+
         <input
           id={this.props.id + '-edit-input'}
           style={{width:"100%"}}

@@ -6,16 +6,15 @@
 - [x] Share buttons on sidebar
 - [x] Add social network share functions
 - [x] Share buttons to comments
-
-#### Planned for v2.3.0
-
-
-- [ ] Add Validation to comment form.
+- [x] Add Validation to comment form.
+- [x] Add Category to db
+- [x] Add Catergory filtering to UX
+- [x] Add Category Selection to Form
+- [x] Add Breadcrumb navigation
 
 
 #### Planned for v2.4.x:
 
-- [ ] Add Category to db
 - [ ] tooltips needed for buttons/links that are either truncated or use icons only.
 - [ ] Add "Activity Stream" functionality
   - [ ] Using either websockets or standard xhr polling
@@ -33,6 +32,9 @@
 
 - [ ]  share button urls not wokring properly. appear to be set though.
 - [ ]  tutorial solutions are not sorting by votes.
+- [ ]  comment validation errors persisting and showing on other comment forms
+- [ ]  comment validation not working on solution.
+
 
 ### Exports
 
@@ -61,6 +63,22 @@ Both `/dist/js` and `/dist/style` are bundled files from gulp.
 
 
 ### Changelog
+
+#### v2.3.0
+
+Following features added:
+
+- [x] Add vote functionality to the tut list view
+- [x] Share buttons on sidebar
+- [x] Add social network share functions
+- [x] Share buttons to comments
+- [x] Add Validation to comment form.
+- [x] Add Category to db
+- [x] Add Catergory filtering to UX
+- [x] Add Category Selection to Form
+- [x] Add Breadcrumb navigation
+
+
 
 #### v2.2.8
 

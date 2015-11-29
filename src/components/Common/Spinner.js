@@ -7,7 +7,7 @@ const opts = {
   , length: 27 // The length of each line
   , width: 13 // The line thickness
   , radius: 42 // The radius of the inner circle
-  , scale: 1.25 // Scales overall size of the spinner
+  , scale: 1 // Scales overall size of the spinner
   , corners: 1 // Corner roundness (0..1)
   , color: '#000' // #rgb or #rrggbb or array of colors
   , opacity: 0.2 // Opacity of the lines

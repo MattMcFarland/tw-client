@@ -1,7 +1,7 @@
 {
   "name": "@mattmcfarland/tw-client",
   "main": "",
-  "version": "2.2.8",
+  "version": "2.3.0",
   "description": "",
   "scripts": {
     "test": "jest",
@@ -52,6 +52,7 @@
     "classnames": "^2.2.0",
     "highlight.js": "^8.9.1",
     "lodash.findindex": "^3.2.1",
+    "lodash.get": "^3.7.0",
     "lodash.remove": "^3.1.0",
     "lodash.uniq": "^3.2.2",
     "marked": "^0.3.5",

@@ -41,7 +41,13 @@ export default class TutReqForm extends React.Component {
       tags = this.refs.tags.state.values,
       title = this.state.formTitle,
       content = this.refs.content.state.value,
+      category = this.refs.category.value,
       rules = [
+        {
+          el: 'category',
+          failOn: category === '',
+          error: 'You must select a category.'
+        },
         {
           el: 'tags',
           failOn: tags.length < 1,
@@ -124,7 +130,8 @@ export default class TutReqForm extends React.Component {
         .send({
           title: xss(this.state.formTitle),
           content: xss(this.refs.content.state.value),
-          tags: xss(this.refs.tags.state.value)
+          tags: xss(this.refs.tags.state.value),
+          category: xss(this.refs.category.value)
         })
         .end((err, res) => {
           if (err && res.status === 403) {
@@ -142,7 +149,7 @@ export default class TutReqForm extends React.Component {
 
   render() {
 
-    var tagError, titleError, contentError;
+    var tagError, titleError, contentError, categoryError;
 
     // key could be tags title and/or content
     if (this.state.error && this.state.error.data) {
@@ -155,6 +162,8 @@ export default class TutReqForm extends React.Component {
           titleError = err.error;
         } else if (err.el === "content") {
           contentError = err.error;
+        } else if (err.el === "category") {
+          categoryError = err.error;
         }
       })
     }
@@ -165,6 +174,14 @@ export default class TutReqForm extends React.Component {
       opacity: this.state.submitting ? 0.5 : 1
       }}>
         <h2><span className="icon ion-bonfire"/>Tutorial Request</h2>
+        {categoryError ? <aside className="error"><span className="ion-alert-circled"/>&nbsp;{categoryError}</aside> : ''}
+        <select ref="category">
+          <option value="">category</option>
+          <option value="apps">Apps</option>
+          <option value="gaming">Gaming</option>
+          <option value="gamedev">Game Development</option>
+          <option value="webdev">Web Development</option>
+        </select>
         {titleError ? <aside className="error"><span className="ion-alert-circled"/>&nbsp;{titleError}</aside> : ''}
         <TextInput
           error={titleError ? true : false}

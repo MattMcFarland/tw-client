@@ -1,6 +1,6 @@
 import alt from '../alt';
 import UserActions from '../actions/UserActions.js';
-
+import _get from 'lodash.get';
 
 class UserStore {
 
@@ -11,13 +11,15 @@ class UserStore {
     }
   }
 
-
   onInitSuccess(user) {
-    if (user.customData && user.customData.history && Array.isArray(user.customData.history)) {
+    var history = _get('user.customData.history');
+
+    if (history && Array.isArray(history)) {
       user.customData.history.sort((a, b) => {
         return b.timestamp > a.timestamp ? 1 : -1;
       })
     }
+
     this.setState(user);
   }
 

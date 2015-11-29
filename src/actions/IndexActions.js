@@ -44,26 +44,37 @@ class IndexActions {
       localStorage.activeTab = filterBy;
     }
 
+
+    let category = window.location.pathname.split('/')[1] === 'category' ? window.location.pathname.split('/')[2] : 'all';
+
+
+
     switch (filterBy) {
       case "latest":
         ajax.get('/api/tutorial-requests')
           .query({sortBy: "latest"})
+          .query({category})
+          .query({filterBy})
           .end(done)
         break;
 
       case "best":
         ajax.get('/api/tutorial-requests')
-          .query({$where: "this.solutions.length > 0"})
+          //.query({$where: "this.solutions.length > 0"})
           .query({showpositive: true})
           .query({sortBy: "score"})
+          .query({category})
+          .query({filterBy})
           .end(done)
         break;
 
       case "wanted":
         ajax.get('/api/tutorial-requests')
-          .query({$where: "this.solutions.length === 0"})
+          //.query({$where: "this.solutions.length === 0"})
           .query({showpositive: true})
           .query({sortBy: "score"})
+          .query({category})
+          .query({filterBy})
           .end(done)
         break;
 

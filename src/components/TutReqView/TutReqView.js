@@ -104,6 +104,45 @@ export default class TutReqView extends React.Component {
 
 
   }
+  validateComment = (message) => {
+    var
+      errors = [],
+      rules = [
+        {
+          el: 'message',
+          failOn: message.length < 10,
+          error: 'Your comment must be at least 10 characters in length.'
+        },
+        {
+          el: 'message',
+          failOn: message.length > 140,
+          error: 'Your comment may not exceed 140 characters.'
+        }
+      ];
+
+
+    rules.forEach((rule, index) => {
+
+      if (rule.failOn) {
+        errors.push(rule);
+      }
+    });
+
+    if (errors.length) {
+      return {
+        errors: errors,
+        valid: false
+      };
+    } else {
+      return {
+        errors: null,
+        valid: true
+      }
+    }
+
+
+  }
+
   handlers = {
     onVoteUp: () => {
       TutReqActions.vote({
@@ -127,7 +166,28 @@ export default class TutReqView extends React.Component {
       var {id, type} = e.currentTarget.dataset;
       var inputElem = document.getElementById(e.currentTarget.dataset.id + '-input');
       var message = inputElem.value;
-      TutReqActions.addComment({id, type, message});
+
+      var valid = this.validateComment(message);
+
+      if (valid.errors) {
+
+        let article = valid.errors.length > 1 ? 'are' : 'is';
+        let noun = valid.errors.length > 1 ? 'errors' : 'error';
+        let count = valid.errors.length > 1 ? valid.errors.length : 'one';
+
+        this.setState({
+          commentError: {
+            message: `There ${article} ${count} ${noun} in your tutorial request, please try again.`,
+            data: valid.errors
+          }
+        })
+
+        return false;
+
+      } else {
+
+        TutReqActions.addComment({id, type, message});
+      }
     },
     onSolutionSubmit: (id, formData) => {
       TutReqActions.addSolution({id, formData});
@@ -264,13 +324,36 @@ export default class TutReqView extends React.Component {
         var id = e.currentTarget.dataset.id;
         var inputElem = document.getElementById(e.currentTarget.dataset.id + '-edit-input');
         var message = inputElem.value;
-        TutReqActions.updateItem({
-          id,
-          collection: "comments",
-          type: "Comment",
-          items: ['message', 'updated_at', 'editorUrl', 'editorName'],
-          fields: {message}
-        });
+
+        var valid = this.validateComment(message);
+
+        if (valid.errors) {
+
+          let article = valid.errors.length > 1 ? 'are' : 'is';
+          let noun = valid.errors.length > 1 ? 'errors' : 'error';
+          let count = valid.errors.length > 1 ? valid.errors.length : 'one';
+
+          this.setState({
+            commentError: {
+              message: `There ${article} ${count} ${noun} in your tutorial request, please try again.`,
+              data: valid.errors
+            }
+          })
+
+          return false;
+
+        } else {
+
+
+          TutReqActions.updateItem({
+              id,
+              collection: "comments",
+              type:       "Comment",
+              items:      [ 'message', 'updated_at', 'editorUrl', 'editorName' ],
+              fields:     {message}
+            }
+          );
+        }
       },
 
       onDelete: (e) => {

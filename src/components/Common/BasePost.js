@@ -381,6 +381,7 @@ export default class BasePost extends Component {
 
           <Comment
             {...li}
+            error={this.props.data.commentError}
             handlers={this.handlers.comments}
           />
         </li>
@@ -388,6 +389,18 @@ export default class BasePost extends Component {
     });
   }
   commentForm = () => {
+    var commentError;
+    // key could be tags title and/or content
+    if (this.props.data.commentError && this.props.data.commentError.data) {
+      let data = this.props.data.commentError.data;
+      data.forEach((err) => {
+        console.log(err);
+        if (err.el === "message") {
+          commentError = err.error;
+        }
+      })
+    }
+
     return (
       <form
 
@@ -396,6 +409,7 @@ export default class BasePost extends Component {
         data-id={this.props.data.id}
         style={{margin:"0", padding:"0"}}>
         <label style={{width: "100%"}}>
+          {commentError ? <aside className="error"><span className="ion-alert-circled"/>&nbsp;{commentError}</aside> : ''}
           <span className="form-label">Add Comment:</span>
           <input
             id={this.props.data.id + '-input'}

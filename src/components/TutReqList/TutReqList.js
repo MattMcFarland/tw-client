@@ -53,6 +53,8 @@ export default class TutReqList extends React.Component {
     });
   };
   render () {
+
+
     var {isLoading, isLoadingNextPage, reqList, activeTab, lastPage} = this.state;
     var listItems = reqList.map((li) => {
       // add class called fufilled if there are solutions.length
@@ -97,6 +99,7 @@ export default class TutReqList extends React.Component {
         position: 'relative'
       }}>
         {isLoading ? <Spinner /> : ''}
+
         <Tabs onFilter={this.onFilter} activeTab={activeTab}/>
         <section>
           <ul className="container-fluid tr-list">
