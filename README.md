@@ -1,14 +1,5 @@
 ### Todos
 
-#### Complete for v2.4.x
-
-- [x] tooltips needed for buttons/links that are either truncated or use icons only.
-- [x] Add "Activity Stream" functionality with socket.io and local storage
-- [x] widget visuals are now off (not enough top margin for activity, sharing buttons squished togethe
-- [x] voting not working when in tutorial list (again)
-
-#### Planned for v2.4.x:
-
 
 #### Planned for v2.5.x:
 
@@ -57,6 +48,19 @@ Both `/dist/js` and `/dist/style` are bundled files from gulp.
 
 
 ### Changelog
+
+#### v2.4.0
+
+Following features added:
+
+- [x] tooltips needed for buttons/links that are either truncated or use icons only.
+- [x] Add "Activity Stream" functionality with socket.io and local storage
+
+Bug fixes:
+
+- [x] widget visuals are now off (not enough top margin for activity, sharing buttons squished togethe
+- [x] voting not working when in tutorial list (again)
+
 
 #### v2.3.0
 
