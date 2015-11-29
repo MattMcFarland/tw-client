@@ -4,6 +4,8 @@
 
 - [x] tooltips needed for buttons/links that are either truncated or use icons only.
 - [x] Add "Activity Stream" functionality with socket.io and local storage
+- [x] widget visuals are now off (not enough top margin for activity, sharing buttons squished togethe
+- [x] voting not working when in tutorial list (again)
 
 #### Planned for v2.4.x:
 
@@ -14,14 +16,18 @@
 - [ ] User point system
 - [ ] deleted item ux
 - [ ] ensure 3rd party vendor license compliance.
+- [ ] user history is too long
+- [ ] user history ux needs work
+- [ ] user history sorting incorrectly (ascending instead of descending)
+
 
 #### Bugs:
 
+- [ ] activity stream grows without limits.
 - [ ] share button urls not wokring properly. appear to be set though.
 - [ ] tutorial solutions are not sorting by votes.
 - [ ] comment validation errors persisting and showing on other comment forms
 - [ ] comment validation not working on solution.
-- [ ] widget visuals are now off (not enough top margin for activity, sharing buttons squished togethe
 - [ ] User profile updating custom data not working, need to check with stormpath.
 
 ### Exports
