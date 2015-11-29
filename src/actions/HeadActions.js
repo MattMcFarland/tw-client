@@ -19,7 +19,7 @@ class HeadActions {
     //console.debug('initializing headactions');
 
     try {
-      this.actions.initSuccess(JSON.parse(document.getElementById(domId).innerText));
+      this.actions.initSuccess(JSON.parse(document.getElementById(domId).innerHTML));
     } catch(er) {
       this.actions.initFail(er);
     }

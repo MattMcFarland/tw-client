@@ -18,7 +18,7 @@ class UserActions {
     domId || (domId = 'user');
     //console.debug('initializing useractions');
     try {
-      this.actions.initSuccess(JSON.parse(document.getElementById(domId).innerText));
+      this.actions.initSuccess(JSON.parse(document.getElementById(domId).innerHTML));
     } catch(er) {
       this.actions.initFail(er);
     }

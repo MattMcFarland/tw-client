@@ -13,6 +13,7 @@
 
 
 #### Bugs:
+- [ ] firefox cant login
 - [ ] activity stream not working in production server.
 - [ ] activity stream grows without limits.
 - [ ] share button urls not wokring properly. appear to be set though.
@@ -48,6 +49,14 @@ Both `/dist/js` and `/dist/style` are bundled files from gulp.
 
 
 ### Changelog
+
+
+#### v2.4.1
+
+Critical errors fixed:
+
+- [x] firefox user cant login - dont use elem.innertext xD
+- [x] non-admin error 500 auth - fixed
 
 #### v2.4.0
 
