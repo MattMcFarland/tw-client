@@ -50,6 +50,9 @@ Both `/dist/js` and `/dist/style` are bundled files from gulp.
 
 ### Changelog
 
+#### v2.4.3
+
+- [x] build bundles
 
 #### v2.4.2
 
