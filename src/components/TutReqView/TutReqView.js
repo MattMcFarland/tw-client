@@ -72,12 +72,12 @@ export default class TutReqView extends React.Component {
       rules = [
         {
           el: 'content',
-          failOn: content.length < 30,
+          failOn: content.trim().length < 30,
           error: 'Request content is not long enough and must be 30 characters in length.'
         },
         {
           el: 'content',
-          failOn: content.length > 2400,
+          failOn: content.trim().length > 2400,
           error: 'Request content is too long may not exceed 2400 characters in length.'
         }
       ];
@@ -110,12 +110,12 @@ export default class TutReqView extends React.Component {
       rules = [
         {
           el: 'message',
-          failOn: message.length < 10,
+          failOn: message.trim().length < 10,
           error: 'Your comment must be at least 10 characters in length.'
         },
         {
           el: 'message',
-          failOn: message.length > 140,
+          failOn: message.trim().length > 140,
           error: 'Your comment may not exceed 140 characters.'
         }
       ];

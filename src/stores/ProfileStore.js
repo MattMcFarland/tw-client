@@ -14,8 +14,11 @@ class ProfileStore {
   onInit () {
     this.waitFor(HeadStore);
     let user = HeadStore.getState();
+    debugger;
     if (!Array.isArray(user.customData.links)) {
       user.customData.links = [];
+      user.customData.links.push({name: '', url: ''});
+    } else if (!user.customData.links.length) {
       user.customData.links.push({name: '', url: ''});
     }
     this.setState({

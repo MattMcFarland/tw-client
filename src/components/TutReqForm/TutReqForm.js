@@ -39,9 +39,9 @@ export default class TutReqForm extends React.Component {
     var
       errors = [],
       tags = this.refs.tags.state.values,
-      title = this.state.formTitle,
-      content = this.refs.content.state.value,
-      category = this.refs.category.value,
+      title = this.state.formTitle.trim(),
+      content = this.refs.content.state.value.trim(),
+      category = this.refs.category.value.trim(),
       rules = [
         {
           el: 'category',

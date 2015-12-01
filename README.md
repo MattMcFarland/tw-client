@@ -1,6 +1,9 @@
 ### Todos
 
 
+
+
+
 #### Planned for v2.5.x:
 
 - [ ] Avatar management (includes adding avatar upload form etc)
@@ -13,14 +16,13 @@
 
 
 #### Bugs:
-- [ ] firefox cant login
+
 - [ ] activity stream not working in production server.
 - [ ] activity stream grows without limits.
 - [ ] share button urls not wokring properly. appear to be set though.
-- [ ] tutorial solutions are not sorting by votes.
 - [ ] comment validation errors persisting and showing on other comment forms
 - [ ] comment validation not working on solution.
-- [ ] User profile updating custom data not working, need to check with stormpath.
+
 
 ### Exports
 
@@ -49,6 +51,17 @@ Both `/dist/js` and `/dist/style` are bundled files from gulp.
 
 
 ### Changelog
+
+#### v2.4.4
+
+Fixes:
+
+- [x] User profile updating custom data not working, need to check with stormpath.
+- [x] tutorial solutions are not sorting by votes.
+- [x] User Profile Links not showing if array is empty.
+- [x] Using spaces circumvents validation.
+- [x] fix whitespace trailing issue with select.
+
 
 #### v2.4.3
 

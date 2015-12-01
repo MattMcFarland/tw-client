@@ -64,10 +64,19 @@ class TutReqStore {
 
     this.user = UserStore.getState();
 
+    if (data.solutions && Array.isArray(data.solutions)) {
+
+      data.solutions = data.solutions.sort( (a, b) => {
+        return a.score > b.score ? -1 : 1;
+      });
+
+    }
+
     this.userFlags = data.userFlags;
     this.setState(data);
     //console.debug('Store Initialized:', data);
     this.setState({ready: true});
+
   }
 
   onVotePending ({collection, parent, id, direction}) {

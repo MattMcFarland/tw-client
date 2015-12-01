@@ -105,8 +105,6 @@ class LinkRemoveButton extends React.Component {
 }
 
 
-
-
 class ProfileTab extends React.Component {
   constructor(props) {
     super(props);

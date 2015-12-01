@@ -19,8 +19,8 @@ export default class TutSolForm extends Component {
   validate = () => {
     var
       errors = [],
-      urlInput = this.refs.url.state.value,
-      content = this.refs.content.state.value,
+      urlInput = this.refs.url.state.value.trim(),
+      content = this.refs.content.state.value.trim(),
       linkMeta = this.refs.url.state.linkMeta,
       rules = [
         {
