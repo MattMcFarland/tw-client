@@ -1,11 +1,16 @@
 ### Todos
 
 
-
 #### Planned for v2.5.x:
 
-- [ ] Avatar management (includes adding avatar upload form etc)
+- [ ] Avatar management (includes adding avatar upload form etc) - use external component (react-darkroom)
+
+#### Planned for 2.6.x:
+
 - [ ] User point system
+
+#### Planned for 2.7.x:
+
 - [ ] deleted item ux
 - [ ] ensure 3rd party vendor license compliance.
 
