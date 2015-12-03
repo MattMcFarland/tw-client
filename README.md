@@ -2,22 +2,16 @@
 
 
 
-
-
 #### Planned for v2.5.x:
 
 - [ ] Avatar management (includes adding avatar upload form etc)
 - [ ] User point system
 - [ ] deleted item ux
 - [ ] ensure 3rd party vendor license compliance.
-- [ ] user history is too long
-- [ ] user history ux needs work
-- [ ] user history sorting incorrectly (ascending instead of descending)
 
 
 #### Bugs:
 
-- [ ] activity stream not working in production server.
 - [ ] activity stream grows without limits.
 - [ ] share button urls not wokring properly. appear to be set though.
 - [ ] comment validation errors persisting and showing on other comment forms
@@ -51,6 +45,14 @@ Both `/dist/js` and `/dist/style` are bundled files from gulp.
 
 
 ### Changelog
+
+#### v2.4.5
+
+Fixes:
+
+- [x] user history is too long
+- [x] user history ux needs work
+- [x] user history sorting incorrectly (ascending instead of descending)
 
 #### v2.4.4
 

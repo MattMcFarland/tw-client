@@ -8,6 +8,9 @@ table {
   border-spacing: 0;
   border: 0;
 }
+table.table {
+  width: 100%;
+}
 th {
   text-align: left;
   border-bottom: 1px solid $gray;

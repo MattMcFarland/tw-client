@@ -78,7 +78,14 @@ export default class Profile extends React.Component {
   };
   renderHistory = () => {
     if (this.state.customData && this.state.customData.history && Array.isArray(this.state.customData.history)) {
-      let activities = this.state.customData.history.map((item, idx) => {
+
+      let { history } = this.state.customData;
+
+      history.sort((a, b) => {
+        return a.timestamp > b.timestamp ? -1 : 1;
+      });
+
+      let activities = history.map((item, idx) => {
         return (<tr key={idx}>
           <td>{item.action}</td>
           <td><a href={item.url}>{moment(item.timestamp).fromNow()}</a></td>
