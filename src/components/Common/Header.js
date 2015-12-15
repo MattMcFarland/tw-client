@@ -36,6 +36,7 @@ class Header extends React.Component {
               <a data-tipsy="Request a tutorial" className="tipsy tipsy--w" href="/tutorial-request"><span className="icon ion-bonfire"/></a>
             </li>
             <li>
+
               {this.state && this.state.username ? <DropDown tooltip="Account options" tooltipClass="tipsy--w" icon="ios-contact" options={[
                   {
                     type: "link",
@@ -55,7 +56,19 @@ class Header extends React.Component {
           </ul>
         </nav>
         <div className="content cf">
-          <a href="/"><img src="/img/wt-logo-2.png" className="logo" alt="Logo" /></a>
+          <a href="/"><img src="/img/wt-logo-2.png" className="logo" alt="Logo" />
+            <span style={{
+                background: '#469C4F',
+                color: '#FFF',
+                lineHeight: 1,
+                fontSize: '12px',
+                verticalAlign: 'middle',
+                marginLeft: '-63px',
+                padding: '2px',
+                display: 'inline-block',
+                marginTop: '53px'
+            }}>Beta!</span>
+          </a>
         </div>
       </header>
     );
