@@ -22,26 +22,27 @@
     </script>
 
     {{#each data.solutions}}
+
         <script type="application/ld+json">
         {
-            "@context": "http://schema.org",
-            "@type": "AskAction",
-            "agent": {
-                "@type": "Person",
-                "name": "{{authorName}}"
-            },
-            "recipient": {
-                "@type": "Person",
-                "name": "{{../data.authorName}}"
-            },
-            "resultComment": {
-                "@type": "Answer",
-                "parentItem": {
-                    "@type": "Question",
-                    "text": "{{../data.title}}"
-                },
-                "text": "{{content}}"
+          "@context": "http://schema.org",
+          "@type": "AskAction",
+          "agent": {
+            "@type": "Person",
+            "name": "{{authorName}}"
+          },
+          "recipient": {
+            "@type": "Person",
+            "name": "{{../data.authorName}}"
+          },
+          "resultComment": {
+            "@type": "Answer",
+            "parentItem": {
+              "@type": "Question",
+              "text":  "{{../data.title}}"
             }
+            "text": "{{content}}"
+          }
         }
         </script>
     {{/each}}
