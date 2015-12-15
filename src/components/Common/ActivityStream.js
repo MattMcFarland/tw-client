@@ -12,16 +12,29 @@ import moment from 'moment';
 */
 
 const actvityStream = (state = [], action) => {
+  var length = (state.activities && state.activities.length ? state.activities.length : 0);
   switch(action.type) {
     case "ADD_ACTIVITY":
-      return Object.assign({}, state, {
-        activities: [
-          {
-            ...action.data
-          },
-          ...state.activities
-        ]
-      })
+      if (length < 20) {
+        return Object.assign({}, state, {
+          activities: [
+            {
+              ...action.data
+            },
+            ...state.activities
+          ]
+        })
+      } else {
+
+        return Object.assign({}, state, {
+          activities: [
+            {
+              ...action.data
+            },
+            ...state.activities.slice(0, 19)
+          ]
+        })
+      }
       break;
     default:
       return state;

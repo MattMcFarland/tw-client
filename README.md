@@ -4,7 +4,7 @@
 #### Planned for v2.5.x:
 
 - [x] Avatar management (includes adding avatar upload form etc)
-
+- [x] activity stream grows without limits. - now fixed to cap at 20
 
 #### Planned for 2.7.x:
 
@@ -14,7 +14,7 @@
 
 #### Bugs:
 
-- [ ] activity stream grows without limits.
+
 - [ ] share button urls not wokring properly. appear to be set though.
 - [ ] comment validation errors persisting and showing on other comment forms
 - [ ] comment validation not working on solution.
