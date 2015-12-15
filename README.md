@@ -1,7 +1,7 @@
 ### Todos
 
 
-#### Planned for v2.5.x:
+#### Planned for v2.6.x:
 
 
 
@@ -54,7 +54,19 @@ Both `/dist/js` and `/dist/style` are bundled files from gulp.
 ### Changelog
 
 
+#### v2.6.0
+
+
+Features:
+
+- [x] Add static pages (acout, privacy, terms)
+- [x] Add scroll to top button
+- [x] Add footer
+
+
+
 #### v2.5.0
+
 
 Features:
 

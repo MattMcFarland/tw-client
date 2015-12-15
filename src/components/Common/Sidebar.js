@@ -6,6 +6,7 @@ class Sidebar extends Component {
 
   componentDidMount () {
     this.refs.sidebar.style.height = document.body.scrollHeight + 'px';
+
   }
 
   componentDidUpdate () {

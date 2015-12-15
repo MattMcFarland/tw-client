@@ -29,6 +29,7 @@ class Header extends React.Component {
   render () {
     return (
       <header className="header" role="banner">
+        <a id="top"/>
         <nav id="nav" className="nav">
           <ul className="nav-list">
             <li>

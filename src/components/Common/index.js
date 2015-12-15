@@ -12,5 +12,6 @@ module.exports = {
   ShareWidget: require('./ShareWidget'),
   Sidebar: require('./Sidebar'),
   Tabs: require('./Tabs'),
-  Spinner: require('./Spinner')
+  Spinner: require('./Spinner'),
+  Footer: require('./Footer')
 };

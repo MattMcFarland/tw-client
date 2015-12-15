@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Header, Layout, MainContent } from './components/Common/index.js';
+import { Header, Layout, MainContent, Footer  } from './components/Common/index.js';
 import {Account} from './components';
 
 require('./utils/polyfills');
@@ -12,5 +12,7 @@ ReactDOM.render(
     <MainContent>
       <Account/>
     </MainContent>
+    <Footer />
+
   </div>
   , document.getElementById('account'));
