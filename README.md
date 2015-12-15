@@ -3,9 +3,7 @@
 
 #### Planned for v2.5.x:
 
-- [x] Avatar management (includes adding avatar upload form etc)
-- [x] activity stream grows without limits. - now fixed to cap at 20
-- [x] json-ld
+
 
 
 #### Planned for 2.7.x:
@@ -54,6 +52,18 @@ Both `/dist/js` and `/dist/style` are bundled files from gulp.
 
 
 ### Changelog
+
+
+#### v2.5.0
+
+Features:
+
+- [x] Avatar management (includes adding avatar upload form etc)
+- [x] json-ld
+
+Fixes:
+- [x] activity stream grows without limits. - now fixed to cap at 20
+
 
 #### v2.4.5
 
