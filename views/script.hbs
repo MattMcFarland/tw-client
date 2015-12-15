@@ -1,2 +1,56 @@
-{{#if js}}<main id="{{js_id}}"></main>
-<script src="/js/{{js}}.js"></script>{{/if}}
+{{#if data}}
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Question",
+        "text": "{{data.title}}",
+        "upvoteCount": "{{data.score}}",
+        "dateCreated": "{{data.created_at}}",
+        "author": {
+            "@type": "Person",
+            "name": "{{data.authorName}}",
+        },
+        {{#if data.editorName}}
+        "editor": {
+            "@type": "Person",
+            "name": "{{data.editorName}}"
+        },
+        {{/if}}
+        "commentCount": {{data.comments.length}}",
+        "answerCount": "{{data.solutions.length}}"
+    }
+    </script>
+
+    {{#each data.solutions}}
+        <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "AskAction",
+            "agent": {
+                "@type": "Person",
+                "name": {{authorName}}
+            },
+            "recipient": {
+                "@type": "Person",
+                "name": {{../data.authorName}}
+            },
+            "commentCount": {{comments.length}}",
+            "resultComment": {
+                "@type": "Answer",
+                "parentItem": {
+                    "@type": "Question",
+                    "text": "{{../data.title}}"
+                }
+                "text": {{content}}
+            }
+        }
+        </script>
+    {{/each}}
+{{/if}}
+
+
+{{#if js}}
+
+    <main id="{{js_id}}"></main>
+    <script src="/js/{{js}}.js"></script>
+{{/if}}

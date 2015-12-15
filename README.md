@@ -5,6 +5,8 @@
 
 - [x] Avatar management (includes adding avatar upload form etc)
 - [x] activity stream grows without limits. - now fixed to cap at 20
+- [x] json-ld
+
 
 #### Planned for 2.7.x:
 
@@ -23,7 +25,7 @@
 #### Planned for future:
 
 - [ ] User point system
-
+- [ ] Stale user data - if user updates name or profile pic, it doenst persist on older posts, only newer ones.
 
 ### Exports
 
