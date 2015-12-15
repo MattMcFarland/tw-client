@@ -172,14 +172,13 @@ export default class BasePost extends Component {
     );
   }
   renderContentMeta = () => {
+
     if (this.props.data.editorName && this.props.data.editorName !== this.props.data.authorName) {
       return (
         <section className="meta">
           <div className="user editor">
             <div className="body editor">
-              <div className="avatar-container">
-                <img className="avatar" src="http://lorempixel.com/32/32/people/" alt="Avatar" />
-              </div>
+              {this.props.data.editorAvatar ? <div className="avatar-container"><img className="avatar" src={this.props.data.editorAvatar} alt="Avatar" /></div> : ''}
               <div className="meta">
                 <div className="user-name"><a className="p-name u-url" href={this.props.data.editorUrl}>{this.props.data.editorName}</a></div>
                 <div className="timestamp">{moment(this.props.updated_at).fromNow()}</div>
@@ -188,9 +187,7 @@ export default class BasePost extends Component {
           </div>
           <div className="user author">
             <div className="body author">
-              <div className="avatar-container">
-                <img className="avatar" src="http://lorempixel.com/32/32/people/" alt="Avatar" />
-              </div>
+              {this.props.data.authorAvatar ? <div className="avatar-container"><img className="avatar" src={this.props.data.authorAvatar} alt="Avatar" /></div> : ''}
               <div className="meta">
                 <div className="user-name"><a className="p-name u-url" href={this.props.data.authorUrl}>{this.props.data.authorName}</a></div>
                 <div className="timestamp">{moment(this.props.created_at).fromNow()}</div>
@@ -205,9 +202,7 @@ export default class BasePost extends Component {
         <section className="meta">
           <div className="user author">
             <div className="body author">
-              <div className="avatar-container">
-                <img className="avatar" src="http://lorempixel.com/32/32/people/" alt="Avatar" />
-              </div>
+              {this.props.data.authorAvatar ? <div className="avatar-container"><img className="avatar" src={this.props.data.authorAvatar} alt="Avatar" /></div> : ''}
               <div className="meta">
                 <div className="user-name"><a className="p-name u-url" href={this.props.data.authorUrl}>{this.props.data.authorName}</a></div>
                 <div className="timestamp">{moment(this.props.created_at).fromNow()}</div>

@@ -3,11 +3,8 @@
 
 #### Planned for v2.5.x:
 
-- [ ] Avatar management (includes adding avatar upload form etc) - use external component (react-darkroom)
+- [x] Avatar management (includes adding avatar upload form etc)
 
-#### Planned for 2.6.x:
-
-- [ ] User point system
 
 #### Planned for 2.7.x:
 
@@ -21,6 +18,11 @@
 - [ ] share button urls not wokring properly. appear to be set though.
 - [ ] comment validation errors persisting and showing on other comment forms
 - [ ] comment validation not working on solution.
+
+
+#### Planned for future:
+
+- [ ] User point system
 
 
 ### Exports

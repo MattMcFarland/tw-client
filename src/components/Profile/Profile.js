@@ -28,6 +28,12 @@ export default class Profile extends React.Component {
     this.setState(state);
   }
 
+  renderAvatar = () => {
+    return (
+      <img src={this.state.customData.avatar}/>
+    )
+  }
+
   renderOccupation = () => {
     return (
       <span>{this.state.customData.occupation}</span>
@@ -125,7 +131,7 @@ export default class Profile extends React.Component {
             </em>
             <hr/>
           </header>
-
+          {this.state.customData.avatar ? this.renderAvatar() : ''}
           {this.state.customData.bio ? this.renderBio() : ''}
           {this.state.customData.links ? this.renderLinks() : ''}
           {this.state.customData.history ? this.renderHistory() : ''}

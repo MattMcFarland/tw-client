@@ -12,7 +12,7 @@ class ProfileActions {
     );
   }
 
-  updateProfileInfo({bio, links, location, occupation, customProps}) {
+  updateProfileInfo({avatar, bio, links, location, occupation}) {
     remove(links, (link) => {
       return (!link.name && !link.url);
     });
@@ -21,11 +21,11 @@ class ProfileActions {
       if (err) {
         this.actions.updateProfileInfoFail({data: {error: res}});
       } else {
-        this.actions.updateProfileInfoSuccess({bio, links, location, occupation, data: res.body});
+        this.actions.updateProfileInfoSuccess({avatar, bio, links, location, occupation, data: res.body});
       }
     });
     ajax.post('/api/profile')
-      .send({bio, links, location, occupation})
+      .send({avatar, bio, links, location, occupation})
       .end(done)
   }
 

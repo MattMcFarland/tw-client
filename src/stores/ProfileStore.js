@@ -14,7 +14,6 @@ class ProfileStore {
   onInit () {
     this.waitFor(HeadStore);
     let user = HeadStore.getState();
-    debugger;
     if (!Array.isArray(user.customData.links)) {
       user.customData.links = [];
       user.customData.links.push({name: '', url: ''});
@@ -23,6 +22,7 @@ class ProfileStore {
     }
     this.setState({
       ready: true,
+      avatar: user.customData.avatar,
       bio: user.customData.bio,
       links: user.customData.links,
       location: user.customData.location,
@@ -30,8 +30,8 @@ class ProfileStore {
     });
   }
 
-  onUpdateProfileInfoSuccess({bio, links, location, occupation}) {
-    this.setState({bio, links, location, occupation});
+  onUpdateProfileInfoSuccess({avatar, bio, links, location, occupation}) {
+    this.setState({avatar, bio, links, location, occupation});
   }
 
   onUpdateProfileInfoFail({data}) {

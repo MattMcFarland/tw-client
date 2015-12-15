@@ -5,6 +5,37 @@ import AccountStore from '../../stores/AccountStore';
 import ProfileActions from '../../actions/ProfileActions';
 import ProfileStore from '../../stores/ProfileStore';
 
+
+
+const constrainProportions = (from, to) => {
+  let minRatio = Math.min(to.height / from.height, to.width / from.width);
+  return {
+    width: from.width  > to.width ? from.width  * minRatio : from.width,
+    height: from.height > to.height ? from.height * minRatio : from.height
+  }
+}
+const centerRect = (rect, container) => {
+  return {
+    x:  (container.width * 0.5)  - (rect.width  * 0.5),
+    y: (container.height * 0.5)  - (rect.height * 0.5)
+  }
+}
+
+const renderImage = (ctx, img, position, boundRect) => {
+  ctx.drawImage(img, position.x, position.y, boundRect.width, boundRect.height);
+  ctx.restore();
+}
+
+const renderCentered = (ctx, image, imgRect, boundRect) => {
+
+  let
+    scaledRect = constrainProportions(imgRect, boundRect),
+    position = centerRect(scaledRect, boundRect);
+
+  renderImage(ctx, image, position, scaledRect);
+}
+
+
 class AccountTab extends React.Component {
   constructor(props) {
     super(props);
@@ -128,8 +159,8 @@ class ProfileTab extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    let {bio, links, location, occupation} = this.state;
-    ProfileActions.updateProfileInfo({bio, links, location, occupation});
+    let {avatar, bio, links, location, occupation} = this.state;
+    ProfileActions.updateProfileInfo({avatar, bio, links, location, occupation});
   }
 
   onBioChange = (e) => {
@@ -176,8 +207,42 @@ class ProfileTab extends React.Component {
     this.setState({links});
   }
 
+  compressedImage = src => {
+    return new Promise((resolve, reject) => {
+      try {
+        let canvas = document.createElement('canvas');
+        let ctx = canvas.getContext('2d');
+        let img = new Image();
+
+        img.onload = () => {
+          canvas.width = 150;
+          canvas.height = 150;
+          renderCentered(ctx, img, img, {width: 150, height: 150});
+          resolve(canvas.toDataURL("image/webp"));
+        }
+        img.src = src;
+
+      } catch (err) {
+        reject(err);
+      }
+    });
+
+  }
+
+  onFileChange = (e) => {
+    var reader = new FileReader();
+    reader.onload = e => {
+      console.log('loaded image', e.target.result);
+      this.compressedImage(e.target.result)
+        .then(data => {
+        console.log('compressed data', data);
+        this.setState({avatar: data});
+      }).catch(err => console.error(err));
+    }
+    reader.readAsDataURL(e.target.files[0]);
+  }
   render () {
-    let {ready, bio, links, location, occupation} = this.state;
+    let {avatar, ready, bio, links, location, occupation} = this.state;
 
     if (!ready) {
       return (<div/>)
@@ -221,6 +286,13 @@ class ProfileTab extends React.Component {
     });
     return (
       <form onSubmit={this.onSubmit}>
+
+        <fieldset className="form-group">
+          <label htmlFor="avatar" className="form-label">Avatar</label>
+          <input type="file" id="avatar" className="form-control" name="avatar" onChange={this.onFileChange} />
+          <img src={avatar} style={{maxWidth: '150px'}}/>
+          <input type="hidden" value={avatar} />
+        </fieldset>
 
         <fieldset className="form-group">
           <label htmlFor="bio" className="form-label">Bio</label>

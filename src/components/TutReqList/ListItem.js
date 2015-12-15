@@ -51,7 +51,7 @@ export const ListItem = (
         <section className="meta">
           <div className="user">
             <div className="body">
-              <div className="avatar-container"><img className="avatar" src="http://lorempixel.com/128/128/people" alt="Avatar" /></div>
+              {props.authorAvatar ? <div className="avatar-container"><img className="avatar" src={props.authorAvatar} alt="Avatar" /></div> : ''}
               <div className="meta">
                 <div className="user-name"><a href={props.authorUrl}>{props.authorName}</a></div>
                 <div className="timestamp"><a href={"/tutorial-request/" + props.permalink}>{moment(props.created_at).fromNow()}</a></div>
