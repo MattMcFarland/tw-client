@@ -16,7 +16,7 @@
             "name": "{{data.editorName}}"
         },
         {{/if}}
-        "commentCount": {{data.comments.length}}",
+        "commentCount": "{{data.comments.length}}",
         "answerCount": "{{data.solutions.length}}"
     }
     </script>
@@ -28,20 +28,20 @@
             "@type": "AskAction",
             "agent": {
                 "@type": "Person",
-                "name": {{authorName}}
+                "name": "{{authorName}}"
             },
             "recipient": {
                 "@type": "Person",
-                "name": {{../data.authorName}}
+                "name": "{{../data.authorName}}"
             },
-            "commentCount": {{comments.length}}",
+            "commentCount": "{{comments.length}}",
             "resultComment": {
                 "@type": "Answer",
                 "parentItem": {
                     "@type": "Question",
                     "text": "{{../data.title}}"
                 }
-                "text": {{content}}
+                "text": "{{content}}"
             }
         }
         </script>
