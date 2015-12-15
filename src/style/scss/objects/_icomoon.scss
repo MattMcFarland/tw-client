@@ -1,0 +1,159 @@
+@font-face {
+  font-family: 'icomoon';
+  src:url('../fonts/icomoon.eot?e1koyr');
+  src:url('fonts/icomoon.eot?e1koyr#iefix') format('embedded-opentype'),
+  url('../fonts/icomoon.ttf?e1koyr') format('truetype'),
+  url('../fonts/icomoon.woff?e1koyr') format('woff'),
+  url('../fonts/icomoon.svg?e1koyr#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="ion-"], [class*=" ion-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ion-android-arrow-dropdown:before {
+  content: "\f35f";
+}
+.ion-android-arrow-dropleft:before {
+  content: "\f361";
+}
+.ion-android-arrow-dropright:before {
+  content: "\f363";
+}
+.ion-android-arrow-dropup:before {
+  content: "\f365";
+}
+.ion-android-close:before {
+  content: "\f2d7";
+}
+.ion-android-contact:before {
+  content: "\f2d8";
+}
+.ion-android-contacts:before {
+  content: "\f2d9";
+}
+.ion-android-done:before {
+  content: "\f383";
+}
+.ion-android-more-horizontal:before {
+  content: "\f396";
+}
+.ion-android-more-vertical:before {
+  content: "\f397";
+}
+.ion-android-open:before {
+  content: "\f39c";
+}
+.ion-android-people:before {
+  content: "\f39e";
+}
+.ion-android-share-alt:before {
+  content: "\f3ac";
+}
+.ion-android-warning:before {
+  content: "\f3bc";
+}
+.ion-bonfire:before {
+  content: "\f315";
+}
+.ion-chatboxes:before {
+  content: "\f11c";
+}
+.ion-chatbubbles:before {
+  content: "\f11f";
+}
+.ion-chevron-down:before {
+  content: "\f123";
+}
+.ion-chevron-left:before {
+  content: "\f124";
+}
+.ion-chevron-right:before {
+  content: "\f125";
+}
+.ion-chevron-up:before {
+  content: "\f126";
+}
+.ion-edit:before {
+  content: "\f2bf";
+}
+.ion-email-unread:before {
+  content: "\f3c3";
+}
+.ion-email:before {
+  content: "\f132";
+}
+.ion-flag:before {
+  content: "\f279";
+}
+.ion-flame:before {
+  content: "\f31a";
+}
+.ion-ios-arrow-back:before {
+  content: "\f3cf";
+}
+.ion-ios-arrow-down:before {
+  content: "\f3d0";
+}
+.ion-ios-arrow-forward:before {
+  content: "\f3d1";
+}
+.ion-ios-arrow-left:before {
+  content: "\f3d2";
+}
+.ion-ios-arrow-right:before {
+  content: "\f3d3";
+}
+.ion-ios-bolt:before {
+  content: "\f3e6";
+}
+.ion-ios-contact-outline:before {
+  content: "\f419";
+}
+.ion-ios-contact:before {
+  content: "\f41a";
+}
+.ion-ios-email:before {
+  content: "\f423";
+}
+.ion-ios-information-outline:before {
+  content: "\f44c";
+}
+.ion-ios-information:before {
+  content: "\f44d";
+}
+.ion-ios-people-outline:before {
+  content: "\f47b";
+}
+.ion-ios-people:before {
+  content: "\f47c";
+}
+.ion-ios-person-outline:before {
+  content: "\f47d";
+}
+.ion-ios-person:before {
+  content: "\f47e";
+}
+.ion-ios-pulse-strong:before {
+  content: "\f492";
+}
+.ion-social-facebook:before {
+  content: "\f231";
+}
+.ion-social-twitter:before {
+  content: "\f243";
+}
+

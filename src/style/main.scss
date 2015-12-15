@@ -51,7 +51,9 @@
 /*------------------------------------*\
     $COMPONENTS
 \*------------------------------------*/
-@import "scss/objects/icons";
+// @import "scss/objects/icons";
+// load optimized icons thanks to icomoon
+@import "scss/objects/icomoon";
 @import "scss/objects/buttons";
 @import "scss/objects/lists";
 @import "scss/objects/tooltip";
