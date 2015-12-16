@@ -42,10 +42,7 @@ class AccountTab extends React.Component {
     this.state = AccountStore.getState();
     this.onChange = this.onChange.bind(this);
   }
-  componentDidUpdate() {
-    var sidebar = document.getElementById('sidebar');
-    sidebar.style.height = document.body.scrollHeight + 'px';
-  }
+
   componentDidMount() {
     //console.log(this.handlers);
     AccountStore.listen(this.onChange);

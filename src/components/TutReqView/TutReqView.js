@@ -25,10 +25,7 @@ export default class TutReqView extends React.Component {
   componentWillUnmount() {
     TutReqStore.unlisten(this.onChange);
   }
-  componentDidUpdate() {
-    var sidebar = document.getElementById('sidebar');
-    sidebar.style.height = document.body.scrollHeight + 'px';
-  }
+
   onChange(state) {
     this.setState(state);
   }

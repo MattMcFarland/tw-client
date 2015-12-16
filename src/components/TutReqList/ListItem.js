@@ -10,6 +10,7 @@ export const ListItem = (
 ) => (
   <section className="tut-request-item">
     <table className="listitem-table">
+      <tbody>
       <tr>
         <td className="listitem-vote">
           <div className="listitem-vote-inner">
@@ -78,7 +79,7 @@ export const ListItem = (
         </div>
         </td>
       </tr>
-
+      </tbody>
     </table>
     <div className="divider"/>
 

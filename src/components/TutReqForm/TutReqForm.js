@@ -18,10 +18,7 @@ export default class TutReqForm extends React.Component {
       submitting: false
     };
   }
-  componentDidUpdate() {
-    var sidebar = document.getElementById('sidebar');
-    sidebar.style.height = document.body.scrollHeight + 'px';
-  }
+
   onTitleChange = (e) => {
     this.setState({formTitle: e.currentTarget.value})
   }
