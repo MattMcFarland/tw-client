@@ -2,7 +2,6 @@
 .categorybar {
   background-color: $blue;
   height: auto;
-  line-height: 80px;
   padding: 20px 0;
   border-bottom: 1px solid #dbdbdb;
   width: 100%;
@@ -12,7 +11,7 @@
     padding: 0 0.5em;
     @extend .lc;
     ul {
-      width: 66%;
+      padding: 0 8px;
       > li {
         text-align: center;
         border: 2px solid $white;
@@ -58,7 +57,7 @@
 
 
 @media (max-width: 768px) {
-  .categorybar .content ul {
-    width: 100%;
+  .categorybar {
+    display: none;
   }
 }

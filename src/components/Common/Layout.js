@@ -54,7 +54,6 @@ class Layout extends Component {
             {breadcrumbs && breadcrumbs.length > 1 ? <Breadcrumbs/> : '' }
           </div>
         </div>
-        <Sidebar/>
       </div>
     )
   }

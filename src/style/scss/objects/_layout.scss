@@ -29,10 +29,6 @@
   max-width: 1200px;
   padding: 0 0.5em;
   @extend .lc;
-  >.main-content {
-    width: 66%;
-    margin-top: 64px;
-  }
 }
 
 @media (max-width: 768px) {
@@ -86,11 +82,9 @@
 }
 
 .teh-footer {
-  margin-top: 80px;
-  padding-top:125px;
   background: #333;
   color: white;
-  min-height:300px;
+  padding: 20px 0;
   .main-content {
     margin: 0;
   }

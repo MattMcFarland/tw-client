@@ -30,24 +30,18 @@
       margin-left: 4px;
     }
   }
+  float: right;
+  margin-right: 1.5em;
+  .nav-list {
+    margin-left:138px;
+  }
+  li {
+    float: left;
+    margin: 0 25px 0 10px;
+  }
 
-  @media all and (min-width: $bp-med) {
-    max-height: none;
-    float: right;
-    clear: none;
-    width: 33%;
-    .nav-list {
-      margin-left:138px;
-    }
-    li {
-      float: left;
-      margin: 0 25px 0 10px;
-    }
-
-    a {
-      border: 0;
-    }
-
+  a {
+    border: 0;
   }
 }
 

@@ -2,6 +2,9 @@
 .tut-request-item, .tut-request-detail, .tut-solution-detail  {
   position: relative;
   display: block;
+  margin: 1em;
+  border: thin solid #bababa;
+  padding: 2em;
   >section.title {
     margin-bottom: 20px;
   }
@@ -61,7 +64,7 @@
       display: block;
       /* position: absolute; */
       width: 90%;
-      margin: 16px 5% 16px 5%;
+      margin: 0 5%;
     }
   }
   .response-count {
@@ -142,5 +145,78 @@
 .tutorial-solution-list {
   > li {
     margin: 70px 0;
+  }
+}
+
+.tr-list {
+  .tut-request-item {
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.listitem {
+  &-table {
+    width: 100%;
+    td {
+      vertical-align: top;
+    }
+  }
+  &-vote {
+    width: 5%;
+    min-width: 20px;
+    text-align: center;
+    button {
+      padding: 0;
+      margin: 0;
+      width: 22px;
+      text-align: center;
+    }
+    .score {
+      text-align: center;
+      width:22px;
+      font-size:20px;
+      line-height: 1;
+    }
+  }
+  &-content {
+    width: 70%;
+    ul.tags {
+      width: 100%;
+      float: none;
+      > li {
+        display: inline-block;
+        color: white;
+        font-size: 12px;
+        text-transform: uppercase;
+        border-radius: 2px;
+        padding: 0 6px;
+        line-height: 16px;
+        margin-right: 1em;
+      }
+    }
+  }
+  &-meta {
+    width: 20%;
+    .user {
+      padding: 0;
+      margin: 0;
+      line-height: 2;
+      a {
+        color: #999;
+        &:hover {
+          color: $blue;
+        }
+      }
+      .user-name {
+        margin-top:3px;
+      }
+    }
+  }
+  &-tags {
+
+
+    width: 100%;
   }
 }
