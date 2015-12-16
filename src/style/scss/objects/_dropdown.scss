@@ -13,7 +13,7 @@
     display: none;
     min-width: 128px;
     top: 59px;
-    left: -128;
+    left: -128px;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
 
     li {
@@ -91,7 +91,7 @@
   .dropdown-items {
     background: white;
     top: 32px;
-    left: -172px;
+    left: -80px;
     li {
       width: 100%;
       button {
