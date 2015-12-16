@@ -18,9 +18,6 @@ class Tabs extends React.Component {
           <li>
             <button className={activeTab === "best" ? 'active' : ''} data-filter="best" onClick={onFilter}>Best Tutorials</button>
           </li>
-          <li>
-            <a className="tutorial-request-link" href="/tutorial-request"><span className="icon ion-bonfire"/>&nbsp;Request Tutorial</a>
-          </li>
         </ul>
       </div>
     );

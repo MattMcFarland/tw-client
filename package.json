@@ -1,7 +1,7 @@
 {
   "name": "@mattmcfarland/tw-client",
   "main": "",
-  "version": "2.9.2",
+  "version": "2.9.3",
   "description": "",
   "scripts": {
     "test": "jest",

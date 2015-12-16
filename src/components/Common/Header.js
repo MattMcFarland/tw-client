@@ -33,7 +33,21 @@ class Header extends React.Component {
         <nav id="nav" className="nav">
           <ul className="nav-list">
             <li>
-              <a data-tipsy="Request a tutorial" className="tipsy tipsy--w" href="/tutorial-request"><span className="icon ion-bonfire"/></a>
+              <a data-tipsy="Request a tutorial" className="tipsy tipsy--w" href="/tutorial-request">
+                <span className="icon ion-bonfire"/>
+                <span style={{
+                background: '#AF52D6',
+                color: '#FFF',
+                lineHeight: 1,
+                fontSize: '12px',
+                verticalAlign: 'middle',
+                marginLeft: '-39px',
+                padding: '2px',
+                display: 'inline-block',
+                marginTop: '25px',
+                position: 'absolute'
+            }}/>
+              </a>
             </li>
             <li>
 

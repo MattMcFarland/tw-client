@@ -181,7 +181,7 @@ export default class BasePost extends Component {
               {this.props.data.editorAvatar ? <div className="avatar-container"><img className="avatar" src={this.props.data.editorAvatar} alt="Avatar" /></div> : ''}
               <div className="meta">
                 <div className="user-name"><a className="p-name u-url" href={this.props.data.editorUrl}>{this.props.data.editorName}</a></div>
-                <div className="timestamp">{moment(this.props.updated_at).fromNow()}</div>
+                <div className="timestamp">{moment(this.props.data.updated_at).fromNow()}</div>
               </div>
             </div>
           </div>
@@ -190,7 +190,7 @@ export default class BasePost extends Component {
               {this.props.data.authorAvatar ? <div className="avatar-container"><img className="avatar" src={this.props.data.authorAvatar} alt="Avatar" /></div> : ''}
               <div className="meta">
                 <div className="user-name"><a className="p-name u-url" href={this.props.data.authorUrl}>{this.props.data.authorName}</a></div>
-                <div className="timestamp">{moment(this.props.created_at).fromNow()}</div>
+                <div className="timestamp">{moment(this.props.data.created_at).fromNow()}</div>
               </div>
             </div>
           </div>
@@ -205,7 +205,7 @@ export default class BasePost extends Component {
               {this.props.data.authorAvatar ? <div className="avatar-container"><img className="avatar" src={this.props.data.authorAvatar} alt="Avatar" /></div> : ''}
               <div className="meta">
                 <div className="user-name"><a className="p-name u-url" href={this.props.data.authorUrl}>{this.props.data.authorName}</a></div>
-                <div className="timestamp">{moment(this.props.created_at).fromNow()}</div>
+                <div className="timestamp">{moment(this.props.data.created_at).fromNow()}</div>
               </div>
             </div>
           </div>
