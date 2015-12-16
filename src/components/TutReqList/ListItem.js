@@ -59,6 +59,9 @@ export const ListItem = (
             </div>
           </div>
         </section>
+        <a href={"/tutorial-request/" + props.permalink} style={{display: 'block'}}>
+          <span>{props.solutions.length} Tutorials</span>
+        </a>
         <ul className="tags">
           {props.tags.map((tag, index) =>
           <li key={index}
@@ -69,12 +72,7 @@ export const ListItem = (
         </ul>
       </div>
     </div>
-    <div className="divider">
-    </div>
-    <div className="response-count">
-      <a href={"/tutorial-request/" + props.permalink} className="btn btn-primary">
-        <span className="icon ion-chatboxes"/>&nbsp; <span>{props.solutions.length} Tutorials</span>
-      </a>
-    </div>
+    <div className="divider" style={{margin: '10px 0'}}/>
+
   </section>
 );

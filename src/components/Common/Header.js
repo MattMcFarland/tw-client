@@ -46,7 +46,7 @@ class Header extends React.Component {
                 display: 'inline-block',
                 marginTop: '25px',
                 position: 'absolute'
-            }}/>
+            }}>REQUEST</span>
               </a>
             </li>
             <li>
@@ -72,6 +72,7 @@ class Header extends React.Component {
         <div className="content cf">
           <a href="/"><img src="/img/wt-logo-2.png" className="logo" alt="Logo" />
             <span style={{
+
                 background: '#469C4F',
                 color: '#FFF',
                 lineHeight: 1,

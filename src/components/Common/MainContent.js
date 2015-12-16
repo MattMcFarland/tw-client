@@ -33,6 +33,7 @@ class MainContent extends React.Component {
           {this.props.children}
         </div>
         <button style={{
+
           opacity: showTopBtn ? 1 : 0,
           position: 'fixed',
           bottom: '40px',
@@ -41,7 +42,7 @@ class MainContent extends React.Component {
           color: 'white',
           right: '40px',
           zIndex: '999',
-          padding: '0.5em',
+          padding: '12px 12px 12px 14px',
           borderRadius: '2px',
           boxShadow: '0 10px 30px rgba(0, 0, 0, 0.19), 0 6px 10px rgba(0, 0, 0, 0.23)'
         }} onClick={goTop} className="gotop" type="button"><span className="ion ion-chevron-up"/></button>

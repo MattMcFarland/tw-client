@@ -3,34 +3,35 @@
   width: auto;
   text-align: center;
   button {
-    color: $blue;
+    color: $dark;
     background: white;
     transition: 0.3s;
     padding: 0;
     border: none;
     .icon {
-      font-size: 26px;
+      font-size: 20px;
       &.ion-chevron-up.active {
-        color: $green;
+        font-size: 26px;
+        color: orange;
       }
       &.ion-chevron-down.active {
-        color: $red;
+        color: orange;
       }
     }
     &.up {
       &:hover {
-        color: $green;
+        color: orange;
       }
       &.active {
-        color: $green;
+        color: orange;
       }
     }
     &.down {
       &:hover {
-        color: $red;
+        color: orange;
       }
       &.active {
-        color: $red;
+        color: orange;
       }
     }
   }

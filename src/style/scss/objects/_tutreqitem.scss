@@ -43,9 +43,7 @@
         margin-bottom: 6px;
       }
       > ul.tags {
-        margin-top: 24px;
         margin-bottom: 6px;
-        min-height: 42px;
       }
       > section.title {
         display: block;
@@ -58,12 +56,12 @@
     display:block;
 
     &:before {
-      border-top: thin solid $light-grey;
+      border-top: thin solid #eee;
       content: " ";
       display: block;
-      position: absolute;
+      /* position: absolute; */
       width: 90%;
-      margin: 16px 5% 0 5%;
+      margin: 16px 5% 16px 5%;
     }
   }
   .response-count {
