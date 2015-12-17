@@ -71,6 +71,7 @@ export const ListItem = (
           <div className="user">
             <div className="body">
               <div className="meta">
+                {props.authorAvatar ? <div className="avatar-container"><img className="avatar" src={props.authorAvatar} alt="Avatar" /></div> : ''}
                 <div className="user-name"><a href={props.authorUrl}>{props.authorName}</a></div>
                 <div className="timestamp"><span style={{fontSize: '12px', color: '#999'}}><a href={"/tutorial-request/" + props.permalink}>{moment(props.created_at).fromNow()}</a></span></div>
               </div>
