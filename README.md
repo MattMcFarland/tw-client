@@ -1,6 +1,6 @@
 ### Todos
 
-#### Planned for 2.8.x:
+#### Planned for 2.9.x:
 
 - [ ] deleted item ux
 - [ ] ensure 3rd party vendor license compliance.
@@ -45,12 +45,12 @@ Both `/dist/js` and `/dist/style` are bundled files from gulp.
 
 ### Changelog
 
-#### v2.7.0
+#### v2.13.0
 
 - [x] Use localstorage to persist request form.
 
 
-#### v2.6.1-12
+#### v2.6.1-2.12.1
 
 Features:
 
