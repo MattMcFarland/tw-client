@@ -12,33 +12,57 @@ export default class TutReqForm extends React.Component {
 
   constructor(props) {
     super(props);
+    var form = {}
+    try {
+      form = JSON.parse(localStorage.getItem('form'));
+    } catch (e) {
+      form = {}
+    }
+
     this.state = {
-      formTitle: '',
       error: {},
-      submitting: false
+      submitting: false,
+      form
     };
   }
 
+  updateForm = (key, value) => {
+    console.log('update form', key, 'to', value);
+    var addtoForm = {};
+    addtoForm[key] = value;
+    var form = Object.assign(
+      {},
+      this.state.form,
+      addtoForm
+    );
+    console.log('new form object', form);
+
+    this.setState({form});
+    this.updateStorage();
+  };
+  updateStorage = () => {
+    localStorage.setItem('form', JSON.stringify(this.state.form));
+  };
   onTitleChange = (e) => {
-    this.setState({formTitle: e.currentTarget.value})
+    this.updateForm('title', e.target.value);
   }
-  validateTags = (values) => {
-    return (values.length > 1 && values.length < 5)
+  onContentChange = (e) => {
+    this.updateForm('content', e.target.value);
   }
-  validateContent = (value) => {
-    return (value.length > 30)
+  onCategoryChange = (e) => {
+    this.updateForm('category', e.target.value);
   }
-  validateTitle = (value) => {
-    return (value.length > 10)
+  onTagChange = (value, values) => {
+    this.updateForm('tags', values);
   }
 
   validate = () => {
     var
       errors = [],
-      tags = this.refs.tags.state.values,
-      title = this.state.formTitle.trim(),
-      content = this.refs.content.state.value.trim(),
-      category = this.refs.category.value.trim(),
+      tags = this.state.form.tags,
+      title = this.state.form.title,
+      content = this.state.form.content.trim(),
+      category = this.state.form.category.trim(),
       rules = [
         {
           el: 'category',
@@ -125,10 +149,10 @@ export default class TutReqForm extends React.Component {
       this.setState({submitting: true});
       ajax.post('/api/tutorial-requests')
         .send({
-          title: xss(this.state.formTitle),
-          content: xss(this.refs.content.state.value),
-          tags: xss(this.refs.tags.state.value),
-          category: xss(this.refs.category.value)
+          title: xss(this.state.form.title),
+          content: xss(this.state.form.content),
+          tags: xss(this.state.form.tags),
+          category: xss(this.state.form.category)
         })
         .end((err, res) => {
           if (err && res.status === 403) {
@@ -136,6 +160,7 @@ export default class TutReqForm extends React.Component {
           } else if (err) {
             this.setState({submitting: false, error: 'An unknown error occurred, please try again.'});
           } else if (res) {
+            localStorage.removeItem('form');
             window.location.href = window.location = "/tutorial-request/" + res.body.permalink;
           }
         })
@@ -164,7 +189,10 @@ export default class TutReqForm extends React.Component {
         }
       })
     }
-
+    if (!this.state.form) {
+      this.state.form = {};
+    }
+    let { category, tags, content, title } = this.state.form;
     return (
       <form style={{
       position: 'relative',
@@ -172,7 +200,7 @@ export default class TutReqForm extends React.Component {
       }}>
         <h2><span className="icon ion-bonfire"/>Tutorial Request</h2>
         {categoryError ? <aside className="error"><span className="ion-alert-circled"/>&nbsp;{categoryError}</aside> : ''}
-        <select ref="category">
+        <select ref="category" onChange={this.onCategoryChange} value={category}>
           <option value="">category</option>
           <option value="apps">Apps</option>
           <option value="gaming">Gaming</option>
@@ -186,12 +214,13 @@ export default class TutReqForm extends React.Component {
           label="In a few words, what kind of tutorial are you looking for?"
           id="title"
           _onChange={this.onTitleChange}
-          value={this.state.formTitle}
+          value={title}
           required="true"
           minLength="10"
         />
         {contentError ? <aside className="error"><span className="ion-alert-circled"/>&nbsp;{contentError}</aside> : ''}
         <MarkedArea
+          value={content}
           error={contentError ? true : false}
           ref="content"
           label="Please explain, (the more detail, the better!)"
@@ -199,6 +228,7 @@ export default class TutReqForm extends React.Component {
           tip="You can use Github flavored markdown to dress up your request."
           required="true"
           minLength="24"
+          onChange={this.onContentChange}
         />
         {tagError ? <aside className="error"><span className="ion-alert-circled"/>&nbsp;{tagError}</aside> : ''}
         <label className={tagError ? 'error' : ''}>
@@ -206,8 +236,10 @@ export default class TutReqForm extends React.Component {
           <em className="form-field-tip">Select between one and four tags.</em>
           <br/>
           <Select
+            value={tags}
             ref="tags"
             id="tagbox"
+            onChange={this.onTagChange}
             allowCreate={true}
             multi={true}
           />

@@ -1,12 +1,6 @@
 ### Todos
 
-
-#### Planned for v2.6.x:
-
-
-
-
-#### Planned for 2.7.x:
+#### Planned for 2.8.x:
 
 - [ ] deleted item ux
 - [ ] ensure 3rd party vendor license compliance.
@@ -14,8 +8,6 @@
 
 #### Bugs:
 
-
-- [ ] share button urls not wokring properly. appear to be set though.
 - [ ] comment validation errors persisting and showing on other comment forms
 - [ ] comment validation not working on solution.
 
@@ -53,6 +45,16 @@ Both `/dist/js` and `/dist/style` are bundled files from gulp.
 
 ### Changelog
 
+#### v2.7.0
+
+- [x] Use localstorage to persist request form.
+
+
+#### v2.6.1-12
+
+Features:
+
+- [x] Updates per feedback
 
 #### v2.6.0
 

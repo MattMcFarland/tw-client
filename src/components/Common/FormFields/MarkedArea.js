@@ -9,8 +9,7 @@ export default class MarkedArea extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isPreview: props.isPreview ? props.isPreview : false,
-      value: props.defaultValue ? props.defaultValue : ''
+      isPreview: props.isPreview ? props.isPreview : false
     }
   }
   static styleguide = {
@@ -34,6 +33,7 @@ export default class MarkedArea extends React.Component {
     id: "mmc-marked-area",
     label: "",
     mode: "tabbed",
+    value: "",
     classNames: {
       root: "marked-area",
       header: "marked-area-header",
@@ -47,12 +47,12 @@ export default class MarkedArea extends React.Component {
 
   get parsed () {
     return (
-      <div dangerouslySetInnerHTML={{__html: marked(this.state.value.toString(), {sanitize: true}) }} />
+      <div dangerouslySetInnerHTML={{__html: marked(this.props.value.toString(), {sanitize: true}) }} />
     );
   }
   get raw () {
     return (
-      <textarea className={(this.props.error ? 'has-error' : '') + ' text-input-field'} {...this.props} id={this.props.id} onChange={this.props.onChange || this._onChange} value={this.state.value}/>
+      <textarea value={this.props.value} className={(this.props.error ? 'has-error' : '') + ' text-input-field'} {...this.props} id={this.props.id} onChange={this.props.onChange} />
     );
   }
   get tabbedToolbar () {
@@ -110,9 +110,6 @@ export default class MarkedArea extends React.Component {
       </section>
     );
   }
-  _onChange = (e) => {
-    this.setState({value: e.target.value});
-  };
   disablePreview = (e) => {
     e.preventDefault();
     this.setState({isPreview:false});
@@ -123,7 +120,7 @@ export default class MarkedArea extends React.Component {
   };
 
   render () {
-
+    console.log(this.props.value);
     return (
       <div>
         <label htmlFor={this.props.id}>{this.props.label}</label>
